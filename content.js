@@ -60,4 +60,4 @@ setTimeout(function () {
     for (var i = 0; i < nodes.length; i++) {
         observer.observe(nodes[i], {attributes: true});
     }
-}, 300);
+}, 500);
