@@ -46,7 +46,7 @@ function addLinks(node) {
 
             // Add ViewImage button URL
             var viewImageLink = document.createElement('a');
-            viewImageLink.innerHTML = '<span>View Image</span>';
+            viewImageLink.innerHTML = '<span>View image</span>';
             viewImageLink.setAttribute('href', imageURL);
             viewImage.appendChild(viewImageLink);
 
