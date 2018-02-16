@@ -3,8 +3,8 @@ View image is a Chrome / FireFox extension which impliments the "View Image" and
 
 ## Extension Pages
 You can get this extension for FireFox and Chrome:
- - Firefox:
- - Chrome:
+ - Firefox: https://addons.mozilla.org/en-US/firefox/addon/view-image/
+ - Chrome: https://chrome.google.com/webstore/detail/view-image/jpcmhcelnjdmblfmjabdeclccemkghjk
 
 ### Credits
  - More acurate URL collection thanks to [devunt](https://github.com/devunt)/[make-gis-great-again](https://github.com/devunt/make-gis-great-again)
