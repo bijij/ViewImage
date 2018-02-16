@@ -1,5 +1,4 @@
 var observer = new MutationObserver(function (mutations) {
-    console.log(mutations);
     mutations.forEach(function (mutation) {
 
         var object = mutation.target;
