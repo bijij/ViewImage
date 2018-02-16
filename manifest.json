@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "View Image",
-    "version": "1.2",
+    "version": "1.3",
     "description": "Re-impliments the google image, \"View Image\" and \"Search by Image\" buttons.",
     "icons": {
         "1024": "icon/1024.png",
