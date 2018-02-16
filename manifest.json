@@ -9,9 +9,6 @@
         "16": "icon/16.png"
     },
     "author": "Joshua Butt",
-    "permissions": [
-        "activeTab"
-    ],
     "content_scripts": [
         {
             "js": [
