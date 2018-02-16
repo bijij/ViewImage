@@ -1,0 +1,23 @@
+{
+    "manifest_version": 2,
+    "name": "View Image",
+    "version": "1.0",
+
+    "description": "Re-impliments the google image, \"View Image\" and \"Search by Image\" buttons.",
+    
+    "icons": {
+        "1024": "icon/1024.png",
+        "128":"icon/128.png",
+        "16": "icon/16.png"
+    },
+
+    "author": "Joshua Butt",
+
+    "content_scripts": [
+        {
+            "js": ["content.js"],
+            "matches": ["<all_urls>"],
+            "include_globs": ["*://*.google.*/*"]
+        }
+    ]
+}
