@@ -1,15 +1,19 @@
-function toI18n(obj, tag) {
-    var msg = tag.replace(/__MSG_(\w+)__/g, function(match, v1) {
+'use strict';
+
+function toI18n(str) {
+    return str.replace(/__MSG_(\w+)__/g, function (match, v1) {
         return v1 ? chrome.i18n.getMessage(v1) : '';
     });
-
-    if(msg != tag) obj.innerHTML = msg;
 }
 
+function localiseObject(obj, tag) {
+    var msg = toI18n(tag);
+    if (msg != tag) obj.innerHTML = msg;
+}
 
 function addLinks(node) {
     if (node.nodeType === Node.ELEMENT_NODE) {
-        if ((node.classList.contains('irc_ris')) || (node.classList.contains('irc_mi'))) {
+        if ((node.classList.contains('irc_ris')) || (node.classList.contains('irc_mi') || (node.classList.contains('irc_tas')))) {
             var object = node.closest('.irc_c');
             // Retrive image links, and image url
             var imageLinks = object.querySelector('._FKw.irc_but_r > tbody > tr');
@@ -42,7 +46,7 @@ function addLinks(node) {
             searchByImage.setAttribute('style', 'margin-left:4pt;');
 
             var searchByImageText = document.createElement('span');
-            toI18n(searchByImageText, '<span>__MSG_SearchImg__</span>');
+            localiseObject(searchByImageText, '<span>__MSG_searchImg__</span>');
             searchByImage.appendChild(searchByImageText);
 
             // Append Search by image button
@@ -55,8 +59,11 @@ function addLinks(node) {
 
             // Add ViewImage button URL
             var viewImageLink = document.createElement('a');
-            toI18n(viewImageLink, '<span>__MSG_ViewImage__</span>');
+            localiseObject(viewImageLink, '<span>__MSG_viewImage__</span>');
             viewImageLink.setAttribute('href', imageURL);
+            if (options['open-in-new-tab']) {
+                viewImageLink.setAttribute('target', '_blank');
+            }
             viewImage.appendChild(viewImageLink);
 
             // Add ViewImage button to Image Links
@@ -66,20 +73,27 @@ function addLinks(node) {
     }
 }
 
-var observer = new MutationObserver(function (mutations) {
-    mutations.forEach((mutation) => {
-        if (mutation.addedNodes && mutation.addedNodes.length > 0) {
-            for (var i = 0; i < mutation.addedNodes.length; i++) {
-                var newNode = mutation.addedNodes[i];
-                addLinks(newNode);
+
+// Get options and start adding links
+var options;
+chrome.storage.sync.get(['options', 'defaultOptions'], function (storage) {
+    options = Object.assign(storage.defaultOptions, storage.options);
+
+    var observer = new MutationObserver(function (mutations) {
+        mutations.forEach((mutation) => {
+            if (mutation.addedNodes && mutation.addedNodes.length > 0) {
+                for (var i = 0; i < mutation.addedNodes.length; i++) {
+                    var newNode = mutation.addedNodes[i];
+                    addLinks(newNode);
+                }
             }
-        }
+        });
     });
-});
 
-observer.observe(document.body, {
-    childList: true,
-    subtree: true
-});
+    observer.observe(document.body, {
+        childList: true,
+        subtree: true
+    });
 
-addLinks(document.body);
+    addLinks(document.body);
+});
