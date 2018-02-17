@@ -4,11 +4,11 @@
         "description": "Title of the application, displayed on the web store."
     },
     "appDesc": {
-        "message": "Re-implimenterar Google bilden, \"Visa originalbilden\" och \"Fler artiklar\" knapparna.",
+        "message": "Re-implimenterar Google bilden, \"Visa originalbilden\" och \"Fler storlekar\" knapparna.",
         "description": "The description of the application, as shown on the web store."
     },
     "searchImg": {
-        "message": "Fler artiklar",
+        "message": "Fler storlekar",
         "description": "Button leads to google, search by image page."
     },
     "viewImage": {
