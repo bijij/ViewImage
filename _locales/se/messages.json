@@ -1,0 +1,26 @@
+{
+    "appName": {
+        "message": "View image",
+        "description": "Title of the application, displayed on the web store."
+    },
+    "appDesc": {
+        "message": "Re-implimenterar Google bilden, \"Visa originalbilden\" och \"Fler storlekar\" knapparna.",
+        "description": "The description of the application, as shown on the web store."
+    },
+    "searchImg": {
+        "message": "Fler storlekar",
+        "description": "Button leads to google, search by image page."
+    },
+    "viewImage": {
+        "message": "Visa originalbilden",
+        "description": "Button for viewing image."
+    },
+    "settingsToggle_newTab": {
+        "message": "Öppna bilder i en ny flik:",
+        "description": "Settings toggle which causes images to open in new tab."
+    },
+    "resetButton": {
+        "message": "Återställ",
+        "description": "Text displayed on reset button."
+    }
+}
