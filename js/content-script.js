@@ -26,7 +26,7 @@ function addLinks(node) {
                 var metadata = JSON.parse(meta.innerHTML);
                 var imageURL = metadata.ou;
             } else {
-                imageURL = document.getElementsByClassName('irc_mi')[0].src;
+                var imageURL = document.getElementsByClassName('irc_mi')[0].src;
             }
 
 
