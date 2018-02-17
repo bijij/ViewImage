@@ -1,5 +1,16 @@
 'use strict';
 
+function toI18n(str) {
+    return str.replace(/__MSG_(\w+)__/g, function (match, v1) {
+        return v1 ? chrome.i18n.getMessage(v1) : '';
+    });
+}
+
+function localiseObject(obj, tag) {
+    var msg = toI18n(tag);
+    if (msg != tag) obj.innerHTML = msg;
+}
+
 function addLinks(node) {
     if (node.nodeType === Node.ELEMENT_NODE) {
         if ((node.classList.contains('irc_ris')) || (node.classList.contains('irc_mi') || (node.classList.contains('irc_tas')))) {
