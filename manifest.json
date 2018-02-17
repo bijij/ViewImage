@@ -1,8 +1,9 @@
 {
     "manifest_version": 2,
-    "name": "View Image",
-    "version": "1.3",
-    "description": "Re-impliments the google image, \"View Image\" and \"Search by Image\" buttons.",
+    "name": "__MSG_appName__",
+    "version": "1.4",
+    "description": "__MSG_appDesc__",
+    "default_locale": "en",
     "icons": {
         "1024": "icon/1024.png",
         "128": "icon/128.png",

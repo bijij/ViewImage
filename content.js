@@ -1,3 +1,12 @@
+function toI18n(obj, tag) {
+    var msg = tag.replace(/__MSG_(\w+)__/g, function(match, v1) {
+        return v1 ? chrome.i18n.getMessage(v1) : '';
+    });
+
+    if(msg != tag) obj.innerHTML = msg;
+}
+
+
 function addLinks(node) {
     if (node.nodeType === Node.ELEMENT_NODE) {
         if (node.classList.contains('irc_ris')) {
@@ -14,13 +23,13 @@ function addLinks(node) {
 
 
             // Remove previously generated view image buttons
-            oldViewImage = imageLinks.querySelector('.ext_addon');
+            var oldViewImage = imageLinks.querySelector('.ext_addon');
             if (oldViewImage) {
                 imageLinks.removeChild(oldViewImage);
             }
 
             // remove previously generated search by image links
-            oldSearchByImage = imageText.querySelector('.ext_addon')
+            var oldSearchByImage = imageText.querySelector('.ext_addon');
             if (oldSearchByImage) {
                 imageText.removeChild(oldSearchByImage);
             }
@@ -33,7 +42,7 @@ function addLinks(node) {
             searchByImage.setAttribute('style', 'margin-left:4pt;');
 
             var searchByImageText = document.createElement('span');
-            searchByImageText.innerText = 'Search by image';
+            toI18n(searchByImageText, '<span>__MSG_SearchImg__</span>');
             searchByImage.appendChild(searchByImageText);
 
             // Append Search by image button
@@ -46,7 +55,7 @@ function addLinks(node) {
 
             // Add ViewImage button URL
             var viewImageLink = document.createElement('a');
-            viewImageLink.innerHTML = '<span>View image</span>';
+            toI18n(viewImageLink, '<span>__MSG_ViewImage__</span>');
             viewImageLink.setAttribute('href', imageURL);
             viewImage.appendChild(viewImageLink);
 
