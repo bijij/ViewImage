@@ -1,0 +1,26 @@
+{
+    "appName": {
+        "message": "Ver Imagen",
+        "description": "Título de la aplicación, mostrado en la Tienda Web."
+    },
+    "appDesc": {
+        "message": "Implementa las Google Imágenes' \"Ver imagen\" y \"Buscar por imagen\" botones.",
+        "description": "La descripción de la aplicación, mostrado en la Tienda Web."
+    },
+    "searchImg": {
+        "message": "Buscar por imagen",
+        "description": "Botón va a la página de búsqueda de imágenes de Google."
+    },
+    "viewImage": {
+        "message": "Ver imagen",
+        "description": "Botón para ver la imagen."
+    },
+    "settingsToggle_newTab": {
+        "message": "Abrir imágenes en una nueva pestaña:",
+        "description": "Opción de configuración que hace que las imágenes se abran en una nueva pestaña."
+    },
+    "resetButton": {
+        "message": "Reiniciar",
+        "description": "Texto mostrado en el botón de reinicio."
+    }
+}
