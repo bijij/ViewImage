@@ -8,6 +8,9 @@ module.exports = {
         "chrome": false,
         "browser": false
     },
+    "plugins": [
+        "json"
+    ],
     "rules": {
         "no-global-assign": [
             "error"

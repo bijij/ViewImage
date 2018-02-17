@@ -1,0 +1,11 @@
+language: node_js
+node_js:
+- node
+cache:
+  directories:
+  - node_modules
+install:
+- npm install eslint
+- npm install eslint-plugin-json
+script:
+- node ./node_modules/eslint/bin/eslint --ext .json --ext .js ./
