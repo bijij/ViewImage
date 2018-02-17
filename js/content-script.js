@@ -20,13 +20,15 @@ function addLinks(node) {
             var imageText = object.querySelector('._cjj > .irc_it > .irc_hd > ._r3');
 
             // Retrive the image URL
+            var imageURL;
+            
             var thumbnail = document.querySelector('img[name="' + object.dataset.itemId + '"]');
             if (thumbnail) {
                 var meta = thumbnail.closest('.rg_bx').querySelector('.rg_meta');
                 var metadata = JSON.parse(meta.innerHTML);
-                var imageURL = metadata.ou;
+                imageURL = metadata.ou;
             } else {
-                var imageURL = document.getElementsByClassName('irc_mi')[0].src;
+                imageURL = document.getElementsByClassName('irc_mi')[0].src;
             }
 
 
