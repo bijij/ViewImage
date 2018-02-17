@@ -9,7 +9,7 @@ const load = function () {
     return new Promise(function (resolve) {
         chrome.storage.sync.get('options', function (storage) {
             // Get and save options
-            options = storage.options || defaultOptions;
+            options = storage.options || Object.assign({}, defaultOptions);
 
             // Show and resolve
             show(options);
