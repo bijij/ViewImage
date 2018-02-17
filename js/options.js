@@ -9,7 +9,7 @@ const load = function() {
     return new Promise(function(resolve) {
         chrome.storage.sync.get('options', function(storage) {
             // Get and save options
-            options = storage.options || defaultOptions;
+            options = storage.options || Object.assign({}, defaultOptions);
 
             // Show and resolve
             show(options);
@@ -37,11 +37,11 @@ const show = function(options) {
 };
 
 // Reset to defaults
-// TODO: attach to reset button
 const reset = function() {
     save(defaultOptions)
         .then(() => show(defaultOptions));
 };
+document.getElementById('reset').addEventListener('click', reset);
 
 
 // Load default options once when page loads, then load user options

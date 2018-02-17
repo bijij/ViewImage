@@ -1,6 +1,11 @@
 body {
+    min-width: 200px;
+    min-height: 200px;
     color: #212121;
     font-family: Roboto, Arial, sans-serif;
     font-size: 16px;
-    font-weight: 500;
+}
+
+#reset {
+    margin-top: 24px;
 }
