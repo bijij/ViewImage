@@ -32,6 +32,7 @@
     "content_scripts": [
         {
             "js": [
+                "js/toi18n.js",
                 "js/content-script.js"
             ],
             "matches": [

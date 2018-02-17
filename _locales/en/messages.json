@@ -7,12 +7,16 @@
         "message": "Re-impliments the google image, \"View Image\" and \"Search by Image\" buttons.",
         "description": "The description of the application, as shown on the web store."
     },
-    "SearchImg": {
+    "searchImg": {
         "message": "Search by image",
         "description": "Button leads to google, search by image page."
     },
-    "ViewImage": {
+    "viewImage": {
         "message": "View image",
         "description": "Button for viewing image."
+    },
+    "settingsToggle_newTab": {
+        "message": "Open images in a new tab:",
+        "description": "Settings toggle which causes images to open in new tab."
     }
 }

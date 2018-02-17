@@ -9,5 +9,5 @@ You can get this extension for FireFox and Chrome:
  - Chrome: https://chrome.google.com/webstore/detail/view-image/jpcmhcelnjdmblfmjabdeclccemkghjk
 
 ### Credits
- - More acurate URL collection thanks to [devunt](https://github.com/devunt)/[make-gis-great-again](https://github.com/devunt/make-gis-great-again)
+ - More acurate URL collection thanks to [Bae Junehyeon](https://github.com/devunt) - [devunt/make-gis-great-again](https://github.com/devunt/make-gis-great-again)
  - Icon by [Daniel Hickman](https://github.com/danielhickman)

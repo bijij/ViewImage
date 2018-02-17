@@ -1,14 +1,5 @@
 'use strict';
 
-function toI18n(obj, tag) {
-    var msg = tag.replace(/__MSG_(\w+)__/g, function(match, v1) {
-        return v1 ? chrome.i18n.getMessage(v1) : '';
-    });
-
-    if(msg != tag) obj.innerHTML = msg;
-}
-
-
 function addLinks(node) {
     if (node.nodeType === Node.ELEMENT_NODE) {
         if ((node.classList.contains('irc_ris')) || (node.classList.contains('irc_mi'))) {
@@ -44,7 +35,7 @@ function addLinks(node) {
             searchByImage.setAttribute('style', 'margin-left:4pt;');
 
             var searchByImageText = document.createElement('span');
-            toI18n(searchByImageText, '<span>__MSG_SearchImg__</span>');
+            toI18n(searchByImageText, '<span>__MSG_searchImg__</span>');
             searchByImage.appendChild(searchByImageText);
 
             // Append Search by image button
@@ -57,7 +48,7 @@ function addLinks(node) {
 
             // Add ViewImage button URL
             var viewImageLink = document.createElement('a');
-            toI18n(viewImageLink, '<span>__MSG_ViewImage__</span>');
+            toI18n(viewImageLink, '<span>__MSG_viewImage__</span>');
             viewImageLink.setAttribute('href', imageURL);
             if (options['open-in-new-tab']) {
                 viewImageLink.setAttribute('target', '_blank');
