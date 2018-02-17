@@ -12,10 +12,27 @@
         "16": "icon/16.png"
     },
     "author": "Joshua Butt",
+    "applications": {
+        "gecko": {
+            "id": "{287dcf75-bec6-4eec-b4f6-71948a2eea29}"
+        }
+    },
+    "permissions": [
+        "storage"
+    ],
+    "options_ui": {
+        "page": "html/options.html"
+    },
+    "background": {
+        "persistent": false,
+        "scripts": [
+            "js/background.js"
+        ]
+    },
     "content_scripts": [
         {
             "js": [
-                "content.js"
+                "js/content-script.js"
             ],
             "matches": [
                 "*://*.google.com/search?*tbm=isch*",
