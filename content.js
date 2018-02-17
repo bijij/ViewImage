@@ -9,7 +9,7 @@ function toI18n(obj, tag) {
 
 function addLinks(node) {
     if (node.nodeType === Node.ELEMENT_NODE) {
-        if (node.classList.contains('irc_ris')) {
+        if ((node.classList.contains('irc_ris')) || (node.classList.contains('irc_mi'))) {
             var object = node.closest('.irc_c');
             // Retrive image links, and image url
             var imageLinks = object.querySelector('._FKw.irc_but_r > tbody > tr');
