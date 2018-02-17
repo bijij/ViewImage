@@ -1,3 +1,5 @@
+'use strict';
+
 function toI18n(obj, tag) {
     var msg = tag.replace(/__MSG_(\w+)__/g, function(match, v1) {
         return v1 ? chrome.i18n.getMessage(v1) : '';
@@ -57,6 +59,9 @@ function addLinks(node) {
             var viewImageLink = document.createElement('a');
             toI18n(viewImageLink, '<span>__MSG_ViewImage__</span>');
             viewImageLink.setAttribute('href', imageURL);
+            if (options['open-in-new-tab']) {
+                viewImageLink.setAttribute('target', '_blank');
+            }
             viewImage.appendChild(viewImageLink);
 
             // Add ViewImage button to Image Links
@@ -66,20 +71,27 @@ function addLinks(node) {
     }
 }
 
-var observer = new MutationObserver(function (mutations) {
-    mutations.forEach((mutation) => {
-        if (mutation.addedNodes && mutation.addedNodes.length > 0) {
-            for (var i = 0; i < mutation.addedNodes.length; i++) {
-                var newNode = mutation.addedNodes[i];
-                addLinks(newNode);
+
+// Get options and start adding links
+var options;
+chrome.storage.sync.get(['options', 'defaultOptions'], function(storage) {
+    options = Object.assign(storage.defaultOptions, storage.options);
+
+    var observer = new MutationObserver(function (mutations) {
+        mutations.forEach((mutation) => {
+            if (mutation.addedNodes && mutation.addedNodes.length > 0) {
+                for (var i = 0; i < mutation.addedNodes.length; i++) {
+                    var newNode = mutation.addedNodes[i];
+                    addLinks(newNode);
+                }
             }
-        }
+        });
     });
-});
 
-observer.observe(document.body, {
-    childList: true,
-    subtree: true
-});
+    observer.observe(document.body, {
+        childList: true,
+        subtree: true
+    });
 
-addLinks(document.body);
+    addLinks(document.body);
+});
