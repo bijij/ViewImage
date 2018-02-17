@@ -5,9 +5,9 @@ let defaultOptions;
 let options;
 
 // Load options from storage
-const load = function() {
-    return new Promise(function(resolve) {
-        chrome.storage.sync.get('options', function(storage) {
+const load = function () {
+    return new Promise(function (resolve) {
+        chrome.storage.sync.get('options', function (storage) {
             // Get and save options
             options = storage.options || defaultOptions;
 
@@ -19,8 +19,8 @@ const load = function() {
 };
 
 // Save options to storage
-const save = function(object) {
-    return new Promise(function(resolve) {
+const save = function (object) {
+    return new Promise(function (resolve) {
         chrome.storage.sync.set({
             'options': object
         }, resolve);
@@ -28,7 +28,7 @@ const save = function(object) {
 };
 
 // Show options
-const show = function(options) {
+const show = function (options) {
     for (const key in options) {
         if (options.hasOwnProperty(key)) {
             document.getElementById(key).checked = options[key];
@@ -37,15 +37,14 @@ const show = function(options) {
 };
 
 // Reset to defaults
-// TODO: attach to reset button
-const reset = function() {
+const reset = function () {
     save(defaultOptions)
         .then(() => show(defaultOptions));
 };
 
 
 // Load default options once when page loads, then load user options
-chrome.storage.sync.get('defaultOptions', function(storage) {
+chrome.storage.sync.get('defaultOptions', function (storage) {
     // Get and save default options
     defaultOptions = storage.defaultOptions;
 
@@ -57,4 +56,11 @@ chrome.storage.sync.get('defaultOptions', function(storage) {
 document.addEventListener('input', event => {
     options[event.target.id] = event.target.checked;
     save(options);
+});
+
+// On reset button click
+document.addEventListener('click', event => {
+    if (event.target.id == 'reset-options') {
+        reset();
+    }
 });

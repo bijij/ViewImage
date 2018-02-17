@@ -35,7 +35,7 @@ function addLinks(node) {
             searchByImage.setAttribute('style', 'margin-left:4pt;');
 
             var searchByImageText = document.createElement('span');
-            toI18n(searchByImageText, '<span>__MSG_searchImg__</span>');
+            localiseObject(searchByImageText, '<span>__MSG_searchImg__</span>');
             searchByImage.appendChild(searchByImageText);
 
             // Append Search by image button
@@ -48,7 +48,7 @@ function addLinks(node) {
 
             // Add ViewImage button URL
             var viewImageLink = document.createElement('a');
-            toI18n(viewImageLink, '<span>__MSG_viewImage__</span>');
+            localiseObject(viewImageLink, '<span>__MSG_viewImage__</span>');
             viewImageLink.setAttribute('href', imageURL);
             if (options['open-in-new-tab']) {
                 viewImageLink.setAttribute('target', '_blank');
@@ -65,7 +65,7 @@ function addLinks(node) {
 
 // Get options and start adding links
 var options;
-chrome.storage.sync.get(['options', 'defaultOptions'], function(storage) {
+chrome.storage.sync.get(['options', 'defaultOptions'], function (storage) {
     options = Object.assign(storage.defaultOptions, storage.options);
 
     var observer = new MutationObserver(function (mutations) {

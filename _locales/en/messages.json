@@ -18,5 +18,9 @@
     "settingsToggle_newTab": {
         "message": "Open images in a new tab:",
         "description": "Settings toggle which causes images to open in new tab."
+    },
+    "resetButton": {
+        "message": "Reset",
+        "description": "Text displayed on reset button."
     }
 }

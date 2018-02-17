@@ -7,7 +7,7 @@ function localiseHtmlPage() {
         var obj = data[i];
         var tag = obj.getAttribute('data-localise').toString();
 
-        toI18n(obj, tag);
+        localiseObject(obj, tag);
     }
 }
 
