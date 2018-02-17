@@ -28,7 +28,7 @@ function addLinks(node) {
 
             // Create Search by image button
             var searchByImage = document.createElement('a');
-            searchByImage.setAttribute('href', 'https://www.google.com/searchbyimage?&image_url=' + imageURL);
+            searchByImage.setAttribute('href', '/searchbyimage?&image_url=' + imageURL);
             searchByImage.setAttribute('class', 'ext_addon');
             searchByImage.setAttribute('style', 'margin-left:4pt;');
 
