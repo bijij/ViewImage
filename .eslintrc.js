@@ -4,10 +4,17 @@ module.exports = {
         "es6": true
     },
     "extends": "eslint:recommended",
+    "globals": {
+        "chrome": false,
+        "browser": false
+    },
     "plugins": [
         "json"
     ],
     "rules": {
+        "no-global-assign": [
+            "error"
+        ],
         "indent": [
             "error",
             4
