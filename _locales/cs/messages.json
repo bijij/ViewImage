@@ -1,6 +1,6 @@
 {
     "appName": {
-        "message": "Zobrazit obrázek",
+        "message": "View image",
         "description": "Title of the application, displayed on the web store."
     },
     "appDesc": {
@@ -20,7 +20,7 @@
         "description": "Settings toggle which causes images to open in new tab."
     },
     "resetButton": {
-        "message": "Restartovat",
+        "message": "Resetovat",
         "description": "Text displayed on reset button."
     }
 }
