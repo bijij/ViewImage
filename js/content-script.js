@@ -2,7 +2,7 @@
 
 function addLinks(node) {
     if (node.nodeType === Node.ELEMENT_NODE) {
-        if ((node.classList.contains('irc_ris')) || (node.classList.contains('irc_mi'))) {
+        if ((node.classList.contains('irc_ris')) || (node.classList.contains('irc_mi') || (node.classList.contains('irc_tas')))) {
             var object = node.closest('.irc_c');
             // Retrive image links, and image url
             var imageLinks = object.querySelector('._FKw.irc_but_r > tbody > tr');

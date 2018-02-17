@@ -1,6 +1,6 @@
 // Default options
 const defaultOptions = {
-    'open-in-new-tab': false
+    'open-in-new-tab': true
 };
 
 // Save default options to storage if they don't already exist
