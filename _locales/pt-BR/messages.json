@@ -1,0 +1,26 @@
+{
+    "appName": {
+        "message": "View image",
+        "description": "Nome da extensão, mostrada na web store."
+    },
+    "appDesc": {
+        "message": "Re-implementa no Google Imagens o botão \"Ver Imagem\" e o link \"Pesquisar por Imagem\".",
+        "description": "A descrição da extensão, como mostrada na web store."
+    },
+    "searchImg": {
+        "message": "Pesquisar por imagem",
+        "description": "Botão encaminha para o Google, procurando pela página da imagem.."
+    },
+    "viewImage": {
+        "message": "Ver imagem",
+        "description": "Botão para visualizar a imagem."
+    },
+    "settingsToggle_newTab": {
+        "message": "Abrir as imagens em uma nova guia:",
+        "description": "Alterar a opção significa que as imagens serão abertas em uma nova guia."
+    },
+    "resetButton": {
+        "message": "Reset",
+        "description": "Texto do botão reset."
+    }
+}
