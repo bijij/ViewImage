@@ -14,13 +14,13 @@ function addLinks(node) {
 
 
             // Remove previously generated view image buttons
-            oldViewImage = imageLinks.querySelector('.ext_addon');
+            var oldViewImage = imageLinks.querySelector('.ext_addon');
             if (oldViewImage) {
                 imageLinks.removeChild(oldViewImage);
             }
 
             // remove previously generated search by image links
-            oldSearchByImage = imageText.querySelector('.ext_addon')
+            var oldSearchByImage = imageText.querySelector('.ext_addon');
             if (oldSearchByImage) {
                 imageText.removeChild(oldSearchByImage);
             }
