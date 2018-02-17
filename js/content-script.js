@@ -21,9 +21,15 @@ function addLinks(node) {
 
             // Retrive the image URL
             var thumbnail = document.querySelector('img[name="' + object.dataset.itemId + '"]');
-            var meta = thumbnail.closest('.rg_bx').querySelector('.rg_meta');
-            var metadata = JSON.parse(meta.innerHTML);
-            var imageURL = metadata.ou;
+            if (thumbnail) {
+                var meta = thumbnail.closest('.rg_bx').querySelector('.rg_meta');
+                var metadata = JSON.parse(meta.innerHTML);
+                var imageURL = metadata.ou;
+            } else {
+                imageURL = document.getElementsByClassName('irc_mi')[0].src;
+            }
+
+
 
 
             // Remove previously generated view image buttons
