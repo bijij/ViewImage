@@ -1,0 +1,26 @@
+{
+    "appName": {
+        "message": "View image",
+        "description": "Title of the application, displayed on the web store."
+    },
+    "appDesc": {
+        "message": "Réimplémente les boutons \"Afficher l'image\" et \"Recherche par image\".",
+        "description": "The description of the application, as shown on the web store."
+    },
+    "searchImg": {
+        "message": "Recherche par image",
+        "description": "Button leads to google, search by image page."
+    },
+    "viewImage": {
+        "message": "Afficher l'image",
+        "description": "Button for viewing image."
+    },
+    "settingsToggle_newTab": {
+        "message": "Ouvrir les images dans un nouveau onglet :",
+        "description": "Settings toggle which causes images to open in new tab."
+    },
+    "resetButton": {
+        "message": "Réinitialiser",
+        "description": "Text displayed on reset button."
+    }
+}
