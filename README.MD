@@ -1,3 +1,5 @@
+[![Travis](https://img.shields.io/travis/bijij/ViewImage.svg)](https://travis-ci.org/bijij/ViewImage)
+
 # View Image
 View image is a Chrome / FireFox extension which impliments the "View Image" and "Search by image" buttons back into google image search.
 
@@ -8,3 +10,4 @@ You can get this extension for FireFox and Chrome:
 
 ### Credits
  - More acurate URL collection thanks to [devunt](https://github.com/devunt)/[make-gis-great-again](https://github.com/devunt/make-gis-great-again)
+ - Icon by [Daniel Hickman](https://github.com/danielhickman)
