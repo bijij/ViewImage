@@ -1,0 +1,28 @@
+{
+    "appName": {
+        "message": "View Image",
+        "description": "Title of the application, as displayed on the web store."
+    },
+    "appDesc": {
+        "message": "重新實現 Google 圖片的「檢視圖片」和「以圖搜尋」按鈕。",
+        "description": "The description of the application, as shown on the web store."
+    },
+    "searchImg": {
+        "message": "以圖搜尋",
+        "description": "Button leads to Google's Search by Image page."
+    },
+    "viewImage": {
+        "message": "檢視圖片",
+        "description": "Button for viewing image."
+    },
+    "settingsToggle_newTab": {
+        "message": "在新分頁開啟圖片:",
+        "description": "Settings toggle which causes images to open in new tab."
+    },
+    "resetButton": {
+        "message": "重設",
+        "description": "Text displayed on reset button."
+    }
+}
+
+
