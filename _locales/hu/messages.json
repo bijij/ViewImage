@@ -1,0 +1,26 @@
+{
+    "appName": {
+        "message": "Kép megtekintése",
+        "description": "Title of the application, as displayed on the web store."
+    },
+    "appDesc": {
+        "message": "Újra elérhetővé teszi a \"Kép megtekintése\" és a \"Keresés kép alapján\" gombokat a Google képkeresőjében.",
+        "description": "The description of the application, as shown on the web store."
+    },
+    "searchImg": {
+        "message": "Keresés kép alapján",
+        "description": "Button leads to Google's Search by Image page."
+    },
+    "viewImage": {
+        "message": "Kép megtekintése",
+        "description": "Button for viewing image."
+    },
+    "settingsToggle_newTab": {
+        "message": "Képek megnyitása új lapon:",
+        "description": "Settings toggle which causes images to open in new tab."
+    },
+    "resetButton": {
+        "message": "Visszaállítás",
+        "description": "Text displayed on reset button."
+    }
+}
