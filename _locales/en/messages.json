@@ -1,15 +1,15 @@
 {
     "appName": {
-        "message": "View image",
-        "description": "Title of the application, displayed on the web store."
+        "message": "View Image",
+        "description": "Title of the application, as displayed on the web store."
     },
     "appDesc": {
-        "message": "Re-impliments the google image, \"View Image\" and \"Search by Image\" buttons.",
+        "message": "Re-implements the Google Images' \"View Image\" and \"Search by Image\" buttons.",
         "description": "The description of the application, as shown on the web store."
     },
     "searchImg": {
         "message": "Search by image",
-        "description": "Button leads to google, search by image page."
+        "description": "Button leads to Google's Search by Image page."
     },
     "viewImage": {
         "message": "View image",
