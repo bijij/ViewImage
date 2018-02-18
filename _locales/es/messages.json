@@ -4,12 +4,12 @@
         "description": "Título de la aplicación, mostrado en la Tienda Web."
     },
     "appDesc": {
-        "message": "Implementa las Google Imágenes' \"Ver imagen\" y \"Buscar por imagen\" botones.",
-        "description": "La descripción de la aplicación, mostrado en la Tienda Web."
+        "message": "Reimplementa los botones de Google Imágenes: \"Ver imagen\" y \"Buscar por imagen\".",
+        "description": "La descripción de la aplicación, mostrada en la Tienda Web."
     },
     "searchImg": {
         "message": "Buscar por imagen",
-        "description": "Botón va a la página de búsqueda de imágenes de Google."
+        "description": "Botón que lleva a la página de búsqueda por imágenes de Google."
     },
     "viewImage": {
         "message": "Ver imagen",
