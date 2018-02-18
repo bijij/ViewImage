@@ -1,0 +1,26 @@
+{
+    "appName": {
+        "message": "Resmi Görüntüle",
+        "description": "Uygulamanın web store üzerinde gösterildiği şekliyle başlığı."
+    },
+    "appDesc": {
+        "message": "Google Görseller'in \"Resmi Görüntüle\" ve \"Görselle Ara\" düğmelerini sağlar.",
+        "description": "Uygulamanın web store üzerinde gösterildiği şekliyle açıklaması."
+    },
+    "searchImg": {
+        "message": "Görselle Ara",
+        "description": "Google görselle ara sayfasına giden düğmedir."
+    },
+    "viewImage": {
+        "message": "Resmi Görüntüle",
+        "description": "Resmi görüntülemek için kullanılan düğmedir."
+    },
+    "settingsToggle_newTab": {
+        "message": "Resmi farklı tab'da aç:",
+        "description": "Resimlerin farklı tab'da açılmasını sağlayan özelliktir."
+    },
+    "resetButton": {
+        "message": "Sıfırla",
+        "description": "Sıfırlama düğmesidir."
+    }
+}
