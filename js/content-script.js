@@ -21,7 +21,7 @@ function addLinks(node) {
 
             // Retrive the image URL
             var imageURL;
-            
+
             var thumbnail = document.querySelector('img[name="' + object.dataset.itemId + '"]');
             if (thumbnail) {
                 var meta = thumbnail.closest('.rg_bx').querySelector('.rg_meta');
@@ -30,9 +30,6 @@ function addLinks(node) {
             } else {
                 imageURL = document.getElementsByClassName('irc_mi')[0].src;
             }
-
-
-
 
             // Remove previously generated view image buttons
             var oldViewImage = imageLinks.querySelector('.ext_addon');
@@ -46,13 +43,13 @@ function addLinks(node) {
                 imageText.removeChild(oldSearchByImage);
             }
 
-
             // Create Search by image button
             var searchByImage = document.createElement('a');
             searchByImage.setAttribute('href', '/searchbyimage?&image_url=' + imageURL);
             searchByImage.setAttribute('class', 'ext_addon');
             searchByImage.setAttribute('style', 'margin-left:4pt;');
 
+            // Insert text into Search by image button
             var searchByImageText = document.createElement('span');
             localiseObject(searchByImageText, '<span>__MSG_searchImg__</span>');
             searchByImage.appendChild(searchByImageText);
@@ -60,21 +57,28 @@ function addLinks(node) {
             // Append Search by image button
             imageText.appendChild(searchByImage);
 
-
-            // Create ViewImage button
+            // Create View image button
             var viewImage = document.createElement('td');
             viewImage.setAttribute('class', 'ext_addon');
 
-            // Add ViewImage button URL
+            // Add globe to View image button
             var viewImageLink = document.createElement('a');
-            localiseObject(viewImageLink, '<span>__MSG_viewImage__</span>');
+            var globeIcon = document.querySelector('._RKw._wtf._Ptf').cloneNode(true);
+            viewImageLink.appendChild(globeIcon);
+
+            // add text to view image button
+            var viewImageText = document.querySelector('._WKw').cloneNode(true);
+            localiseObject(viewImageText, '__MSG_viewImage__');
+            viewImageLink.appendChild(viewImageText);
+
+            // Add View image button URL
             viewImageLink.setAttribute('href', imageURL);
             if (options['open-in-new-tab']) {
                 viewImageLink.setAttribute('target', '_blank');
             }
             viewImage.appendChild(viewImageLink);
 
-            // Add ViewImage button to Image Links
+            // Add View image button to Image Links
             var save = imageLinks.childNodes[1];
             imageLinks.insertBefore(viewImage, save);
         }
