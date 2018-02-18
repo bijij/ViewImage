@@ -1,0 +1,26 @@
+{
+    "appName": {
+        "message": "View image",
+        "description": "Title of the application, displayed on the web store."
+    },
+    "appDesc": {
+        "message": "Re-implimentuje tlačítka \"Zobrazit obrázek\" and \"Vyhledat podle obrázku\" na vyhledávači Google.",
+        "description": "The description of the application, as shown on the web store."
+    },
+    "searchImg": {
+        "message": "Vyhledat podle obrázku",
+        "description": "Button leads to google, search by image page."
+    },
+    "viewImage": {
+        "message": "Zobrazit obrázek",
+        "description": "Button for viewing image."
+    },
+    "settingsToggle_newTab": {
+        "message": "Otevřít obrázek na nové záložce:",
+        "description": "Settings toggle which causes images to open in new tab."
+    },
+    "resetButton": {
+        "message": "Resetovat",
+        "description": "Text displayed on reset button."
+    }
+}
