@@ -5,25 +5,27 @@ body {
 	
 	padding: 16px;
 	background-color: #fafafa;
+	width: 320px;
 }
 
 a {
 	text-decoration: none;
 }
 
-.toggle-input {
+.toggle > input {
 	display: none;
 }
 
-.toggle-label {
+.toggle > label {
 	position: relative;
 	min-width: 16px;
 	cursor: pointer;
 	margin: 8px;
 	padding: 8px 0 8px 32px;
+	float: right;
 }
 
-.toggle-label:before, .toggle-label:after {
+.toggle > label:before, .toggle > label:after {
 	content: "";
 	position: absolute;
 	margin: 0;
@@ -36,7 +38,7 @@ a {
 	transition: all 0.3s ease;
 }
 
-.toggle-label:before {
+.toggle > label:before {
 	left: 1px;
 	width: 34px;
 	height: 14px;
@@ -44,7 +46,7 @@ a {
 	border-radius: 8px;
 }
 
-.toggle-label:after {
+.toggle > label:after {
 	left: 0;
 	width: 20px;
 	height: 20px;
@@ -53,33 +55,19 @@ a {
 	box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.14), 0 2px 2px 0 rgba(0, 0, 0, 0.098), 0 1px 5px 0 rgba(0, 0, 0, 0.084);
 }
 
-.toggle-label .toggle--on {
-	display: none;
-}
 
-.toggle-label .toggle--off {
-	display: inline-block;
-}
-
-.toggle-input:checked + .toggle-label:before {
+.toggle > input:checked + label:before {
     background-color: #4285f4;
     opacity: 0.4;
 }
 
-.toggle-input:checked + .toggle-label:after {
+.toggle > input:checked + label:after {
 	background-color: #3367d6;
 	-ms-transform: translate(80%, -50%);
 	-webkit-transform: translate(80%, -50%);
 	transform: translate(80%, -50%);
 }
 
-.toggle-input:checked + .toggle-label .toggle--on {
-	display: inline-block;
-}
-
-.toggle-input:checked + .toggle-label .toggle--off {
-	display: none;
-}
 
 button {
 	background-color: #3367d6;
