@@ -41,8 +41,7 @@ function addLinks(node) {
             localiseObject(searchByImageText, '<span>__MSG_searchImg__</span>');
             searchByImage.appendChild(searchByImageText);
 
-            // Append More sizes & Search by image buttons
-            imageText.appendChild(moreSizes);
+            // append Search by image button
             imageText.appendChild(searchByImage);
 
             // Create View image button
