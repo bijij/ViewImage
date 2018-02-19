@@ -13,53 +13,45 @@ function localiseObject(obj, tag) {
 
 function addLinks(node) {
     if (node.nodeType === Node.ELEMENT_NODE) {
-        if ((node.classList.contains('irc_ris')) || (node.classList.contains('irc_mi') || (node.classList.contains('irc_tas')))) {
+        if (node.classList.contains('irc_mi') | node.classList.contains('irc_mut') | node.classList.contains('irc_ris')) {
             var object = node.closest('.irc_c');
+
+            // Remove previously generated elements
+            var oldExtensionElements = object.querySelectorAll('.ext_addon');
+            for (var i = oldExtensionElements.length - 1; i >= 0; i--){
+                var element = oldExtensionElements[i];
+                element.parentElement.removeChild(element);
+            }
+            
             // Retrive image links, and image url
             var imageLinks = object.querySelector('._FKw.irc_but_r > tbody > tr');
             var imageText = object.querySelector('._cjj > .irc_it > .irc_hd > ._r3');
 
-            // Retrive the image URL
-            var imageURL;
+            // Retrive the image;
+            var image = object.querySelector('img');
 
-            var thumbnail = document.querySelector('img[name="' + object.dataset.itemId + '"]');
-            if (thumbnail) {
-                var meta = thumbnail.closest('.rg_bx').querySelector('.rg_meta');
-                var metadata = JSON.parse(meta.innerHTML);
-                imageURL = metadata.ou;
-            } else {
-                imageURL = document.getElementsByClassName('irc_mi')[0].src;
-            }
-
-            // Remove previously generated view image buttons
-            var oldViewImage = imageLinks.querySelector('.ext_addon');
-            if (oldViewImage) {
-                imageLinks.removeChild(oldViewImage);
-            }
-
-            // remove previously generated search by image links
-            var oldSearchByImage = imageText.querySelector('.ext_addon');
-            if (oldSearchByImage) {
-                imageText.removeChild(oldSearchByImage);
-            }
-
+            
             // Create Search by image button
             var searchByImage = document.createElement('a');
-            searchByImage.setAttribute('href', '/searchbyimage?&image_url=' + imageURL);
-            searchByImage.setAttribute('class', 'ext_addon');
-            searchByImage.setAttribute('style', 'margin-left:4pt;');
+            searchByImage.setAttribute('href', '/searchbyimage?image_url=' + image.src);
+            searchByImage.setAttribute('class', 'ext_addon _ZR irc_hol irc_lth _r3');
 
             // Insert text into Search by image button
             var searchByImageText = document.createElement('span');
             localiseObject(searchByImageText, '<span>__MSG_searchImg__</span>');
             searchByImage.appendChild(searchByImageText);
 
-            // Append Search by image button
+            // Append More sizes & Search by image buttons
+            imageText.appendChild(moreSizes);
             imageText.appendChild(searchByImage);
 
             // Create View image button
             var viewImage = document.createElement('td');
             viewImage.setAttribute('class', 'ext_addon');
+
+            image.onload = function() {
+                console.log(this);
+            }
 
             // Add globe to View image button
             var viewImageLink = document.createElement('a');
@@ -72,7 +64,7 @@ function addLinks(node) {
             viewImageLink.appendChild(viewImageText);
 
             // Add View image button URL
-            viewImageLink.setAttribute('href', imageURL);
+            viewImageLink.setAttribute('href', image.src);
             if (options['open-in-new-tab']) {
                 viewImageLink.setAttribute('target', '_blank');
             }
@@ -106,6 +98,11 @@ chrome.storage.sync.get(['options', 'defaultOptions'], function (storage) {
         childList: true,
         subtree: true
     });
+
+    // inject CSS into document
+    var customStyle = document.createElement('style');
+    customStyle.innerText = '._r3:hover:before{display:inline-block;pointer-events:none}';
+    document.head.appendChild(customStyle);
 
     addLinks(document.body);
 });
