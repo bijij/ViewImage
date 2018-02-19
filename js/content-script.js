@@ -58,11 +58,7 @@ function addLinks(node) {
             // Create View image button
             var viewImage = document.createElement('td');
             viewImage.setAttribute('class', 'ext_addon');
-
-            image.onload = function() {
-                console.log(this);
-            }
-
+            
             // Add globe to View image button
             var viewImageLink = document.createElement('a');
             var globeIcon = document.querySelector('._RKw._wtf._Ptf').cloneNode(true);
