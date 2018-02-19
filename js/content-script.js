@@ -30,7 +30,17 @@ function addLinks(node) {
             // Retrive the image;
             var image = object.querySelector('img');
 
-            
+            // Create more sizes button
+            var moreSizes = document.createElement('a');
+            moreSizes.setAttribute('href', '#' + image.src); // TODO: Fix link
+            moreSizes.setAttribute('class', 'ext_addon _ZR irc_hol irc_lth _r3');
+
+            // Insert text into more sizes button
+            var moreSizesText = document.createElement('span');
+            image.sizeText = moreSizesText;
+            moreSizesText.innerHTML = object.querySelector('.irc_idim').innerHTML;
+            moreSizes.appendChild(moreSizesText);
+
             // Create Search by image button
             var searchByImage = document.createElement('a');
             searchByImage.setAttribute('href', '/searchbyimage?image_url=' + image.src);
@@ -41,7 +51,8 @@ function addLinks(node) {
             localiseObject(searchByImageText, '<span>__MSG_searchImg__</span>');
             searchByImage.appendChild(searchByImageText);
 
-            // append Search by image button
+            // Append More sizes & Search by image buttons
+            imageText.appendChild(moreSizes);
             imageText.appendChild(searchByImage);
 
             // Create View image button
