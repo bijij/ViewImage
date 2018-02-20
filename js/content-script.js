@@ -30,6 +30,15 @@ function addLinks(node) {
     // Retrive the image;
     var image = object.querySelector('img');
 
+    // Override url for images using base64 embeds
+    if (image.src === '') {
+        var thumbnail = document.querySelector('img[name="' + object.dataset.itemId + '"]');
+        var meta = thumbnail.closest('.rg_bx').querySelector('.rg_meta');
+
+        var metadata = JSON.parse(meta.innerHTML);
+        image.src = metadata.ou;
+    }
+
     // Create more sizes button
     var moreSizes = document.createElement('a');
     moreSizes.setAttribute('href', '#' + image.src); // TODO: Fix link
