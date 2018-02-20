@@ -1,19 +1,7 @@
-'use strict';
 
-function toI18n(str) {
-    return str.replace(/__MSG_(\w+)__/g, function (match, v1) {
-        return v1 ? chrome.i18n.getMessage(v1) : '';
-    });
-}
-
-
-function localiseObject(obj, tag) {
-    var msg = toI18n(tag);
-    if (msg != tag) obj.innerHTML = msg;
-}
-
-
+// define adlinks
 function addLinks(node) {
+    var doc = node.ownerDocument;
     var object = node.closest('.irc_c');
 
     // Remove previously generated elements
@@ -32,7 +20,7 @@ function addLinks(node) {
 
     // Override url for images using base64 embeds
     if (image.src === '') {
-        var thumbnail = document.querySelector('img[name="' + object.dataset.itemId + '"]');
+        var thumbnail = doc.querySelector('img[name="' + object.dataset.itemId + '"]');
         var meta = thumbnail.closest('.rg_bx').querySelector('.rg_meta');
 
         var metadata = JSON.parse(meta.innerHTML);
@@ -40,25 +28,25 @@ function addLinks(node) {
     }
 
     // Create more sizes button
-    var moreSizes = document.createElement('a');
+    var moreSizes = doc.createElement('a');
     moreSizes.setAttribute('href', '#'); // TODO: Figure out how to generate a more sizes url
     moreSizes.setAttribute('class', 'ext_addon _ZR irc_hol irc_lth _r3');
     moreSizes.setAttribute('style', 'pointer-events:none'); // Disable click for now
-    
+
     // Insert text into more sizes button
-    var moreSizesText = document.createElement('span');
+    var moreSizesText = doc.createElement('span');
     image.sizeText = moreSizesText;
     moreSizesText.innerHTML = object.querySelector('.irc_idim').innerHTML;
     moreSizes.appendChild(moreSizesText);
 
     // Create Search by image button
-    var searchByImage = document.createElement('a');
+    var searchByImage = doc.createElement('a');
     searchByImage.setAttribute('href', '/searchbyimage?image_url=' + image.src);
     searchByImage.setAttribute('class', 'ext_addon _ZR irc_hol irc_lth _r3');
 
     // Insert text into Search by image button
-    var searchByImageText = document.createElement('span');
-    localiseObject(searchByImageText, '<span>__MSG_searchImg__</span>');
+    var searchByImageText = doc.createElement('span');
+    searchByImageText.innerHTML = '<span>Search&nbsp;by&nbsp;image</span>';
     searchByImage.appendChild(searchByImageText);
 
     // Append More sizes & Search by image buttons
@@ -66,24 +54,23 @@ function addLinks(node) {
     imageText.appendChild(searchByImage);
 
     // Create View image button
-    var viewImage = document.createElement('td');
+    var viewImage = doc.createElement('td');
     viewImage.setAttribute('class', 'ext_addon');
 
     // Add globe to View image button
-    var viewImageLink = document.createElement('a');
-    var globeIcon = document.querySelector('._RKw._wtf._Ptf').cloneNode(true);
+    var viewImageLink = doc.createElement('a');
+    var globeIcon = doc.querySelector('._RKw._wtf._Ptf').cloneNode(true);
     viewImageLink.appendChild(globeIcon);
 
     // add text to view image button
-    var viewImageText = document.querySelector('._WKw').cloneNode(true);
-    localiseObject(viewImageText, '__MSG_viewImage__');
+    var viewImageText = doc.querySelector('._WKw').cloneNode(true);
+    viewImageText.innerHTML = "View&nbsp;image";
     viewImageLink.appendChild(viewImageText);
 
     // Add View image button URL
     viewImageLink.setAttribute('href', image.src);
-    if (options['open-in-new-tab']) {
-        viewImageLink.setAttribute('target', '_blank');
-    }
+    viewImageLink.setAttribute('target', '_blank');
+
     viewImage.appendChild(viewImageLink);
 
     // Add View image button to Image Links
@@ -91,8 +78,7 @@ function addLinks(node) {
     imageLinks.insertBefore(viewImage, save);
 }
 
-
-// Define the mutation observer
+// Define the mutation oversever
 var observer = new MutationObserver(function (mutations) {
     for (var i = 0; i < mutations.length; i++) {
         var mutation = mutations[i];
@@ -111,26 +97,38 @@ var observer = new MutationObserver(function (mutations) {
     }
 });
 
+var viewImageExtension = {
+    init: function () {
+        // The event can be DOMContentLoaded, pageshow, pagehide, load or unload.
+        if (gBrowser) gBrowser.addEventListener("DOMContentLoaded", this.onPageLoad, false);
+    },
+    onPageLoad: function (aEvent) {
+        var doc = aEvent.originalTarget;
 
-// Get options and start adding links
-var options;
-chrome.storage.sync.get(['options', 'defaultOptions'], function (storage) {
-    options = Object.assign(storage.defaultOptions, storage.options);
+        // run only on google.com pages
+        if (doc.location.href.match(/https?:\/\/[^.]+\.google\.[^\/]+\/(?:(?:imgres\?)|(?:.*tbm=isch))/)) {
 
-    var objects = document.querySelectorAll('.irc_c');
-    for (var i = 0; i < objects.length; i++) {
-        addLinks(objects[i]);
+            
+
+            var objects = doc.querySelectorAll('.irc_c');
+            for (var i = 0; i < objects.length; i++) {
+                addLinks(objects[i]);
+            }
+
+            observer.observe(doc.body, {
+                childList: true,
+                subtree: true
+            });
+
+            // inject CSS into document
+            var customStyle = doc.createElement('style');
+            customStyle.innerText = '._r3:hover:before{display:inline-block;pointer-events:none}';
+            doc.head.appendChild(customStyle);
+
+        }
     }
-
-    observer.observe(document.body, {
-        childList: true,
-        subtree: true
-    });
-});
-
-
-// inject CSS into document
-var customStyle = document.createElement('style');
-customStyle.innerText = '._r3:hover:before{display:inline-block;pointer-events:none}';
-document.head.appendChild(customStyle);
-
+}
+window.addEventListener("load", function load(event) {
+    window.removeEventListener("load", load, false); //remove listener, no longer needed
+    viewImageExtension.init();
+}, false);
