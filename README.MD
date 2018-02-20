@@ -7,9 +7,10 @@
 View Image is a Chrome / Firefox extension which implements the "View Image" and "Search by image" buttons back into Google Image Search.
 
 ## Install
-You can get this extension for Firefox and Chrome:
+You can get this extension for Firefox or Chrome or as a userscript:
 - [Chrome Extension](https://chrome.google.com/webstore/detail/view-image/jpcmhcelnjdmblfmjabdeclccemkghjk)
 - [Firefox Addon](https://addons.mozilla.org/en-US/firefox/addon/view-image/)
+- [Userscript Version](https://gist.github.com/bijij/58cc8cfc859331e4cf80210528a7b255)
 
 ### Credits
 - More accurate URL collection thanks to [devunt](https://github.com/devunt)/[make-gis-great-again](https://github.com/devunt/make-gis-great-again)
