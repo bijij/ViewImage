@@ -14,7 +14,12 @@ function localiseObject(obj, tag) {
 
 
 function addLinks(node) {
-    var object = node.closest('.irc_c');
+    var object = node.closest('.irc_c[style*="visibility: visible;"]');
+    
+    // Stop if object not found
+    if (object === null) {
+        return;
+    }
 
     // Remove previously generated elements
     var oldExtensionElements = object.querySelectorAll('.ext_addon');
@@ -28,7 +33,7 @@ function addLinks(node) {
     var imageText = object.querySelector('._cjj > .irc_it > .irc_hd > ._r3');
 
     // Retrive the image;
-    var image = object.querySelector('img');
+    var image = object.querySelector('img[class="irc_mi"]');
 
     // Override url for images using base64 embeds
     if (image.src === '') {
@@ -44,7 +49,7 @@ function addLinks(node) {
     moreSizes.setAttribute('href', '#'); // TODO: Figure out how to generate a more sizes url
     moreSizes.setAttribute('class', 'ext_addon _ZR irc_hol irc_lth _r3');
     moreSizes.setAttribute('style', 'pointer-events:none'); // Disable click for now
-    
+
     // Insert text into more sizes button
     var moreSizesText = document.createElement('span');
     image.sizeText = moreSizesText;
