@@ -41,9 +41,10 @@ function addLinks(node) {
 
     // Create more sizes button
     var moreSizes = document.createElement('a');
-    moreSizes.setAttribute('href', '#' + image.src); // TODO: Fix link
+    moreSizes.setAttribute('href', '#'); // TODO: Figure out how to generate a more sizes url
     moreSizes.setAttribute('class', 'ext_addon _ZR irc_hol irc_lth _r3');
-
+    moreSizes.setAttribute('style', 'pointer-events:none'); // Disable click for now
+    
     // Insert text into more sizes button
     var moreSizesText = document.createElement('span');
     image.sizeText = moreSizesText;
