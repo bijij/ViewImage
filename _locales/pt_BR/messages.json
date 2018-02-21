@@ -22,5 +22,9 @@
     "resetButton": {
         "message": "Reset",
         "description": "Texto do botão reset."
+    },
+    "optionsButton": {
+        "message": "Opções",
+        "description": "Text displayed on the link to options button."
     }
 }

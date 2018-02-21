@@ -22,6 +22,10 @@
     "resetButton": {
         "message": "重設",
         "description": "Text displayed on reset button."
+    },
+    "optionsButton": {
+        "message": "選項",
+        "description": "Text displayed on the link to options button."
     }
 }
 

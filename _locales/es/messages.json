@@ -22,5 +22,9 @@
     "resetButton": {
         "message": "Reiniciar",
         "description": "Texto mostrado en el botón de reinicio."
+    },
+    "optionsButton": {
+        "message": "Configuración",
+        "description": "Text displayed on the link to options button."
     }
 }
