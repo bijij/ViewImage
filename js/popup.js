@@ -1,6 +1,4 @@
 // On options button click
-document.addEventListener('click', event => {
-    if (event.target.id == 'options-page') {
-        chrome.runtime.openOptionsPage();
-    }
+document.getElementById('options-page').addEventListener('click', event => {
+    chrome.runtime.openOptionsPage();
 });

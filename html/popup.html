@@ -4,8 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../css/popup.css" />
-    <script src="/../js/popup.js"></script>
-
 </head>
 
 <body>
@@ -17,10 +15,12 @@
     </div>
 
     <div class="center">
-        <button type="button" id="options-page">
-            <img src="../img/options.png" height="15px" style="position: relative; top: 2px;" />
-            <span data-localise="__MSG_optionsButton__">&nbsp;Options</span>
-        </button>
+        <a href="#" id="options-page">
+            <button type="button">
+                <img src="../img/options.png" height="15px" style="position: relative; top: 2px;" />
+                <span data-localise="__MSG_optionsButton__">&nbsp;Options</span>
+            </button>
+        </a>
         <a href="https://github.com/bijij/ViewImage" target="_blank">
             <button type="button">
                 <img src="../img/github.png" height="15px" style="position: relative; top: 2px;" />
@@ -37,7 +37,9 @@
         </a>
         -->
     </div>
+    
 </body>
+<script src="/../js/popup.js"></script>
 <script src="/../js/localise.js"></script>
 
 </html>
