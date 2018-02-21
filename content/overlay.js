@@ -2,7 +2,12 @@
 // define adlinks
 function addLinks(node) {
     var doc = node.ownerDocument;
-    var object = node.closest('.irc_c');
+    var object = node.closest('.irc_c[style*="visibility: visible;"]');
+
+    // Stop if object not found
+    if (object === null) {
+        return;
+    }
 
     // Remove previously generated elements
     var oldExtensionElements = object.querySelectorAll('.ext_addon');
@@ -16,14 +21,16 @@ function addLinks(node) {
     var imageText = object.querySelector('._cjj > .irc_it > .irc_hd > ._r3');
 
     // Retrive the image;
-    var image = object.querySelector('img');
+    var image = object.querySelector('img[class="irc_mi"]');
 
     // Override url for images using base64 embeds
-    if (image.src === '') {
+    if (image === null || image.src === '') {
         var thumbnail = doc.querySelector('img[name="' + object.dataset.itemId + '"]');
         var meta = thumbnail.closest('.rg_bx').querySelector('.rg_meta');
 
         var metadata = JSON.parse(meta.innerHTML);
+
+        image = new Object();
         image.src = metadata.ou;
     }
 
@@ -108,7 +115,7 @@ var viewImageExtension = {
         // run only on google.com pages
         if (doc.location.href.match(/https?:\/\/[^.]+\.google\.[^\/]+\/(?:(?:imgres\?)|(?:.*tbm=isch))/)) {
 
-            
+
 
             var objects = doc.querySelectorAll('.irc_c');
             for (var i = 0; i < objects.length; i++) {
