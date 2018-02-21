@@ -4,7 +4,7 @@ View Image is a Chrome / Firefox extension which implements the "View Image" and
 
 ## Install
 XUL Version: 
- - [Download the latest release](https://github.com/bijij/ViewImage/releases/tag/1.0)
+ - [Download the latest release](https://github.com/bijij/ViewImage/releases/tag/1.1)
  - Drag and drop into firefox and follow the prompts.
  - You might need to disable `xpinstall.signatures.required` in `about:config` for the extension to work.
 
