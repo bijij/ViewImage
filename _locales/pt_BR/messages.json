@@ -4,7 +4,7 @@
         "description": "Nome da extensão, mostrada na web store."
     },
     "appDesc": {
-        "message": "Re-implementa no Google Imagens o botão \"Ver Imagem\" e o link \"Pesquisar por imagem\".",
+        "message": "Reimplementa no Google Imagens o botão \"Ver Imagem\" e o link \"Pesquisar por imagem\".",
         "description": "A descrição da extensão, como mostrada na web store."
     },
     "searchImg": {
@@ -20,7 +20,7 @@
         "description": "Alterar a opção significa que as imagens serão abertas em uma nova guia."
     },
     "resetButton": {
-        "message": "Reset",
+        "message": "Redefinir",
         "description": "Texto do botão reset."
     },
     "optionsButton": {
