@@ -42,10 +42,6 @@ function addLinks(node) {
 
         var metadata = JSON.parse(meta.innerHTML);
 
-        console.log(meta);
-        console.log(thumbnail);
-        console.log(metadata);
-
         image = new Object();
         image.src = metadata.ou;
     }
