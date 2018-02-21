@@ -36,11 +36,17 @@ function addLinks(node) {
     var image = object.querySelector('img[class="irc_mi"]');
 
     // Override url for images using base64 embeds
-    if (image.src === '') {
+    if (image === null || image.src === '') {
         var thumbnail = document.querySelector('img[name="' + object.dataset.itemId + '"]');
         var meta = thumbnail.closest('.rg_bx').querySelector('.rg_meta');
 
         var metadata = JSON.parse(meta.innerHTML);
+
+        console.log(meta);
+        console.log(thumbnail);
+        console.log(metadata);
+
+        image = new Object();
         image.src = metadata.ou;
     }
 
