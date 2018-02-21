@@ -13,10 +13,9 @@ body {
     font-weight: bold;
 }
 
-#version {
+#debug {
     font-size: 12px;
-    vertical-align: bottom;
-    line-height: 32px;
+    line-height: 24px;
     margin-left: 8px;
 }
 
