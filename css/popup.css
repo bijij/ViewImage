@@ -1,9 +1,10 @@
 body {
     font-family: Roboto, Arial, sans-serif;
-    background-color: #fafafa;
+    background-color: #e0e0e0;
 
-    padding: 8px;
     min-width: 320px;
+
+    margin: 0;
     width: auto;
 }
 
@@ -41,11 +42,27 @@ button {
     margin: 2px;
 	outline: none;
 	border: none;
-	box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.14), 0 2px 2px 0 rgba(0, 0, 0, 0.098), 0 1px 5px 0 rgba(0, 0, 0, 0.084);
+	box-shadow: 0 2px 4px rgba(0,0,0,0.25);
+}
+
+.paper {
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.54);
+    padding: 8px;
+}
+
+#about {
+    padding: 16px;
+    
 }
 
 button:active {
 	position: relative;
 	top: 1px;
 	background-color: #2357c6;
+}
+
+.legal {
+    opacity: 0.25;
+    font-size: 10px;
 }
