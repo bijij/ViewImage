@@ -1,0 +1,30 @@
+{
+    "appName": {
+        "message": "View Image",
+        "description": "Title of the application, as displayed on the web store."
+    },
+    "appDesc": {
+        "message": "Reimplementare i pulsanti \"Visualizza immagine\" e \"Ricerca per immagine\" di Google Images.",
+        "description": "The description of the application, as shown on the web store."
+    },
+    "searchImg": {
+        "message": "Ricerca per immagine",
+        "description": "Button leads to Google's Search by Image page."
+    },
+    "viewImage": {
+        "message": "Visualizza immagine",
+        "description": "Button for viewing image."
+    },
+    "settingsToggle_newTab": {
+        "message": "Apri le immagini in una nuova scheda:",
+        "description": "Settings toggle which causes images to open in new tab."
+    },
+    "resetButton": {
+        "message": "Reset",
+        "description": "Text displayed on reset button."
+    },
+    "optionsButton": {
+        "message": "Opzioni",
+        "description": "Text displayed on the link to options button."
+    }
+}
