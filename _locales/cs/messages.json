@@ -15,7 +15,7 @@
         "message": "Zobrazit obrázek",
         "description": "Button for viewing image."
     },
-    "settingsToggle_newTab": {
+    "settingsToggle_NewTab_viewImage": {
         "message": "Otevřít obrázek na nové záložce:",
         "description": "Settings toggle which causes images to open in new tab."
     },

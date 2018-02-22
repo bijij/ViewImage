@@ -15,7 +15,7 @@
         "message": "Ver imagen",
         "description": "Botón para ver la imagen."
     },
-    "settingsToggle_newTab": {
+    "settingsToggle_NewTab_viewImage": {
         "message": "Abrir imágenes en una nueva pestaña:",
         "description": "Opción de configuración que hace que las imágenes se abran en una nueva pestaña."
     },

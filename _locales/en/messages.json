@@ -15,9 +15,13 @@
         "message": "View image",
         "description": "Button for viewing image."
     },
-    "settingsToggle_newTab": {
-        "message": "Open images in a new tab:",
+    "settingsToggle_NewTab_viewImage": {
+        "message": "Open \"View image\" in a new tab:",
         "description": "Settings toggle which causes images to open in new tab."
+    },
+    "settingsToggle_NewTab_searchByImage": {
+        "message": "Open \"Search by image\" in a new tab:",
+        "description": "Settings toggle which causes the search by image page to open in new tab."
     },
     "settingsToggle_globeIcon": {
         "message": "Show Globe icon in \"View Image\" button:",

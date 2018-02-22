@@ -15,7 +15,7 @@
         "message": "Visa originalbilden",
         "description": "Button for viewing image."
     },
-    "settingsToggle_newTab": {
+    "settingsToggle_NewTab_viewImage": {
         "message": "Öppna bilder i en ny flik:",
         "description": "Settings toggle which causes images to open in new tab."
     },

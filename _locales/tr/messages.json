@@ -15,7 +15,7 @@
         "message": "Resmi Görüntüle",
         "description": "Resmi görüntülemek için kullanılan düğmedir."
     },
-    "settingsToggle_newTab": {
+    "settingsToggle_NewTab_viewImage": {
         "message": "Resmi farklı tab'da aç:",
         "description": "Resimlerin farklı tab'da açılmasını sağlayan özelliktir."
     },

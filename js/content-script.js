@@ -61,6 +61,9 @@ function addLinks(node) {
     // Create Search by image button
     var searchByImage = document.createElement('a');
     searchByImage.setAttribute('href', '/searchbyimage?image_url=' + image.src);
+    if (options['open-search-by-in-new-tab']) {
+        searchByImage.setAttribute('target', '_blank');
+    }
     searchByImage.setAttribute('class', 'ext_addon _ZR irc_hol irc_lth _r3');
 
     // Insert text into Search by image button

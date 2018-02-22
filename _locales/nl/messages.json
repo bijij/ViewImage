@@ -15,7 +15,7 @@
         "message": "Afbeelding weergeven",
         "description": "Knop om afbeelding weer te geven."
     },
-    "settingsToggle_newTab": {
+    "settingsToggle_NewTab_viewImage": {
         "message": "Afbeeldingen openen in een nieuw tabblad:",
         "description": "Instelling die afbeeldingen in een nieuw tabblad laat openen."
     },

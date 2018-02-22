@@ -15,7 +15,7 @@
         "message": "Afficher l'image",
         "description": "Button for viewing image."
     },
-    "settingsToggle_newTab": {
+    "settingsToggle_NewTab_viewImage": {
         "message": "Ouvrir les images dans un nouveau onglet :",
         "description": "Settings toggle which causes images to open in new tab."
     },

@@ -15,7 +15,7 @@
         "message": "檢視圖片",
         "description": "Button for viewing image."
     },
-    "settingsToggle_newTab": {
+    "settingsToggle_NewTab_viewImage": {
         "message": "在新分頁開啟圖片:",
         "description": "Settings toggle which causes images to open in new tab."
     },

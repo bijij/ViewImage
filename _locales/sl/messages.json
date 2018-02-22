@@ -15,7 +15,7 @@
         "message": "Ogled slike",
         "description": "Gumb za ogled slike."
     },
-    "settingsToggle_newTab": {
+    "settingsToggle_NewTab_viewImage": {
         "message": "Ogled slike v novem zavihku:",
         "description": "Nastavitev za ogled slike v novem zavihku."
     },

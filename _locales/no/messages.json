@@ -15,7 +15,7 @@
         "message": "Se bilde",
         "description": "Button for viewing image."
     },
-    "settingsToggle_newTab": {
+    "settingsToggle_NewTab_viewImage": {
         "message": "Åpne bilder i ny fane:",
         "description": "Settings toggle which causes images to open in new tab."
     },
