@@ -19,12 +19,24 @@
         "message": "Abrir as imagens em uma nova guia:",
         "description": "Alterar a opção significa que as imagens serão abertas em uma nova guia."
     },
+    "settingsToggle_globeIcon": {
+        "message": "Exibir ícone do Globo no botão \"Ver Imagem\":",
+        "description": "Alterar a opção irá fazer com que o ícone do globo seja exibido no botão \"Ver Imagem\"."
+    },
+    "settingsToggle_subjectCopyright": {
+        "message": "Ocultar mensagem \"As imagens podem estar sujeitas a direitos autorais\":",
+        "description": "Alterar a opção irá ocultar a mensagem de direitos autorais na página de resultados de imagens."
+    },
+    "settingsToggle_buttonText": {
+        "message": "Definir texto do botão manualmente:",
+        "description": "Alterar a opção permite definir manualmente o texto dos botões em vez do da tradução."
+    },
     "resetButton": {
         "message": "Redefinir",
-        "description": "Texto do botão reset."
+        "description": "Texto do botão Reset."
     },
     "optionsButton": {
         "message": "Opções",
-        "description": "Text displayed on the link to options button."
+        "description": "Texto exibido no link para o botão de opções."
     }
 }
