@@ -21,10 +21,10 @@ function addLinks(node) {
     var imageText = object.querySelector('._cjj > .irc_it > .irc_hd > ._r3');
 
     // Retrive the image;
-    var image = object.querySelector('img[class="irc_mi"]');
+    var image = object.querySelector('img[alt^="Image result"][src].irc_mut, img[src].irc_mi');
 
     // Override url for images using base64 embeds
-    if (image === null || image.src === '') {
+    if (image === null || image.src === '' || image.src.startsWith('data')) {
         var thumbnail = doc.querySelector('img[name="' + object.dataset.itemId + '"]');
         var meta = thumbnail.closest('.rg_bx').querySelector('.rg_meta');
 
@@ -85,7 +85,7 @@ function addLinks(node) {
     imageLinks.insertBefore(viewImage, save);
 }
 
-// Define the mutation oversever
+// Define the mutation obersever
 var observer = new MutationObserver(function (mutations) {
     for (var i = 0; i < mutations.length; i++) {
         var mutation = mutations[i];
