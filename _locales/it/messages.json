@@ -4,11 +4,11 @@
         "description": "Title of the application, as displayed on the web store."
     },
     "appDesc": {
-        "message": "Reimplementare i pulsanti \"Visualizza immagine\" e \"Ricerca per immagine\" di Google Images.",
+        "message": "Riattiva i pulsanti \"Visualizza immagine\" e \"Ricerca tramite immagine\" di Google Immagini.",
         "description": "The description of the application, as shown on the web store."
     },
     "searchImg": {
-        "message": "Ricerca per immagine",
+        "message": "Ricerca tramite immagine",
         "description": "Button leads to Google's Search by Image page."
     },
     "viewImage": {
@@ -16,7 +16,7 @@
         "description": "Button for viewing image."
     },
     "settingsToggle_newTab": {
-        "message": "Apri le immagini in una nuova scheda:",
+        "message": "Apri immagini in una nuova scheda:",
         "description": "Settings toggle which causes images to open in new tab."
     },
     "resetButton": {

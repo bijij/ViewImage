@@ -33,10 +33,10 @@ function addLinks(node) {
     var imageText = object.querySelector('._cjj > .irc_it > .irc_hd > ._r3');
 
     // Retrive the image;
-    var image = object.querySelector('img[class="irc_mi"]');
+    var image = object.querySelector('img[alt^="Image result"]');
 
     // Override url for images using base64 embeds
-    if (image === null || image.src === '') {
+    if (image === null || image.src === '' || image.src.startsWith('data')) {
         var thumbnail = document.querySelector('img[name="' + object.dataset.itemId + '"]');
         var meta = thumbnail.closest('.rg_bx').querySelector('.rg_meta');
 
