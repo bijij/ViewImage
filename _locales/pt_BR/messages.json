@@ -18,6 +18,10 @@
     "settingsToggle_NewTab_viewImage": {
         "message": "Abrir as imagens em uma nova guia:",
         "description": "Alterar a opção significa que as imagens serão abertas em uma nova guia."
+   },
+    "settingsToggle_NewTab_searchByImage": {
+        "message": "Abrir \"Pesquisar por imagem\" em uma nova aba:",
+        "description": "Alterar a opção faz com que a página 'pesquisar por imagem' seja aberta em uma nova aba."
     },
     "settingsToggle_globeIcon": {
         "message": "Exibir ícone do Globo no botão \"Ver Imagem\":",
@@ -41,6 +45,6 @@
     },
     "donatePayPal": {
         "message": " Doe com PayPal",
-        "description": "Text used for the donation button."
+        "description": "Texto usado no botão de doação."
     }
 }
