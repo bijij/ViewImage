@@ -26,5 +26,9 @@
     "optionsButton": {
         "message": "Opzioni",
         "description": "Text displayed on the link to options button."
+    },
+    "donatePayPal": {
+        "message": " Dona tramite PayPal",
+        "description": "Text used for the donation button."
     }
 }

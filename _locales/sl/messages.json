@@ -38,5 +38,9 @@
     "optionsButton": {
         "message": "Možnosti",
         "description": "Gumb za odpiranje možnosti."
+    },
+    "donatePayPal": {
+        "message": " Donirajte preko PayPal",
+        "description": "Text used for the donation button."
     }
 }
