@@ -15,7 +15,7 @@ function localiseObject(obj, tag) {
 
 function addLinks(node) {
     var object = node.closest('.irc_c[style*="visibility: visible;"]');
-    
+
     // Stop if object not found
     if (object === null) {
         return;
@@ -65,7 +65,12 @@ function addLinks(node) {
 
     // Insert text into Search by image button
     var searchByImageText = document.createElement('span');
-    localiseObject(searchByImageText, '<span>__MSG_searchImg__</span>');
+    if (options['manually-set-button-text']) {
+        searchByImageText.innerText = options['button-text-search-by-image'];
+    } else {
+        localiseObject(searchByImageText, '<span>__MSG_searchImg__</span>');
+    }
+    
     searchByImage.appendChild(searchByImageText);
 
     // Append More sizes & Search by image buttons
@@ -76,14 +81,27 @@ function addLinks(node) {
     var viewImage = document.createElement('td');
     viewImage.setAttribute('class', 'ext_addon');
 
-    // Add globe to View image button
+    // Add globe to View image button if toggle enabled
     var viewImageLink = document.createElement('a');
-    var globeIcon = document.querySelector('._RKw._wtf._Ptf').cloneNode(true);
-    viewImageLink.appendChild(globeIcon);
+    if (options['show-globe-icon']) {
+        var globeIcon = document.querySelector('._RKw._wtf._Ptf').cloneNode(true);
+        viewImageLink.appendChild(globeIcon);
+
+    }
+
+    // hide copyright text if toggle enabled 
+    if (options['hide-images-subect-to-copyright']) {
+        var copyWarning = object.querySelector('.irc_bimg.irc_it');
+        copyWarning.style = 'display: none;';
+    }
 
     // add text to view image button
     var viewImageText = document.querySelector('._WKw').cloneNode(true);
-    localiseObject(viewImageText, '__MSG_viewImage__');
+    if (options['manually-set-button-text']) {
+        viewImageText.innerText = options['button-text-view-image'];
+    } else {
+        localiseObject(viewImageText, '__MSG_viewImage__');
+    }
     viewImageLink.appendChild(viewImageText);
 
     // Add View image button URL

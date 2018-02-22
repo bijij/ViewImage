@@ -11,6 +11,13 @@ a {
 	text-decoration: none;
 }
 
+.toggle > span {
+	font-size: 16px;
+	line-height: 32px;
+	display: inline-block;
+	width: calc(100% - 52px);
+}
+
 .toggle > input {
 	display: none;
 }
@@ -21,7 +28,6 @@ a {
 	cursor: pointer;
 	margin: 8px;
 	padding: 8px 0 8px 32px;
-	float: right;
 }
 
 .toggle > label:before, .toggle > label:after {
@@ -84,4 +90,22 @@ button:active {
 	position: relative;
 	top: 1px;
 	background-color: #2357c6;
+}
+
+.textbox {
+	margin: 0 1em 0 2em;
+}
+
+input[type="text"] {
+	width: 100%;
+	border: none;
+	outline: none;
+	padding: 4px;
+
+	box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
+}
+
+.disabled {
+	opacity: 0.54;
+	pointer-events: none;
 }
