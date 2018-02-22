@@ -1,11 +1,11 @@
 {
     "appName": {
         "message": "Ogled slike",
-        "description": "Ponovno prikaže gumba \"Ogled slike\" in \"Iskanje s sliko\" na Google Slikah."
+        "description": "Ime aplikacije, prikazano na spletni trgovini."
     },
     "appDesc": {
         "message": "Ponovno prikaže gumba \"Ogled slike\" in \"Iskanje s sliko\" na Google Slikah.",
-        "description": "Ponovno prikaže gumba \"Ogled slike\" in \"Iskanje s sliko\" na Google Slikah."
+        "description": "Opis aplikacije, prikazan na spletni trgovini."
     },
     "searchImg": {
         "message": "Iskanje s sliko",
@@ -19,12 +19,24 @@
         "message": "Ogled slike v novem zavihku:",
         "description": "Nastavitev za ogled slike v novem zavihku."
     },
+    "settingsToggle_globeIcon": {
+        "message": "Prikaži ikono globusa na gumbu \"Ogled slike\":",
+        "description": "Nastavitev za prikaz ikone globusa na gumbu \"Ogled slike\"."
+    },
+    "settingsToggle_subjectCopyright": {
+        "message": "Skrij opozorilo \"Slike so morda zaščitene z avtorskimi pravicami\":",
+        "description": "Nastavitev za skritje opozorila S\"Slike so morda zaščitene z avtorskimi pravicami\"."
+    },
+    "settingsToggle_buttonText": {
+        "message": "Poljubno besedilo gumbov:",
+        "description": "Nastavitev za prikjaz poljubnega sporočila na gumbih in povezavah."
+    },
     "resetButton": {
         "message": "Ponastavi",
-        "description": "Ponastavi nastavitve."
+        "description": "Gumb za ponastavitev možnosti."
     },
     "optionsButton": {
-        "message": "Opcije",
-        "description": "Text displayed on the link to options button."
+        "message": "Možnosti",
+        "description": "Gumb za odpiranje možnosti."
     }
 }
