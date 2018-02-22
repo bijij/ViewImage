@@ -10,7 +10,7 @@ const defaultOptions = {
 };
 
 // Save default options to storage
-chrome.storage.sync.get('defaultOptions', function () {
+chrome.storage.sync.get('defaultOptions', function (storage) {
     if (!storage.defaultOptions) {
         chrome.storage.sync.set({ defaultOptions });
     }
