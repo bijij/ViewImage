@@ -38,7 +38,7 @@ const update_page = function () {
     } else {
         manualButtonText.classList.add('disabled');
     }
-}
+};
 
 // Show options
 const show = function (options) {
@@ -46,14 +46,14 @@ const show = function (options) {
         if (options.hasOwnProperty(key)) {
 
             switch (typeof (options[key])) {
-                case ('boolean'): {
-                    document.getElementById(key).checked = options[key];
-                    break;
-                }
-                case ('string'): {
-                    document.getElementById(key).value = options[key];
-                    break;
-                }
+            case ('boolean'): {
+                document.getElementById(key).checked = options[key];
+                break;
+            }
+            case ('string'): {
+                document.getElementById(key).value = options[key];
+                break;
+            }
             }
         }
     }
@@ -80,14 +80,14 @@ chrome.storage.sync.get('defaultOptions', function (storage) {
 // On change, save
 document.addEventListener('input', event => {
     switch (event.target.type) {
-        case ('checkbox'): {
-            options[event.target.id] = event.target.checked;
-            break;
-        }
-        case ('text'): {
-            options[event.target.id] = event.target.value;
-            break;
-        }
+    case ('checkbox'): {
+        options[event.target.id] = event.target.checked;
+        break;
+    }
+    case ('text'): {
+        options[event.target.id] = event.target.value;
+        break;
+    }
     }
 
     save(options);
