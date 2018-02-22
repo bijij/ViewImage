@@ -1,50 +1,50 @@
 {
     "appName": {
-        "message": "View Image",
-        "description": "Title of the application, as displayed on the web store."
+        "message": "הצג תמונה",
+        "description": "כותרת היישום, כפי שמוצג בחנות האינטרנט."
     },
     "appDesc": {
-        "message": "Re-implements the Google Images' \"View Image\" and \"Search by Image\" buttons.",
-        "description": "The description of the application, as shown on the web store."
+        "message": "מחזיר את הלחצנים' \"הצג תמונה\" ו \"חפש לפי תמונה\" בגוגל תמונות.",
+        "description": "תיאור היישום, כפי שמוצג בחנות האינטרנט."
     },
     "searchImg": {
-        "message": "Search by image",
-        "description": "Button leads to Google's Search by Image page."
+        "message": "חפש לפי תמונה",
+        "description": "לחצן שמוביל לדף חיפוש לפי תמונה בגוגל."
     },
     "viewImage": {
-        "message": "View image",
-        "description": "Button for viewing image."
+        "message": "הצג תמונה",
+        "description": "לחצן עבור הצגת תמונה."
     },
     "settingsToggle_NewTab_viewImage": {
-        "message": "Open \"View image\" in a new tab:",
-        "description": "Settings toggle which causes images to open in new tab."
+        "message": "פתח את \"הצג תמונה\" בכרטיסייה חדשה:",
+        "description": "הגדרה לפתיחת תמונות בכרטיסייה חדשה."
     },
     "settingsToggle_NewTab_searchByImage": {
-        "message": "Open \"Search by image\" in a new tab:",
-        "description": "Settings toggle which causes the search by image page to open in new tab."
+        "message": "פתח את \"חפש לפי תמונה\" בכרטיסייה חדשה:",
+        "description": "הגדרה לפתיחה בכרטיסייה חדשה עבור דף חיפוש לפי תמונה."
     },
     "settingsToggle_globeIcon": {
-        "message": "Show Globe icon in \"View Image\" button:",
-        "description": "Settings toggle which causes the globe icon to display on the \"View Image\" button."
+        "message": "הצג סמל גלובוס בלחצן \"הצג תמונה\":",
+        "description": "הגדרה עבור הצגת סמל הגלובוס על לחצן \"הצג תמונה\"."
     },
     "settingsToggle_subjectCopyright": {
-        "message": "Hide \"Images may be subject to Copyright\" warning:",
-        "description": "Settings toggle hides copyright message on image results page."
+        "message": "הסתר את האזהרה \"ייתכן שהתמונות כפופות לזכויות יוצרים\":",
+        "description": "הגדרה עבור הסתרת אזהרת זכויות היוצרים בדף תוצאות חיפוש התמונות."
     },
     "settingsToggle_buttonText": {
-        "message": "Manually set button text:",
-        "description": "Settings toggle enables manually set text for buttons rather than locale."
+        "message": "הגדר ידנית את כיתוב הלחצנים:",
+        "description": "הגדרת כיתוב ידני ללחצנים, במקום כיתוב ברירת המחדל."
     },
     "resetButton": {
-        "message": "Reset",
-        "description": "Text displayed on reset button."
+        "message": "איפוס",
+        "description": "הטקסט שמוצג על לחצן האיפוס."
     },
     "optionsButton": {
-        "message": "Options",
-        "description": "Text displayed on the link to options button."
+        "message": "אפשרויות",
+        "description": "הטקסט שמוצג על לחצן האפשרויות."
     },
     "donatePayPal": {
-        "message": " Donate via PayPal",
-        "description": "Text used for the donation button."
+        "message": " תרום באמצעות PayPal",
+        "description": "הטקסט שמוצג על לחצן התרומה."
     }
 }
