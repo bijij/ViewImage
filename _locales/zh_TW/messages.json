@@ -1,34 +1,36 @@
 {
     "appName": {
-        "message": "View image",
-        "description": "Title of the application, displayed on the web store."
+        "message": "View Image",
+        "description": "Title of the application, as displayed on the web store."
     },
     "appDesc": {
-        "message": "Re-implementerer Google Bilder, \"Se Bilde\" og \"Søk med Bilde\" knappene.",
+        "message": "重新實現 Google 圖片的「檢視圖片」和「以圖搜尋」按鈕。",
         "description": "The description of the application, as shown on the web store."
     },
     "searchImg": {
-        "message": "Søk med bilde",
-        "description": "Button leads to google, search by image page."
+        "message": "以圖搜尋",
+        "description": "Button leads to Google's Search by Image page."
     },
     "viewImage": {
-        "message": "Se bilde",
+        "message": "檢視圖片",
         "description": "Button for viewing image."
     },
     "settingsToggle_NewTab_viewImage": {
-        "message": "Åpne bilder i ny fane:",
+        "message": "在新分頁開啟圖片:",
         "description": "Settings toggle which causes images to open in new tab."
     },
     "resetButton": {
-        "message": "Tilbakestill",
+        "message": "重設",
         "description": "Text displayed on reset button."
     },
     "optionsButton": {
-        "message": "Opsjoner",
+        "message": "選項",
         "description": "Text displayed on the link to options button."
     },
     "donatePayPal": {
-        "message": " Doner med PayPal",
+        "message": " 通過PayPal捐贈",
         "description": "Text used for the donation button."
     }
 }
+
+

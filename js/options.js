@@ -27,13 +27,38 @@ const save = function (object) {
     });
 };
 
+// Update visibility of page elements;
+const update_page = function () {
+
+    var manualButtonToggle = document.getElementById('manually-set-button-text');
+    var manualButtonText = document.getElementById('manual-toggle');
+
+    if (manualButtonToggle.checked) {
+        manualButtonText.classList.remove('disabled');
+    } else {
+        manualButtonText.classList.add('disabled');
+    }
+};
+
 // Show options
 const show = function (options) {
     for (const key in options) {
         if (options.hasOwnProperty(key)) {
-            document.getElementById(key).checked = options[key];
+
+            switch (typeof (options[key])) {
+            case ('boolean'): {
+                document.getElementById(key).checked = options[key];
+                break;
+            }
+            case ('string'): {
+                document.getElementById(key).value = options[key];
+                break;
+            }
+            }
         }
     }
+
+    update_page();
 };
 
 // Reset to defaults
@@ -54,8 +79,19 @@ chrome.storage.sync.get('defaultOptions', function (storage) {
 
 // On change, save
 document.addEventListener('input', event => {
-    options[event.target.id] = event.target.checked;
+    switch (event.target.type) {
+    case ('checkbox'): {
+        options[event.target.id] = event.target.checked;
+        break;
+    }
+    case ('text'): {
+        options[event.target.id] = event.target.value;
+        break;
+    }
+    }
+
     save(options);
+    update_page();
 });
 
 // On reset button click
@@ -63,4 +99,5 @@ document.addEventListener('click', event => {
     if (event.target.id == 'reset-options') {
         reset();
     }
+    update_page();
 });

@@ -15,12 +15,20 @@
         "message": "Zobrazit obrázek",
         "description": "Button for viewing image."
     },
-    "settingsToggle_newTab": {
+    "settingsToggle_NewTab_viewImage": {
         "message": "Otevřít obrázek na nové záložce:",
         "description": "Settings toggle which causes images to open in new tab."
     },
     "resetButton": {
         "message": "Resetovat",
         "description": "Text displayed on reset button."
+    },
+    "optionsButton": {
+        "message": "Možnosti",
+        "description": "Text displayed on the link to options button."
+    },
+    "donatePayPal": {
+        "message": " Darujte prostřednictvím služby PayPal",
+        "description": "Text used for the donation button."
     }
 }

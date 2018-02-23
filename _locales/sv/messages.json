@@ -15,12 +15,20 @@
         "message": "Visa originalbilden",
         "description": "Button for viewing image."
     },
-    "settingsToggle_newTab": {
+    "settingsToggle_NewTab_viewImage": {
         "message": "Öppna bilder i en ny flik:",
         "description": "Settings toggle which causes images to open in new tab."
     },
     "resetButton": {
         "message": "Återställ",
         "description": "Text displayed on reset button."
+    },
+    "optionsButton": {
+        "message": "Alternativ",
+        "description": "Text displayed on the link to options button."
+    },
+    "donatePayPal": {
+        "message": " Donera med PayPal",
+        "description": "Text used for the donation button."
     }
 }

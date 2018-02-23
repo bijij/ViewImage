@@ -4,47 +4,47 @@
         "description": "Title of the application, as displayed on the web store."
     },
     "appDesc": {
-        "message": "Re-implements the Google Images' \"View Image\" and \"Search by Image\" buttons.",
+        "message": "重新实现 Google 图片的“查看图片”和“以图搜图”按钮。",
         "description": "The description of the application, as shown on the web store."
     },
     "searchImg": {
-        "message": "Search by image",
+        "message": "以图搜图",
         "description": "Button leads to Google's Search by Image page."
     },
     "viewImage": {
-        "message": "View image",
+        "message": "查看图片",
         "description": "Button for viewing image."
     },
-    "settingsToggle_NewTab_viewImage": {
-        "message": "Open \"View image\" in a new tab:",
+        "settingsToggle_NewTab_viewImage": {
+        "message": "在新标签页打开“查看图片”:",
         "description": "Settings toggle which causes images to open in new tab."
     },
     "settingsToggle_NewTab_searchByImage": {
-        "message": "Open \"Search by image\" in a new tab:",
+        "message": "在新标签页打开“以图搜图”:",
         "description": "Settings toggle which causes the search by image page to open in new tab."
     },
     "settingsToggle_globeIcon": {
-        "message": "Show Globe icon in \"View Image\" button:",
+        "message": "在“查看图片”按钮上显示地球图标:",
         "description": "Settings toggle which causes the globe icon to display on the \"View Image\" button."
     },
     "settingsToggle_subjectCopyright": {
-        "message": "Hide \"Images may be subject to Copyright\" warning:",
+        "message": "隐藏“图片可能受版权保护”警告:",
         "description": "Settings toggle hides copyright message on image results page."
     },
     "settingsToggle_buttonText": {
-        "message": "Manually set button text:",
+        "message": "自定义按钮文字:",
         "description": "Settings toggle enables manually set text for buttons rather than locale."
     },
     "resetButton": {
-        "message": "Reset",
+        "message": "重置",
         "description": "Text displayed on reset button."
     },
     "optionsButton": {
-        "message": "Options",
+        "message": "选项",
         "description": "Text displayed on the link to options button."
     },
     "donatePayPal": {
-        "message": " Donate via PayPal",
+        "message": "通过 PayPal 捐赠",
         "description": "Text used for the donation button."
     }
 }

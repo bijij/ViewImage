@@ -15,12 +15,20 @@
         "message": "Kép megtekintése",
         "description": "Button for viewing image."
     },
-    "settingsToggle_newTab": {
+    "settingsToggle_NewTab_viewImage": {
         "message": "Képek megnyitása új lapon:",
         "description": "Settings toggle which causes images to open in new tab."
     },
     "resetButton": {
         "message": "Visszaállítás",
         "description": "Text displayed on reset button."
+    },
+    "optionsButton": {
+        "message": "Lehetőségek",
+        "description": "Text displayed on the link to options button."
+    },
+    "donatePayPal": {
+        "message": " Adományozzon PayPal-nel",
+        "description": "Text used for the donation button."
     }
 }

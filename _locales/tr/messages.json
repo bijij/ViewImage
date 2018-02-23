@@ -15,12 +15,20 @@
         "message": "Resmi Görüntüle",
         "description": "Resmi görüntülemek için kullanılan düğmedir."
     },
-    "settingsToggle_newTab": {
+    "settingsToggle_NewTab_viewImage": {
         "message": "Resmi farklı tab'da aç:",
         "description": "Resimlerin farklı tab'da açılmasını sağlayan özelliktir."
     },
     "resetButton": {
         "message": "Sıfırla",
         "description": "Sıfırlama düğmesidir."
+    },
+    "optionsButton": {
+        "message": "seçenekleri",
+        "description": "Text displayed on the link to options button."
+    },
+    "donatePayPal": {
+        "message": " PayPal ile bağış yapın",
+        "description": "Text used for the donation button."
     }
 }

@@ -1,34 +1,34 @@
 {
     "appName": {
-        "message": "View image",
-        "description": "Title of the application, displayed on the web store."
+        "message": "View Image",
+        "description": "Title of the application, as displayed on the web store."
     },
     "appDesc": {
-        "message": "Re-implementerer Google Bilder, \"Se Bilde\" og \"Søk med Bilde\" knappene.",
+        "message": "Riattiva i pulsanti \"Visualizza immagine\" e \"Ricerca tramite immagine\" di Google Immagini.",
         "description": "The description of the application, as shown on the web store."
     },
     "searchImg": {
-        "message": "Søk med bilde",
-        "description": "Button leads to google, search by image page."
+        "message": "Ricerca tramite immagine",
+        "description": "Button leads to Google's Search by Image page."
     },
     "viewImage": {
-        "message": "Se bilde",
+        "message": "Visualizza immagine",
         "description": "Button for viewing image."
     },
     "settingsToggle_NewTab_viewImage": {
-        "message": "Åpne bilder i ny fane:",
+        "message": "Apri immagini in una nuova scheda:",
         "description": "Settings toggle which causes images to open in new tab."
     },
     "resetButton": {
-        "message": "Tilbakestill",
+        "message": "Reset",
         "description": "Text displayed on reset button."
     },
     "optionsButton": {
-        "message": "Opsjoner",
+        "message": "Opzioni",
         "description": "Text displayed on the link to options button."
     },
     "donatePayPal": {
-        "message": " Doner med PayPal",
+        "message": " Dona tramite PayPal",
         "description": "Text used for the donation button."
     }
 }
