@@ -1,50 +1,50 @@
 {
-   "appDesc": {
-      "description": "The description of the application, as shown on the web store.",
-      "message": "Google ÀÌ¹ÌÁöÀÇ \"ÀÌ¹ÌÁö º¸±â\" ¿Í \"ÀÌ¹ÌÁö·Î °Ë»ö\" ¹öÆ°À» ´Ù½Ã Àû¿ëÇÕ´Ï´Ù."
-   },
-   "appName": {
-      "description": "Title of the application, as displayed on the web store.",
-      "message": "View Image"
-   },
-   "donatePayPal": {
-      "description": "Text used for the donation button.",
-      "message": " PayPal ÅëÇØ ±âºÎÇÏ±â"
-   },
-   "optionsButton": {
-      "description": "Text displayed on the link to options button.",
-      "message": "¿É¼Ç"
-   },
-   "resetButton": {
-      "description": "Text displayed on reset button.",
-      "message": "ÃÊ±âÈ­"
-   },
-   "searchImg": {
-      "description": "Button leads to Google's Search by Image page.",
-      "message": "ÀÌ¹ÌÁö·Î °Ë»ö"
-   },
-   "settingsToggle_NewTab_searchByImage": {
-      "description": "Settings toggle which causes the search by image page to open in new tab.",
-      "message": "»õ ÅÇ¿¡¼­ \"ÀÌ¹ÌÁö·Î °Ë»ö\" ¿­±â:"
-   },
-   "settingsToggle_NewTab_viewImage": {
-      "description": "Settings toggle which causes images to open in new tab.",
-      "message": "»õ ÅÇ¿¡¼­ \"ÀÌ¹ÌÁö º¸±â\" ¿­±â:"
-   },
-   "settingsToggle_buttonText": {
-      "description": "Settings toggle enables manually set text for buttons rather than locale.",
-      "message": "¼öµ¿À¸·Î ¹öÆ° ÅØ½ºÆ® ¼³Á¤:"
-   },
-   "settingsToggle_globeIcon": {
-      "description": "Settings toggle which causes the globe icon to display on the \"View Image\" button.",
-      "message": "\"ÀÌ¹ÌÁö º¸±â\" ¹öÆ°¿¡ Áö±¸º» ¾ÆÀÌÄÜ º¸ÀÌ±â:"
-   },
-   "settingsToggle_subjectCopyright": {
-      "description": "Settings toggle hides copyright message on image results page.",
-      "message": "\"ÀúÀÛ±ÇÀÌ Àû¿ëµÇ´Â ÀÌ¹ÌÁöÀÏ ¼ö ÀÖ½À´Ï´Ù\" °æ°í ¼û±â±â:"
-   },
-   "viewImage": {
-      "description": "Button for viewing image.",
-      "message": "ÀÌ¹ÌÁö º¸±â"
-   }
+    "appName": {
+        "message": "View Image",
+        "description": "Title of the application, as displayed on the web store."
+    },
+    "appDesc": {
+        "message": "Google ì´ë¯¸ì§€ì˜ \"ì´ë¯¸ì§€ ë³´ê¸°\" ì™€ \"ì´ë¯¸ì§€ë¡œ ê²€ìƒ‰\" ë²„íŠ¼ì„ ë‹¤ì‹œ ì ìš©í•©ë‹ˆë‹¤.",
+        "description": "The description of the application, as shown on the web store."
+    },
+    "searchImg": {
+        "message": "ì´ë¯¸ì§€ë¡œ ê²€ìƒ‰",
+        "description": "Button leads to Google's Search by Image page."
+    },
+    "viewImage": {
+        "message": "ì´ë¯¸ì§€ ê²€ìƒ‰",
+        "description": "Button for viewing image."
+    },
+    "settingsToggle_NewTab_viewImage": {
+        "message": "ìƒˆ íƒ­ì—ì„œ \"ì´ë¯¸ì§€ ë³´ê¸°\" ì—´ê¸°:",
+        "description": "Settings toggle which causes images to open in new tab."
+    },
+    "settingsToggle_NewTab_searchByImage": {
+        "message": "ìƒˆ íƒ­ì—ì„œ \"ì´ë¯¸ì§€ë¡œ ê²€ìƒ‰\" ì—´ê¸°:",
+        "description": "Settings toggle which causes the search by image page to open in new tab."
+    },
+    "settingsToggle_globeIcon": {
+        "message": "\"ì´ë¯¸ì§€ ë³´ê¸°\" ë²„íŠ¼ì— ì§€êµ¬ë³¸ ì•„ì´ì½˜ ë³´ì´ê¸°:",
+        "description": "Settings toggle which causes the globe icon to display on the \"View Image\" button."
+    },
+    "settingsToggle_subjectCopyright": {
+        "message": "\"ì €ì‘ê¶Œì´ ì ìš©ë˜ëŠ” ì´ë¯¸ì§€ì¼ ìˆ˜ ìˆìŠµë‹ˆë‹¤\" ê²½ê³  ìˆ¨ê¸°ê¸°:",
+        "description": "Settings toggle hides copyright message on image results page."
+    },
+    "settingsToggle_buttonText": {
+        "message": "ìˆ˜ë™ìœ¼ë¡œ ë²„íŠ¼ í…ìŠ¤íŠ¸ ì„¤ì •:",
+        "description": "Settings toggle enables manually set text for buttons rather than locale."
+    },
+    "resetButton": {
+        "message": "ì´ˆê¸°í™”",
+        "description": "Text displayed on reset button."
+    },
+    "optionsButton": {
+        "message": "ì˜µì…˜",
+        "description": "Text displayed on the link to options button."
+    },
+    "donatePayPal": {
+        "message": " PayPal í†µí•´ ê¸°ë¶€í•˜ê¸°",
+        "description": "Text used for the donation button."
+    }
 }
