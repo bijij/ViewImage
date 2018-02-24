@@ -1,0 +1,50 @@
+{
+   "appDesc": {
+      "description": "The description of the application, as shown on the web store.",
+      "message": "Google 이미지의 \"이미지 보기\" 와 \"이미지로 검색\" 버튼을 다시 적용합니다."
+   },
+   "appName": {
+      "description": "Title of the application, as displayed on the web store.",
+      "message": "View Image"
+   },
+   "donatePayPal": {
+      "description": "Text used for the donation button.",
+      "message": " PayPal 통해 기부하기"
+   },
+   "optionsButton": {
+      "description": "Text displayed on the link to options button.",
+      "message": "옵션"
+   },
+   "resetButton": {
+      "description": "Text displayed on reset button.",
+      "message": "초기화"
+   },
+   "searchImg": {
+      "description": "Button leads to Google's Search by Image page.",
+      "message": "이미지로 검색"
+   },
+   "settingsToggle_NewTab_searchByImage": {
+      "description": "Settings toggle which causes the search by image page to open in new tab.",
+      "message": "새 탭에서 \"이미지로 검색\" 열기:"
+   },
+   "settingsToggle_NewTab_viewImage": {
+      "description": "Settings toggle which causes images to open in new tab.",
+      "message": "새 탭에서 \"이미지 보기\" 열기:"
+   },
+   "settingsToggle_buttonText": {
+      "description": "Settings toggle enables manually set text for buttons rather than locale.",
+      "message": "수동으로 버튼 텍스트 설정:"
+   },
+   "settingsToggle_globeIcon": {
+      "description": "Settings toggle which causes the globe icon to display on the \"View Image\" button.",
+      "message": "\"이미지 보기\" 버튼에 지구본 아이콘 보이기:"
+   },
+   "settingsToggle_subjectCopyright": {
+      "description": "Settings toggle hides copyright message on image results page.",
+      "message": "\"저작권이 적용되는 이미지일 수 있습니다\" 경고 숨기기:"
+   },
+   "viewImage": {
+      "description": "Button for viewing image.",
+      "message": "이미지 보기"
+   }
+}
