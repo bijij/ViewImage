@@ -4,7 +4,7 @@
         "description": "Title of the application, displayed on the web store."
     },
     "appDesc": {
-        "message": "Réimplémente les boutons \"Afficher l'image\" et \"Recherche par image\".",
+        "message": "Réimplémente les boutons \"Voir l'image\" et \"Recherche par image\".",
         "description": "The description of the application, as shown on the web store."
     },
     "searchImg": {
@@ -12,11 +12,11 @@
         "description": "Button leads to google, search by image page."
     },
     "viewImage": {
-        "message": "Afficher l'image",
+        "message": "Voir l'image",
         "description": "Button for viewing image."
     },
     "settingsToggle_NewTab_viewImage": {
-        "message": "Ouvrir les images dans un nouveau onglet :",
+        "message": "Ouvrir les images dans un nouvel onglet:",
         "description": "Settings toggle which causes images to open in new tab."
     },
     "resetButton": {
@@ -28,7 +28,7 @@
         "description": "Text displayed on the link to options button."
     },
     "donatePayPal": {
-        "message": " Faire un don en utilisant PayPal",
+        "message": " Faire un don à travers PayPal",
         "description": "Text used for the donation button."
     }
 }
