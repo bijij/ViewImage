@@ -12,7 +12,7 @@
         "description": "Button leads to Google's Search by Image page."
     },
     "viewImage": {
-        "message": "이미지 검색",
+        "message": "이미지 보기",
         "description": "Button for viewing image."
     },
     "settingsToggle_NewTab_viewImage": {
