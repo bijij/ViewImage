@@ -4,25 +4,47 @@
         "description": "Title of the application, as displayed on the web store."
     },
     "appDesc": {
-        "message": "重新實現 Google 圖片的「檢視圖片」和「以圖搜尋」按鈕。",
+        "message": "重新實現 Google 圖片的「檢視圖片」和「以圖搜圖」按鈕。",
         "description": "The description of the application, as shown on the web store."
     },
     "searchImg": {
-        "message": "以圖搜尋",
+        "message": "以圖搜圖",
         "description": "Button leads to Google's Search by Image page."
     },
     "viewImage": {
         "message": "檢視圖片",
         "description": "Button for viewing image."
     },
-    "settingsToggle_newTab": {
-        "message": "在新分頁開啟圖片:",
+    "settingsToggle_NewTab_viewImage": {
+        "message": "在新分頁開啟「檢視圖片」:",
         "description": "Settings toggle which causes images to open in new tab."
+    },
+    "settingsToggle_NewTab_searchByImage": {
+        "message": "在新分頁開啟「以圖搜圖」:",
+        "description": "Settings toggle which causes the search by image page to open in new tab."
+    },
+    "settingsToggle_globeIcon": {
+        "message": "在「檢視圖片」按鈕上顯示地球圖示:",
+        "description": "Settings toggle which causes the globe icon to display on the \"View Image\" button."
+    },
+    "settingsToggle_subjectCopyright": {
+        "message": "隱藏「圖片可能受版權保護」警告:",
+        "description": "Settings toggle hides copyright message on image results page."
+    },
+    "settingsToggle_buttonText": {
+        "message": "自訂文字按鈕:",
+        "description": "Settings toggle enables manually set text for buttons rather than locale."
     },
     "resetButton": {
         "message": "重設",
         "description": "Text displayed on reset button."
+    },
+    "optionsButton": {
+        "message": "選項",
+        "description": "Text displayed on the link to options button."
+    },
+    "donatePayPal": {
+        "message": "透過 PayPal 捐贈",
+        "description": "Text used for the donation button."
     }
 }
-
-

@@ -4,31 +4,31 @@
         "description": "Title of the application, displayed on the web store."
     },
     "appDesc": {
-        "message": "Re-implementerer Google Bilder, \"Se Bilde\" og \"Søk med Bilde\" knappene.",
+        "message": "Réimplémente les boutons \"Voir l'image\" et \"Recherche par image\".",
         "description": "The description of the application, as shown on the web store."
     },
     "searchImg": {
-        "message": "Søk med bilde",
+        "message": "Recherche par image",
         "description": "Button leads to google, search by image page."
     },
     "viewImage": {
-        "message": "Se bilde",
+        "message": "Voir l'image",
         "description": "Button for viewing image."
     },
     "settingsToggle_NewTab_viewImage": {
-        "message": "Åpne bilder i ny fane:",
+        "message": "Ouvrir les images dans un nouvel onglet:",
         "description": "Settings toggle which causes images to open in new tab."
     },
     "resetButton": {
-        "message": "Tilbakestill",
+        "message": "Réinitialiser",
         "description": "Text displayed on reset button."
     },
     "optionsButton": {
-        "message": "Opsjoner",
+        "message": "Options",
         "description": "Text displayed on the link to options button."
     },
     "donatePayPal": {
-        "message": " Doner med PayPal",
+        "message": " Faire un don à travers PayPal",
         "description": "Text used for the donation button."
     }
 }

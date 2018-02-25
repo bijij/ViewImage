@@ -15,12 +15,36 @@
         "message": "View image",
         "description": "Button for viewing image."
     },
-    "settingsToggle_newTab": {
-        "message": "Open images in a new tab:",
+    "settingsToggle_NewTab_viewImage": {
+        "message": "Open \"View image\" in a new tab:",
         "description": "Settings toggle which causes images to open in new tab."
+    },
+    "settingsToggle_NewTab_searchByImage": {
+        "message": "Open \"Search by image\" in a new tab:",
+        "description": "Settings toggle which causes the search by image page to open in new tab."
+    },
+    "settingsToggle_globeIcon": {
+        "message": "Show Globe icon in \"View Image\" button:",
+        "description": "Settings toggle which causes the globe icon to display on the \"View Image\" button."
+    },
+    "settingsToggle_subjectCopyright": {
+        "message": "Hide \"Images may be subject to Copyright\" warning:",
+        "description": "Settings toggle hides copyright message on image results page."
+    },
+    "settingsToggle_buttonText": {
+        "message": "Manually set button text:",
+        "description": "Settings toggle enables manually set text for buttons rather than locale."
     },
     "resetButton": {
         "message": "Reset",
         "description": "Text displayed on reset button."
+    },
+    "optionsButton": {
+        "message": "Options",
+        "description": "Text displayed on the link to options button."
+    },
+    "donatePayPal": {
+        "message": " Donate via PayPal",
+        "description": "Text used for the donation button."
     }
 }

@@ -15,12 +15,20 @@
         "message": "Ver imagen",
         "description": "Botón para ver la imagen."
     },
-    "settingsToggle_newTab": {
+    "settingsToggle_NewTab_viewImage": {
         "message": "Abrir imágenes en una nueva pestaña:",
         "description": "Opción de configuración que hace que las imágenes se abran en una nueva pestaña."
     },
     "resetButton": {
         "message": "Reiniciar",
         "description": "Texto mostrado en el botón de reinicio."
+    },
+    "optionsButton": {
+        "message": "Configuración",
+        "description": "Text displayed on the link to options button."
+    },
+    "donatePayPal": {
+        "message": " Donar usando PayPal",
+        "description": "Text used for the donation button."
     }
 }

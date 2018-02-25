@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "__MSG_appName__",
-    "version": "1.5.5",
+    "version": "1.7.2.2",
     "description": "__MSG_appDesc__",
     "default_locale": "en",
     "icons": {
@@ -12,6 +12,10 @@
         "16": "icon/16.png"
     },
     "author": "Joshua Butt",
+    "browser_action": {
+        "default_icon": "icon/48.png",
+        "default_popup": "html/popup.html"
+    },
     "applications": {
         "gecko": {
             "id": "{287dcf75-bec6-4eec-b4f6-71948a2eea29}"

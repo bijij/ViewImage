@@ -1,0 +1,34 @@
+{
+    "appName": {
+        "message": "View Image",
+        "description": "Tytuł aplikacji, pokazywany w sklepie rozszerzeń."
+    },
+    "appDesc": {
+        "message": "Powrót przycisków \"Pokaż obraz\" i \"Wyszukiwanie obrazem\" w Google Grafika.",
+        "description": "Opis aplikacji, pokazywany w sklepie rozszerzeń."
+    },
+    "searchImg": {
+        "message": "Wyszukiwanie obrazem",
+        "description": "Przycisk prowadzący do strony Wyszukiwania obrazem w Google."
+    },
+    "viewImage": {
+        "message": "Pokaż obraz",
+        "description": "Przycisk otwierania obrazu."
+    },
+    "settingsToggle_NewTab_viewImage": {
+        "message": "Otwórz obraz w nowej karcie:",
+        "description": "Przełącznik ustawień powodujący otwieranie obrazów w nowej karcie."
+    },
+    "resetButton": {
+        "message": "Reset",
+        "description": "Tekst wyświetlany na przycisku reset."
+    },
+    "optionsButton": {
+        "message": "Opcje",
+        "description": "Text displayed on the link to options button."
+    },
+    "donatePayPal": {
+        "message": " Przekaż darowiznę w systemie PayPal",
+        "description": "Text used for the donation button."
+    }
+}

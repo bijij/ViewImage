@@ -1,50 +1,50 @@
 {
     "appName": {
-        "message": "View Image - Kép megtekintése",
+        "message": "View Image",
         "description": "Title of the application, as displayed on the web store."
     },
     "appDesc": {
-        "message": "Újra elérhetővé válik a \"Kép megtekintése\" és a \"Keresés kép alapján\" gomb a Google képkeresőjében.",
+        "message": "Возвращает в Google картинки кнопки' \"Открыть в полном размере\" и \"Поиск по картинке\".",
         "description": "The description of the application, as shown on the web store."
     },
     "searchImg": {
-        "message": "Keresés kép alapján",
+        "message": "Поиск по картинке",
         "description": "Button leads to Google's Search by Image page."
     },
     "viewImage": {
-        "message": "Kép megtekintése",
+        "message": "Открыть в полном размере",
         "description": "Button for viewing image."
     },
     "settingsToggle_NewTab_viewImage": {
-        "message": "A \"Kép megtekintése\" gombra kattintva új lapon nyíljon meg:",
+        "message": "Открывать \"Открыть в полном размере\" в новой вкладке:",
         "description": "Settings toggle which causes images to open in new tab."
     },
     "settingsToggle_NewTab_searchByImage": {
-        "message": "A \"Keresés kép alapján\" hivatkozásra kattintva új lapon nyíljon meg:",
+        "message": "Открывать \"Поиск по картинке\" в новой вкладке:",
         "description": "Settings toggle which causes the search by image page to open in new tab."
     },
     "settingsToggle_globeIcon": {
-        "message": "Jelenjen meg a földgömb ikon a \"Kép megtekintése\" gombon:",
+        "message": "Показывать иконку глобуса на кнопке \"Открыть в полном размере\":",
         "description": "Settings toggle which causes the globe icon to display on the \"View Image\" button."
     },
     "settingsToggle_subjectCopyright": {
-        "message": "\"A képeket szerzői jog védheti\" figyelmeztetés elrejtése:",
+        "message": "Скрыть предупреждение \"Изображения могут быть защищены авторским правом\":",
         "description": "Settings toggle hides copyright message on image results page."
     },
     "settingsToggle_buttonText": {
-        "message": "Egyéni gomb felirat beállítása:",
+        "message": "Вручную назначить названия кнопок:",
         "description": "Settings toggle enables manually set text for buttons rather than locale."
     },
     "resetButton": {
-        "message": "Visszaállítás",
+        "message": "Восстановить по умолчанию",
         "description": "Text displayed on reset button."
     },
     "optionsButton": {
-        "message": "Beállítások",
+        "message": "Настройки",
         "description": "Text displayed on the link to options button."
     },
     "donatePayPal": {
-        "message": " Adományozás PayPal-al",
+        "message": " Пожертвовать через PayPal",
         "description": "Text used for the donation button."
     }
 }

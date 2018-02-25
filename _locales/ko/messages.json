@@ -1,50 +1,50 @@
 {
     "appName": {
-        "message": "View Image - Kép megtekintése",
+        "message": "View Image",
         "description": "Title of the application, as displayed on the web store."
     },
     "appDesc": {
-        "message": "Újra elérhetővé válik a \"Kép megtekintése\" és a \"Keresés kép alapján\" gomb a Google képkeresőjében.",
+        "message": "Google 이미지의 \"이미지 보기\" 와 \"이미지로 검색\" 버튼을 다시 적용합니다.",
         "description": "The description of the application, as shown on the web store."
     },
     "searchImg": {
-        "message": "Keresés kép alapján",
+        "message": "이미지로 검색",
         "description": "Button leads to Google's Search by Image page."
     },
     "viewImage": {
-        "message": "Kép megtekintése",
+        "message": "이미지 보기",
         "description": "Button for viewing image."
     },
     "settingsToggle_NewTab_viewImage": {
-        "message": "A \"Kép megtekintése\" gombra kattintva új lapon nyíljon meg:",
+        "message": "새 탭에서 \"이미지 보기\" 열기:",
         "description": "Settings toggle which causes images to open in new tab."
     },
     "settingsToggle_NewTab_searchByImage": {
-        "message": "A \"Keresés kép alapján\" hivatkozásra kattintva új lapon nyíljon meg:",
+        "message": "새 탭에서 \"이미지로 검색\" 열기:",
         "description": "Settings toggle which causes the search by image page to open in new tab."
     },
     "settingsToggle_globeIcon": {
-        "message": "Jelenjen meg a földgömb ikon a \"Kép megtekintése\" gombon:",
+        "message": "\"이미지 보기\" 버튼에 지구본 아이콘 보이기:",
         "description": "Settings toggle which causes the globe icon to display on the \"View Image\" button."
     },
     "settingsToggle_subjectCopyright": {
-        "message": "\"A képeket szerzői jog védheti\" figyelmeztetés elrejtése:",
+        "message": "\"저작권이 적용되는 이미지일 수 있습니다\" 경고 숨기기:",
         "description": "Settings toggle hides copyright message on image results page."
     },
     "settingsToggle_buttonText": {
-        "message": "Egyéni gomb felirat beállítása:",
+        "message": "수동으로 버튼 텍스트 설정:",
         "description": "Settings toggle enables manually set text for buttons rather than locale."
     },
     "resetButton": {
-        "message": "Visszaállítás",
+        "message": "초기화",
         "description": "Text displayed on reset button."
     },
     "optionsButton": {
-        "message": "Beállítások",
+        "message": "옵션",
         "description": "Text displayed on the link to options button."
     },
     "donatePayPal": {
-        "message": " Adományozás PayPal-al",
+        "message": " PayPal 통해 기부하기",
         "description": "Text used for the donation button."
     }
 }

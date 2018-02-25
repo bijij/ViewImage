@@ -1,50 +1,50 @@
 {
     "appName": {
-        "message": "View Image - Kép megtekintése",
+        "message": "View Image",
         "description": "Title of the application, as displayed on the web store."
     },
     "appDesc": {
-        "message": "Újra elérhetővé válik a \"Kép megtekintése\" és a \"Keresés kép alapján\" gomb a Google képkeresőjében.",
+        "message": "重新实现 Google 图片的“查看图片”和“以图搜图”按钮。",
         "description": "The description of the application, as shown on the web store."
     },
     "searchImg": {
-        "message": "Keresés kép alapján",
+        "message": "以图搜图",
         "description": "Button leads to Google's Search by Image page."
     },
     "viewImage": {
-        "message": "Kép megtekintése",
+        "message": "查看图片",
         "description": "Button for viewing image."
     },
-    "settingsToggle_NewTab_viewImage": {
-        "message": "A \"Kép megtekintése\" gombra kattintva új lapon nyíljon meg:",
+        "settingsToggle_NewTab_viewImage": {
+        "message": "在新标签页打开“查看图片”:",
         "description": "Settings toggle which causes images to open in new tab."
     },
     "settingsToggle_NewTab_searchByImage": {
-        "message": "A \"Keresés kép alapján\" hivatkozásra kattintva új lapon nyíljon meg:",
+        "message": "在新标签页打开“以图搜图”:",
         "description": "Settings toggle which causes the search by image page to open in new tab."
     },
     "settingsToggle_globeIcon": {
-        "message": "Jelenjen meg a földgömb ikon a \"Kép megtekintése\" gombon:",
+        "message": "在“查看图片”按钮上显示地球图标:",
         "description": "Settings toggle which causes the globe icon to display on the \"View Image\" button."
     },
     "settingsToggle_subjectCopyright": {
-        "message": "\"A képeket szerzői jog védheti\" figyelmeztetés elrejtése:",
+        "message": "隐藏“图片可能受版权保护”警告:",
         "description": "Settings toggle hides copyright message on image results page."
     },
     "settingsToggle_buttonText": {
-        "message": "Egyéni gomb felirat beállítása:",
+        "message": "自定义按钮文字:",
         "description": "Settings toggle enables manually set text for buttons rather than locale."
     },
     "resetButton": {
-        "message": "Visszaállítás",
+        "message": "重置",
         "description": "Text displayed on reset button."
     },
     "optionsButton": {
-        "message": "Beállítások",
+        "message": "选项",
         "description": "Text displayed on the link to options button."
     },
     "donatePayPal": {
-        "message": " Adományozás PayPal-al",
+        "message": "通过 PayPal 捐赠",
         "description": "Text used for the donation button."
     }
 }

@@ -4,7 +4,7 @@
         "description": "Nome da extensão, mostrada na web store."
     },
     "appDesc": {
-        "message": "Re-implementa no Google Imagens o botão \"Ver Imagem\" e o link \"Pesquisar por imagem\".",
+        "message": "Reimplementa no Google Imagens o botão \"Ver Imagem\" e o link \"Pesquisar por imagem\".",
         "description": "A descrição da extensão, como mostrada na web store."
     },
     "searchImg": {
@@ -15,12 +15,36 @@
         "message": "Ver imagem",
         "description": "Botão para visualizar a imagem."
     },
-    "settingsToggle_newTab": {
+    "settingsToggle_NewTab_viewImage": {
         "message": "Abrir as imagens em uma nova guia:",
         "description": "Alterar a opção significa que as imagens serão abertas em uma nova guia."
+   },
+    "settingsToggle_NewTab_searchByImage": {
+        "message": "Abrir \"Pesquisar por imagem\" em uma nova aba:",
+        "description": "Alterar a opção faz com que a página 'pesquisar por imagem' seja aberta em uma nova aba."
+    },
+    "settingsToggle_globeIcon": {
+        "message": "Exibir ícone do Globo no botão \"Ver Imagem\":",
+        "description": "Alterar a opção irá fazer com que o ícone do globo seja exibido no botão \"Ver Imagem\"."
+    },
+    "settingsToggle_subjectCopyright": {
+        "message": "Ocultar mensagem \"As imagens podem estar sujeitas a direitos autorais\":",
+        "description": "Alterar a opção irá ocultar a mensagem de direitos autorais na página de resultados de imagens."
+    },
+    "settingsToggle_buttonText": {
+        "message": "Definir texto do botão manualmente:",
+        "description": "Alterar a opção permite definir manualmente o texto dos botões em vez do da tradução."
     },
     "resetButton": {
-        "message": "Reset",
-        "description": "Texto do botão reset."
+        "message": "Redefinir",
+        "description": "Texto do botão Reset."
+    },
+    "optionsButton": {
+        "message": "Opções",
+        "description": "Texto exibido no link para o botão de opções."
+    },
+    "donatePayPal": {
+        "message": " Doe com PayPal",
+        "description": "Texto usado no botão de doação."
     }
 }
