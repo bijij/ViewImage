@@ -1,10 +1,10 @@
 {
     "appName": {
-        "message": "Kép megtekintése",
+        "message": "View Image - Kép megtekintése",
         "description": "Title of the application, as displayed on the web store."
     },
     "appDesc": {
-        "message": "Újra elérhetővé teszi a \"Kép megtekintése\" és a \"Keresés kép alapján\" gombokat a Google képkeresőjében.",
+        "message": "Újra elérhetővé válik a \"Kép megtekintése\" és a \"Keresés kép alapján\" gomb a Google képkeresőjében.",
         "description": "The description of the application, as shown on the web store."
     },
     "searchImg": {
@@ -16,19 +16,35 @@
         "description": "Button for viewing image."
     },
     "settingsToggle_NewTab_viewImage": {
-        "message": "Képek megnyitása új lapon:",
+        "message": "A \"Kép megtekintése\" gombra kattintva új lapon nyíljon meg:",
         "description": "Settings toggle which causes images to open in new tab."
+    },
+    "settingsToggle_NewTab_searchByImage": {
+        "message": "A \"Keresés kép alapján\" hivatkozásra kattintva új lapon nyíljon meg:",
+        "description": "Settings toggle which causes the search by image page to open in new tab."
+    },
+    "settingsToggle_globeIcon": {
+        "message": "Jelenjen meg a földgömb ikon a \"Kép megtekintése\" gombon:",
+        "description": "Settings toggle which causes the globe icon to display on the \"View Image\" button."
+    },
+    "settingsToggle_subjectCopyright": {
+        "message": "\"A képeket szerzői jog védheti\" figyelmeztetés elrejtése:",
+        "description": "Settings toggle hides copyright message on image results page."
+    },
+    "settingsToggle_buttonText": {
+        "message": "Egyéni gomb felirat beállítása:",
+        "description": "Settings toggle enables manually set text for buttons rather than locale."
     },
     "resetButton": {
         "message": "Visszaállítás",
         "description": "Text displayed on reset button."
     },
     "optionsButton": {
-        "message": "Lehetőségek",
+        "message": "Beállítások",
         "description": "Text displayed on the link to options button."
     },
     "donatePayPal": {
-        "message": " Adományozzon PayPal-nel",
+        "message": " Adományozás PayPal-al",
         "description": "Text used for the donation button."
     }
 }
