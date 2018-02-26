@@ -28,7 +28,7 @@
         "description": "Text displayed on the link to options button."
     },
     "donatePayPal": {
-        "message": " Darujte prostřednictvím služby PayPal",
+        "message": " Přispějte prostřednictvím služby PayPal",
         "description": "Text used for the donation button."
     }
 }
