@@ -24,7 +24,7 @@
         "description": "Sıfırlama düğmesidir."
     },
     "optionsButton": {
-        "message": "seçenekleri",
+        "message": "Seçenekler",
         "description": "Text displayed on the link to options button."
     },
     "donatePayPal": {
