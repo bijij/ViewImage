@@ -78,7 +78,7 @@ chrome.storage.sync.get('defaultOptions', function (storage) {
 });
 
 // On change, save
-document.addEventListener('input', event => {
+document.addEventListener('change', event => {
     switch (event.target.type) {
     case ('checkbox'): {
         options[event.target.id] = event.target.checked;
