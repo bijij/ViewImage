@@ -38,12 +38,29 @@ function addLinks(node) {
     // Override url for images using base64 embeds
     if (image === null || image.src === '' || image.src.startsWith('data')) {
         var thumbnail = document.querySelector('img[name="' + object.dataset.itemId + '"]');
-        var meta = thumbnail.closest('.rg_bx').querySelector('.rg_meta');
+        if (thumbnail === null) {
+            // If no thumbnail found, try getting image from URL
+            var query = window.location.search.substring(1);
+            var vars = query.split('&');
+            for (var i = 0; i < vars.length; i++) {
+                var pair = vars[i].split('=');
+                if (decodeURIComponent(pair[0]) == 'imgurl') {
+                    image = new Object();
+                    image.src = decodeURIComponent(pair[1]);
+                }
+            }
+        } else {
+            var meta = thumbnail.closest('.rg_bx').querySelector('.rg_meta');
 
-        var metadata = JSON.parse(meta.innerHTML);
+            var metadata = JSON.parse(meta.innerHTML);
 
-        image = new Object();
-        image.src = metadata.ou;
+            image = new Object();
+            image.src = metadata.ou;
+        }
+
+        // Supress error in console
+        if (image === null)
+            return;
     }
 
     // Create more sizes button
