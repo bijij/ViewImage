@@ -14,7 +14,7 @@ function localiseObject(obj, tag) {
 
 
 function addLinks(node) {
-    var object = node.closest('.irc_c[style*="visibility: visible;"]');
+    var object = node.closest('.irc_c[style*="visibility: visible;"], .irc_c[style*="transform: translate3d(0px, 0px, 0px);"]');
 
     // Stop if object not found
     if (object === null) {
@@ -40,14 +40,11 @@ function addLinks(node) {
         var thumbnail = document.querySelector('img[name="' + object.dataset.itemId + '"]');
         if (thumbnail === null) {
             // If no thumbnail found, try getting image from URL
-            var query = window.location.search.substring(1);
-            var vars = query.split('&');
-            for (var k = 0; k < vars.length; k++) {
-                var pair = vars[k].split('=');
-                if (decodeURIComponent(pair[0]) == 'imgurl') {
-                    image = new Object();
-                    image.src = decodeURIComponent(pair[1]);
-                }
+            var url = new URL(window.location);
+            var imgLink = url.searchParams.get("imgurl");
+            if (imgLink) {
+                image = new Object();
+                image.src = imgLink;
             }
         } else {
             var meta = thumbnail.closest('.rg_bx').querySelector('.rg_meta');
