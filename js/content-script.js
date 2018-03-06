@@ -42,8 +42,8 @@ function addLinks(node) {
             // If no thumbnail found, try getting image from URL
             var query = window.location.search.substring(1);
             var vars = query.split('&');
-            for (var i = 0; i < vars.length; i++) {
-                var pair = vars[i].split('=');
+            for (var k = 0; k < vars.length; k++) {
+                var pair = vars[k].split('=');
                 if (decodeURIComponent(pair[0]) == 'imgurl') {
                     image = new Object();
                     image.src = decodeURIComponent(pair[1]);
