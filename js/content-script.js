@@ -41,7 +41,7 @@ function addLinks(node) {
         if (thumbnail === null) {
             // If no thumbnail found, try getting image from URL
             var url = new URL(window.location);
-            var imgLink = url.searchParams.get("imgurl");
+            var imgLink = url.searchParams.get('imgurl');
             if (imgLink) {
                 image = new Object();
                 image.src = imgLink;
