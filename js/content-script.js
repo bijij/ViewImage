@@ -14,7 +14,7 @@ function localiseObject(obj, tag) {
 
 
 function addLinks(node) {
-    var object = node.closest('.irc_c[style*="visibility: visible;"]');
+    var object = node.closest('.irc_c[style*="visibility: visible;"], .irc_c[style*="transform: translate3d(0px, 0px, 0px);"]');
 
     // Stop if object not found
     if (object === null) {
@@ -38,12 +38,26 @@ function addLinks(node) {
     // Override url for images using base64 embeds
     if (image === null || image.src === '' || image.src.startsWith('data')) {
         var thumbnail = document.querySelector('img[name="' + object.dataset.itemId + '"]');
-        var meta = thumbnail.closest('.rg_bx').querySelector('.rg_meta');
+        if (thumbnail === null) {
+            // If no thumbnail found, try getting image from URL
+            var url = new URL(window.location);
+            var imgLink = url.searchParams.get('imgurl');
+            if (imgLink) {
+                image = new Object();
+                image.src = imgLink;
+            }
+        } else {
+            var meta = thumbnail.closest('.rg_bx').querySelector('.rg_meta');
 
-        var metadata = JSON.parse(meta.innerHTML);
+            var metadata = JSON.parse(meta.innerHTML);
 
-        image = new Object();
-        image.src = metadata.ou;
+            image = new Object();
+            image.src = metadata.ou;
+        }
+
+        // Supress error in console
+        if (image === null)
+            return;
     }
 
     // Create more sizes button
