@@ -112,10 +112,10 @@ function addLinks(node) {
     // Add globe to View image button if toggle enabled
     var viewImageLink = document.createElement('a');
     if (options['show-globe-icon']) {
-        var globeIcon = document.querySelector('._RKw._wtf._Ptf').cloneNode(true);
+        var globeIcon = document.querySelector('._RKw._wtf._Ptf');
         if (!globeIcon)
-            globeIcon = document.querySelector('.RL3J9c.Cws1Yc.wmCrUb').cloneNode(true);
-        viewImageLink.appendChild(globeIcon);
+            globeIcon = document.querySelector('.RL3J9c.Cws1Yc.wmCrUb');
+        viewImageLink.appendChild(globeIcon.cloneNode(true));
 
     }
 
@@ -126,16 +126,17 @@ function addLinks(node) {
     }
 
     // add text to view image button
-    var viewImageText = document.querySelector('._WKw').cloneNode(true);
+    var viewImageText = document.querySelector('._WKw');
     if (!viewImageText)
-        viewImageText = document.querySelector('.Tl8XHc').cloneNode(true);
+        viewImageText = document.querySelector('.Tl8XHc');
+    var viewImageTextClone = viewImageText.cloneNode(true);
     
     if (options['manually-set-button-text']) {
-        viewImageText.innerText = options['button-text-view-image'];
+        viewImageTextClone.innerText = options['button-text-view-image'];
     } else {
-        localiseObject(viewImageText, '__MSG_viewImage__');
+        localiseObject(viewImageTextClone, '__MSG_viewImage__');
     }
-    viewImageLink.appendChild(viewImageText);
+    viewImageLink.appendChild(viewImageTextClone);
 
     // Add View image button URL
     viewImageLink.setAttribute('href', image.src);
