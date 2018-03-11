@@ -14,7 +14,12 @@ function localiseObject(obj, tag) {
 
 
 function addLinks(node) {
+
     var object = node.closest('.irc_c[style*="visibility: visible;"], .irc_c[style*="transform: translate3d(0px, 0px, 0px);"]');
+
+    if (!object)
+        object = node.closest('.irc_c[style*="transform: translate3d(0px, 0px, 0px);"]');
+    
 
     // Stop if object not found
     if (object === null) {
@@ -30,7 +35,13 @@ function addLinks(node) {
 
     // Retrive image links, and image url
     var imageLinks = object.querySelector('._FKw.irc_but_r > tbody > tr');
+    if (!imageLinks)
+        imageLinks = object.querySelector('.irc_but_r > tbody > tr');
+    
     var imageText = object.querySelector('._cjj > .irc_it > .irc_hd > ._r3');
+    if (!imageText)
+        imageText = object.querySelector('.Qc8zh > .irc_it > .irc_hd > .rn92ee');
+    
 
     // Retrive the image;
     var image = object.querySelector('img[alt^="Image result"][src]:not([src^="https://encrypted-tbn"]).irc_mut, img[src].irc_mi');
@@ -102,6 +113,8 @@ function addLinks(node) {
     var viewImageLink = document.createElement('a');
     if (options['show-globe-icon']) {
         var globeIcon = document.querySelector('._RKw._wtf._Ptf').cloneNode(true);
+        if (!globeIcon)
+            globeIcon = document.querySelector('.RL3J9c.Cws1Yc.wmCrUb').cloneNode(true);
         viewImageLink.appendChild(globeIcon);
 
     }
@@ -114,6 +127,9 @@ function addLinks(node) {
 
     // add text to view image button
     var viewImageText = document.querySelector('._WKw').cloneNode(true);
+    if (!viewImageText)
+        viewImageText = document.querySelector('.Tl8XHc').cloneNode(true);
+    
     if (options['manually-set-button-text']) {
         viewImageText.innerText = options['button-text-view-image'];
     } else {
