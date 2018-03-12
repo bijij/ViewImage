@@ -14,7 +14,12 @@ function localiseObject(obj, tag) {
 
 
 function addLinks(node) {
+
     var object = node.closest('.irc_c[style*="visibility: visible;"], .irc_c[style*="transform: translate3d(0px, 0px, 0px);"]');
+
+    if (!object)
+        object = node.closest('.irc_c[style*="transform: translate3d(0px, 0px, 0px);"]');
+    
 
     // Stop if object not found
     if (object === null) {
@@ -30,7 +35,13 @@ function addLinks(node) {
 
     // Retrive image links, and image url
     var imageLinks = object.querySelector('._FKw.irc_but_r > tbody > tr');
+    if (!imageLinks)
+        imageLinks = object.querySelector('.irc_but_r > tbody > tr');
+    
     var imageText = object.querySelector('._cjj > .irc_it > .irc_hd > ._r3');
+    if (!imageText)
+        imageText = object.querySelector('.Qc8zh > .irc_it > .irc_hd > .rn92ee');
+    
 
     // Retrive the image;
     var image = object.querySelector('img[alt^="Image result"][src]:not([src^="https://encrypted-tbn"]).irc_mut, img[src].irc_mi');
@@ -101,8 +112,10 @@ function addLinks(node) {
     // Add globe to View image button if toggle enabled
     var viewImageLink = document.createElement('a');
     if (options['show-globe-icon']) {
-        var globeIcon = document.querySelector('._RKw._wtf._Ptf').cloneNode(true);
-        viewImageLink.appendChild(globeIcon);
+        var globeIcon = document.querySelector('._RKw._wtf._Ptf');
+        if (!globeIcon)
+            globeIcon = document.querySelector('.RL3J9c.Cws1Yc.wmCrUb');
+        viewImageLink.appendChild(globeIcon.cloneNode(true));
 
     }
 
@@ -113,13 +126,17 @@ function addLinks(node) {
     }
 
     // add text to view image button
-    var viewImageText = document.querySelector('._WKw').cloneNode(true);
+    var viewImageText = document.querySelector('._WKw');
+    if (!viewImageText)
+        viewImageText = document.querySelector('.Tl8XHc');
+    var viewImageTextClone = viewImageText.cloneNode(true);
+    
     if (options['manually-set-button-text']) {
-        viewImageText.innerText = options['button-text-view-image'];
+        viewImageTextClone.innerText = options['button-text-view-image'];
     } else {
-        localiseObject(viewImageText, '__MSG_viewImage__');
+        localiseObject(viewImageTextClone, '__MSG_viewImage__');
     }
-    viewImageLink.appendChild(viewImageText);
+    viewImageLink.appendChild(viewImageTextClone);
 
     // Add View image button URL
     viewImageLink.setAttribute('href', image.src);
