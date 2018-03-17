@@ -19,6 +19,22 @@
         "message": "Apri immagini in una nuova scheda:",
         "description": "Settings toggle which causes images to open in new tab."
     },
+    "settingsToggle_NewTab_searchByImage": {
+        "message": "Apri \"Ricerca tramite immagine\" in una nuova scheda:",
+        "description": "Settings toggle which causes the search by image page to open in new tab."
+    },
+    "settingsToggle_globeIcon": {
+        "message": "Visualizza icona del globo nel pusante \"Visualizza immagine\":",
+        "description": "Settings toggle which causes the globe icon to display on the \"View Image\" button."
+    },
+    "settingsToggle_subjectCopyright": {
+        "message": "Nascondi il messaggio \"Le immagini possono essere soggette a copyright\":",
+        "description": "Settings toggle hides copyright message on image results page."
+    },
+    "settingsToggle_buttonText": {
+        "message": "Configura manualmente testo del pulsante:",
+        "description": "Settings toggle enables manually set text for buttons rather than locale."
+    },
     "resetButton": {
         "message": "Reset",
         "description": "Text displayed on reset button."
