@@ -2,9 +2,9 @@ body {
     color: #212121;
     font-family: Roboto, Arial, sans-serif;
     font-size: 16px;
-	
+
 	background-color: #fafafa;
-	width: 320px;
+	width: 600px;
 }
 
 a {
@@ -93,11 +93,11 @@ button:active {
 }
 
 .textbox {
-	margin: 0 1em 0 2em;
+	margin: 5px 0px 0 20px;
 }
 
 input[type="text"] {
-	width: 100%;
+	float:right;
 	border: none;
 	outline: none;
 	padding: 4px;
