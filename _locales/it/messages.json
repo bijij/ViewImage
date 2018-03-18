@@ -24,7 +24,7 @@
         "description": "Settings toggle which causes the search by image page to open in new tab."
     },
     "settingsToggle_globeIcon": {
-        "message": "Visualizza icona del globo nel pusante \"Visualizza immagine\":",
+        "message": "Visualizza icona del globo nel pulsante \"Visualizza immagine\":",
         "description": "Settings toggle which causes the globe icon to display on the \"View Image\" button."
     },
     "settingsToggle_subjectCopyright": {
@@ -32,7 +32,7 @@
         "description": "Settings toggle hides copyright message on image results page."
     },
     "settingsToggle_buttonText": {
-        "message": "Configura manualmente testo del pulsante:",
+        "message": "Configura manualmente il testo del pulsante:",
         "description": "Settings toggle enables manually set text for buttons rather than locale."
     },
     "resetButton": {
