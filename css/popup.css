@@ -52,7 +52,10 @@ button {
 
 #about {
     padding: 16px;
-    
+}
+
+button>img {
+  vertical-align: middle;
 }
 
 button:active {
