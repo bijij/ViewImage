@@ -190,6 +190,6 @@ chrome.storage.sync.get(['options', 'defaultOptions'], function (storage) {
 
 // inject CSS into document
 var customStyle = document.createElement('style');
-customStyle.innerText = '._r3:hover:before{display:inline-block;pointer-events:none}';
+customStyle.innerText = '._r3:hover:before{display:inline-block;pointer-events:none} ._r3{margin: 0 4pt!important}';
 document.head.appendChild(customStyle);
 
