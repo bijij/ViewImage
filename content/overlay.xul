@@ -1,4 +1,13 @@
 <?xml version="1.0"?>
 <overlay id="viewimageOverlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
     <script src="overlay.js"/>
+
+    <toolbarpalette id="BrowserToolbarPalette">
+        <toolbarbutton id="viewimageButton"
+            style="list-style-image: url('icon.png');"
+            label="Image View"
+            class="toolbarbutton-1 chromeclass-toolbar-additional"
+            oncommand="viewImageExtension.buttonClick(event);"
+        />
+    </toolbarpalette>
 </overlay>

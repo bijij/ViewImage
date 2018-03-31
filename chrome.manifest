@@ -1,2 +1,3 @@
-content viewimage content/
+content viewimage               content/
+locale  viewimage       en-US   locale/en-US/
 overlay chrome://browser/content/browser.xul chrome://viewimage/content/overlay.xul

@@ -1,3 +1,6 @@
+"use strict";
+
+Cu.import("resource://gre/modules/Services.jsm");
 
 // define adlinks
 function addLinks(node) {
@@ -133,6 +136,35 @@ var viewImageExtension = {
             doc.head.appendChild(customStyle);
 
         }
+    },
+    buttonClick: function (event) {
+        var prefsURL = "chrome://viewimage/content/prefs.xul";
+        var windows = Services.wm.getEnumerator(null);
+
+        //If the prefs window is already open, focus it
+        while (windows.hasMoreElements())
+        {
+            var win = windows.getNext();
+            if (win.document.documentURI == prefsURL)
+            {
+                win.focus();
+                return;
+            }
+        }
+
+        //Open the prefs window
+        var features;
+        try {
+            var instantApply = Services.prefs.getBoolPref("browser.preferences.instantApply");
+            if (instantApply)
+                features = "chrome,titlebar,toolbar,centerscreen,dialog=no,modal";
+            else
+                features = "chrome,titlebar,toolbar,centerscreen,modal";
+        } catch (e) {
+            features = "chrome,titlebar,toolbar,centerscreen,modal";
+        }
+        var d = window.openDialog(prefsURL, "", features);
+        d.focus();
     }
 }
 window.addEventListener("load", function load(event) {
