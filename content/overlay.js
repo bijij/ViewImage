@@ -2,10 +2,15 @@
 
 Cu.import("resource://gre/modules/Services.jsm");
 
-// define adlinks
 function addLinks(node) {
     var doc = node.ownerDocument;
-    var object = node.closest('.irc_c[style*="visibility: visible;"]');
+    var options = Services.prefs.getBranch("extensions.viewimage.");
+    var strings = Services.strings.createBundle("chrome://viewimage/locale/overlay.properties");
+
+    var object = node.closest('.irc_c[style*="visibility: visible;"], .irc_c[style*="transform: translate3d(0px, 0px, 0px);"]');
+
+    if (!object)
+        object = node.closest('.irc_c[style*="transform: translate3d(0px, 0px, 0px);"]');
 
     // Stop if object not found
     if (object === null) {
@@ -21,20 +26,39 @@ function addLinks(node) {
 
     // Retrive image links, and image url
     var imageLinks = object.querySelector('._FKw.irc_but_r > tbody > tr');
+    if (!imageLinks)
+        imageLinks = object.querySelector('.irc_but_r > tbody > tr');
+
     var imageText = object.querySelector('._cjj > .irc_it > .irc_hd > ._r3');
+    if (!imageText)
+        imageText = object.querySelector('.Qc8zh > .irc_it > .irc_hd > .rn92ee');
 
     // Retrive the image;
-    var image = object.querySelector('img[alt^="Image result"][src].irc_mut, img[src].irc_mi');
+    var image = object.querySelector('img[alt^="Image result"][src]:not([src^="https://encrypted-tbn"]).irc_mut, img[src].irc_mi');
 
     // Override url for images using base64 embeds
     if (image === null || image.src === '' || image.src.startsWith('data')) {
         var thumbnail = doc.querySelector('img[name="' + object.dataset.itemId + '"]');
-        var meta = thumbnail.closest('.rg_bx').querySelector('.rg_meta');
+        if (thumbnail === null) {
+            // If no thumbnail found, try getting image from URL
+            var url = new URL(window.location);
+            var imgLink = url.searchParams.get('imgurl');
+            if (imgLink) {
+                image = new Object();
+                image.src = imgLink;
+            }
+        } else {
+            var meta = thumbnail.closest('.rg_bx').querySelector('.rg_meta');
 
-        var metadata = JSON.parse(meta.innerHTML);
+            var metadata = JSON.parse(meta.innerHTML);
 
-        image = new Object();
-        image.src = metadata.ou;
+            image = new Object();
+            image.src = metadata.ou;
+        }
+
+        // Supress error in console
+        if (image === null)
+            return;
     }
 
     // Create more sizes button
@@ -52,11 +76,18 @@ function addLinks(node) {
     // Create Search by image button
     var searchByImage = doc.createElement('a');
     searchByImage.setAttribute('href', '/searchbyimage?image_url=' + image.src);
+    if (options.getBoolPref('open-search-by-in-new-tab')) {
+        searchByImage.setAttribute('target', '_blank');
+    }
     searchByImage.setAttribute('class', 'ext_addon _ZR irc_hol irc_lth _r3');
 
     // Insert text into Search by image button
     var searchByImageText = doc.createElement('span');
-    searchByImageText.innerHTML = '<span>Search&nbsp;by&nbsp;image</span>';
+    if (options.getBoolPref('manually-set-button-text')) {
+        searchByImageText.innerHTML = options.getStringPref('button-text-search-by-image');
+    } else {
+        searchByImageText.innerHTML = '<span>' + strings.GetStringFromName('viewimage.button-text-search-by-image') + '</span>';
+    }
     searchByImage.appendChild(searchByImageText);
 
     // Append More sizes & Search by image buttons
@@ -67,26 +98,46 @@ function addLinks(node) {
     var viewImage = doc.createElement('td');
     viewImage.setAttribute('class', 'ext_addon');
 
-    // Add globe to View image button
+    // Add globe to View image button if toggle enabled
     var viewImageLink = doc.createElement('a');
-    var globeIcon = doc.querySelector('._RKw._wtf._Ptf').cloneNode(true);
-    viewImageLink.appendChild(globeIcon);
+    if (options.getBoolPref('show-globe-icon')) {
+        var globeIcon = doc.querySelector('._RKw._wtf._Ptf');
+        if (!globeIcon)
+            globeIcon = doc.querySelector('.RL3J9c.Cws1Yc.wmCrUb');
+        viewImageLink.appendChild(globeIcon.cloneNode(true));
+    }
+
+    // hide copyright text if toggle enabled
+    if (options.getBoolPref('hide-images-subject-to-copyright')) {
+        var copyWarning = object.querySelector('.irc_bimg.irc_it');
+        copyWarning.style = 'display: none;';
+    }
 
     // add text to view image button
-    var viewImageText = doc.querySelector('._WKw').cloneNode(true);
-    viewImageText.innerHTML = "View&nbsp;image";
-    viewImageLink.appendChild(viewImageText);
+    var viewImageText = doc.querySelector('._WKw');
+    if (!viewImageText)
+        viewImageText = doc.querySelector('.Tl8XHc');
+    var viewImageTextClone = viewImageText.cloneNode(true);
+
+    if (options.getBoolPref('manually-set-button-text')) {
+        viewImageTextClone.innerText = options.getStringPref('button-text-view-image');
+    } else {
+        viewImageTextClone.innerText = strings.GetStringFromName('viewimage.button-text-view-image');
+    }
+    viewImageLink.appendChild(viewImageTextClone);
 
     // Add View image button URL
     viewImageLink.setAttribute('href', image.src);
-    viewImageLink.setAttribute('target', '_blank');
-
+    if (options.getBoolPref('open-in-new-tab')) {
+        viewImageLink.setAttribute('target', '_blank');
+    }
     viewImage.appendChild(viewImageLink);
 
     // Add View image button to Image Links
     var save = imageLinks.childNodes[1];
     imageLinks.insertBefore(viewImage, save);
 }
+
 
 // Define the mutation obersever
 var observer = new MutationObserver(function (mutations) {
@@ -132,7 +183,7 @@ var viewImageExtension = {
 
             // inject CSS into document
             var customStyle = doc.createElement('style');
-            customStyle.innerText = '._r3:hover:before{display:inline-block;pointer-events:none}';
+            customStyle.innerText = '._r3:hover:before{display:inline-block;pointer-events:none}._r3{margin: 0 4pt!important}';
             doc.head.appendChild(customStyle);
 
         }
