@@ -188,7 +188,7 @@ var viewImageExtension = {
 
         }
     },
-    buttonClick: function (event) {
+    optionsClick: function (event) {
         var prefsURL = "chrome://viewimage/content/prefs.xul";
         var windows = Services.wm.getEnumerator(null);
 
@@ -216,6 +216,12 @@ var viewImageExtension = {
         }
         var d = window.openDialog(prefsURL, "", features);
         d.focus();
+    },
+    githubClick: function (event) {
+        openUILinkIn("https://github.com/bijij/ViewImage", "tab");
+    },
+    donateClick: function (event) {
+        openUILinkIn("https://goo.gl/Kxyaq8", "tab");
     }
 }
 window.addEventListener("load", function load(event) {

@@ -1,0 +1,7 @@
+#viewimageButton {
+    list-style-image: url("chrome://viewimage/skin/16.png");
+}
+
+#viewimageButton:not([cui-areatype="menu-panel"]) {
+    -moz-box-orient: horizontal;
+}

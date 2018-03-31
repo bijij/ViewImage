@@ -1,13 +1,28 @@
 <?xml version="1.0"?>
+<?xml-stylesheet type="text/css" href="chrome://viewimage/skin/overlay.css" ?>
+
+<!DOCTYPE overlay SYSTEM "chrome://viewimage/locale/overlay.dtd">
+
 <overlay id="viewimageOverlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
     <script src="overlay.js"/>
 
     <toolbarpalette id="BrowserToolbarPalette">
         <toolbarbutton id="viewimageButton"
-            style="list-style-image: url('icon.png');"
-            label="Image View"
-            class="toolbarbutton-1 chromeclass-toolbar-additional"
-            oncommand="viewImageExtension.buttonClick(event);"
-        />
+            type="menu"
+            label="&viewimage.appname;"
+            tooltiptext="&viewimage.appname;"
+            class="toolbarbutton-1 chromeclass-toolbar-additional">
+            <menupopup id="viewimageMenu">
+                <menuitem id="viewimageOptions"
+                    label="&viewimage.menu.options;"
+                    oncommand="viewImageExtension.optionsClick(event);"/>
+                <menuitem id="viewimageGithub"
+                    label="&viewimage.menu.github;"
+                    oncommand="viewImageExtension.githubClick(event);"/>
+                <menuitem id="viewimageDonate"
+                    label="&viewimage.menu.donate;"
+                    oncommand="viewImageExtension.donateClick(event);"/>
+            </menupopup>
+        </toolbarbutton>
     </toolbarpalette>
 </overlay>
