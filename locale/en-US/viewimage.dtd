@@ -1,3 +1,7 @@
+<!ENTITY viewimage.appname                              "View Image">
+<!ENTITY viewimage.menu.options                         "Options">
+<!ENTITY viewimage.menu.github                          "Github">
+<!ENTITY viewimage.menu.donate                          "Donate via PayPal">
 <!ENTITY viewimage.window.title                         "View Image Options">
 <!ENTITY viewimage.prefs.viewimage_newtab.label         "Open &quot;View image&quot; in a new tab">
 <!ENTITY viewimage.prefs.searchbyimage_newtab.label     "Open &quot;Saerch by image&quot; in a new tab">

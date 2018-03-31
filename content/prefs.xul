@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!DOCTYPE prefwindow SYSTEM "chrome://viewimage/locale/prefs.dtd">
+<!DOCTYPE prefwindow SYSTEM "chrome://viewimage/locale/viewimage.dtd">
 
 <?xml-stylesheet href="chrome://global/skin/" type="text/css" ?>
 
 <prefwindow xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
             id="viewimage-prefs"
-            title="&viewimage.window.title;"
+            title="&viewimage.appname;"
             onload="viewimagePrefs.onLoad();"
             buttons="cancel,extra1"
             buttonlabelextra1="&viewimage.prefs.reset.label;"

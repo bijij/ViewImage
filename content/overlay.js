@@ -5,7 +5,7 @@ Cu.import("resource://gre/modules/Services.jsm");
 function addLinks(node) {
     var doc = node.ownerDocument;
     var options = Services.prefs.getBranch("extensions.viewimage.");
-    var strings = Services.strings.createBundle("chrome://viewimage/locale/overlay.properties");
+    var strings = Services.strings.createBundle("chrome://viewimage/locale/viewimage.properties");
 
     var object = node.closest('.irc_c[style*="visibility: visible;"], .irc_c[style*="transform: translate3d(0px, 0px, 0px);"]');
 

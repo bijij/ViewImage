@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <?xml-stylesheet type="text/css" href="chrome://viewimage/skin/overlay.css" ?>
 
-<!DOCTYPE overlay SYSTEM "chrome://viewimage/locale/overlay.dtd">
+<!DOCTYPE overlay SYSTEM "chrome://viewimage/locale/viewimage.dtd">
 
 <overlay id="viewimageOverlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
     <script src="overlay.js"/>
