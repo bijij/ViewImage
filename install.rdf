@@ -9,7 +9,7 @@
   <em:creator>Joshua B</em:creator>
   <em:homepageURL>https://github.com/bijij/ViewImage</em:homepageURL>
   <em:optionsURL>chrome://viewimage/content/prefs.xul</em:optionsURL>
-  <em:iconURL>chrome://viewimage/content/icon.png</em:iconURL>
+  <em:iconURL>chrome://viewimage/skin/128.png</em:iconURL>
   <em:targetApplication>
   <Description>
     <em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>

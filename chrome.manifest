@@ -1,3 +1,4 @@
-content viewimage               content/
-locale  viewimage       en-US   locale/en-US/
+content viewimage                       content/
+skin    viewimage       classic/1.0     skin/
+locale  viewimage       en-US           locale/en-US/
 overlay chrome://browser/content/browser.xul chrome://viewimage/content/overlay.xul
