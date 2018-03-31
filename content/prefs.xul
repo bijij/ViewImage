@@ -10,6 +10,9 @@
             id="viewimage-prefs"
             title="&viewimage.window.title;"
             onload="viewimagePrefs.onLoad();"
+            buttons="cancel,extra1"
+            buttonlabelextra1="&viewimage.prefs.reset.label;"
+            ondialogextra1="viewimagePrefs.onReset()"
             >
 
     <script type="application/javascript"

@@ -6,3 +6,4 @@
 <!ENTITY viewimage.prefs.buttontext_enable.label        "Manually set button text">
 <!ENTITY viewimage.prefs.buttontext_viewimage.label     "View image:">
 <!ENTITY viewimage.prefs.buttontext_searchbyimage.label "Search by image:">
+<!ENTITY viewimage.prefs.reset.label                    "Reset">

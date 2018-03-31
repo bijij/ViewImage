@@ -1,3 +1,7 @@
+"use strict";
+
+Components.utils.import("resource://gre/modules/Services.jsm");
+
 var viewimagePrefs = {
     get buttonTextViewImagePref()
     {
@@ -26,5 +30,13 @@ var viewimagePrefs = {
     onLoad: function()
     {
         this.buttonTextEnableChanged();
+    },
+
+    onReset: function() {
+        var branch = Services.prefs.getBranch("extensions.viewimage");
+        var prefs = branch.getChildList("");
+        prefs.forEach(function (pref) {
+            branch.clearUserPref(pref);
+        });
     }
 }
