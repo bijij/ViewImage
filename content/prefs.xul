@@ -3,6 +3,7 @@
 <!DOCTYPE prefwindow SYSTEM "chrome://viewimage/locale/viewimage.dtd">
 
 <?xml-stylesheet href="chrome://global/skin/" type="text/css" ?>
+<?xml-stylesheet href="chrome://viewimage/skin/prefs.css" type="text/css" ?>
 
 <prefwindow xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
             id="viewimage-prefs"

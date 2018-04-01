@@ -4,7 +4,7 @@
 <!ENTITY viewimage.menu.donate                          "Donate via PayPal">
 <!ENTITY viewimage.window.title                         "View Image Options">
 <!ENTITY viewimage.prefs.viewimage_newtab.label         "Open &quot;View image&quot; in a new tab">
-<!ENTITY viewimage.prefs.searchbyimage_newtab.label     "Open &quot;Saerch by image&quot; in a new tab">
+<!ENTITY viewimage.prefs.searchbyimage_newtab.label     "Open &quot;Search by image&quot; in a new tab">
 <!ENTITY viewimage.prefs.viewimage_showglobeicon.label  "Show Globe icon in &quot;View Image&quot; button">
 <!ENTITY viewimage.prefs.hide_copyright.label           "Hide &quot;Images may be subject to Copyright&quot; warning">
 <!ENTITY viewimage.prefs.buttontext_enable.label        "Manually set button text">
