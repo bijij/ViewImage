@@ -3,7 +3,7 @@ const defaultOptions = {
     'open-in-new-tab': true,
     'open-search-by-in-new-tab': true,
     'show-globe-icon': true,
-    'hide-images-subect-to-copyright': false,
+    'hide-images-subject-to-copyright': false,
     'manually-set-button-text': false,
     'button-text-view-image': '',
     'button-text-search-by-image': '',
