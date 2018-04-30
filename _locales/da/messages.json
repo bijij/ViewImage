@@ -1,0 +1,50 @@
+{
+   "appDesc": {
+      "description": "The description of the application, as shown on the web store.",
+      "message": "Genindfør \"Vis billede\" og \"Søg efter billede\"-knapperne i Google Billeder."
+   },
+   "appName": {
+      "description": "Title of the application, as displayed on the web store.",
+      "message": "Vis Billede"
+   },
+   "donatePayPal": {
+      "description": "Text used for the donation button.",
+      "message": "Donér via PayPal"
+   },
+   "optionsButton": {
+      "description": "Text displayed on the link to options button.",
+      "message": "Valgmuligheder"
+   },
+   "resetButton": {
+      "description": "Text displayed on reset button.",
+      "message": "Nulstil"
+   },
+   "searchImg": {
+      "description": "Button leads to Google's Search by Image page.",
+      "message": "Søg efter billede"
+   },
+   "settingsToggle_NewTab_searchByImage": {
+      "description": "Settings toggle which causes the search by image page to open in new tab.",
+      "message": "Åbn \"Søg efter billede\" i et nyt faneblad:"
+   },
+   "settingsToggle_NewTab_viewImage": {
+      "description": "Settings toggle which causes images to open in new tab.",
+      "message": "Åbn \"Vis billede\" i et nyt faneblad:"
+   },
+   "settingsToggle_buttonText": {
+      "description": "Settings toggle enables manually set text for buttons rather than locale.",
+      "message": "Vælg teksten på knapperne manuelt:"
+   },
+   "settingsToggle_globeIcon": {
+      "description": "Settings toggle which causes the globe icon to display on the \"View Image\" button.",
+      "message": "Vis globusikon på \"Vis billede\"-knappen:"
+   },
+   "settingsToggle_subjectCopyright": {
+      "description": "Settings toggle hides copyright message on image results page.",
+      "message": "Skjul \"Billeder kan være underlagt ophavsret\"-varslet:"
+   },
+   "viewImage": {
+      "description": "Button for viewing image.",
+      "message": "Vis billede"
+   }
+}
