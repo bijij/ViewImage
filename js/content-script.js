@@ -120,7 +120,7 @@ function addLinks(node) {
     }
 
     // hide copyright text if toggle enabled 
-    if (options['hide-images-subect-to-copyright']) {
+    if (options['hide-images-subject-to-copyright']) {
         var copyWarning = object.querySelector('.irc_bimg.irc_it');
         copyWarning.style = 'display: none;';
     }
