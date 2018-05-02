@@ -74,7 +74,7 @@ function addLinks(node) {
     // Create more sizes button
     var moreSizes = document.createElement('a');
     moreSizes.setAttribute('href', '#'); // TODO: Figure out how to generate a more sizes url
-    moreSizes.setAttribute('class', 'ext_addon _ZR irc_hol irc_lth _r3');
+    moreSizes.setAttribute('class', 'ext_addon o5rIVb _ZR irc_hol irc_lth _r3');
     moreSizes.setAttribute('style', 'pointer-events:none'); // Disable click for now
 
     // Insert text into more sizes button
@@ -89,7 +89,7 @@ function addLinks(node) {
     if (options['open-search-by-in-new-tab']) {
         searchByImage.setAttribute('target', '_blank');
     }
-    searchByImage.setAttribute('class', 'ext_addon _ZR irc_hol irc_lth _r3');
+    searchByImage.setAttribute('class', 'ext_addon o5rIVb _ZR irc_hol irc_lth _r3');
 
     // Insert text into Search by image button
     var searchByImageText = document.createElement('span');
