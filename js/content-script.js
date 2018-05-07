@@ -19,7 +19,7 @@ function addLinks(node) {
 
     if (!object)
         object = node.closest('.irc_c[style*="transform: translate3d(0px, 0px, 0px);"]');
-    
+
 
     // Stop if object not found
     if (object === null) {
@@ -37,11 +37,11 @@ function addLinks(node) {
     var imageLinks = object.querySelector('._FKw.irc_but_r > tbody > tr');
     if (!imageLinks)
         imageLinks = object.querySelector('.irc_but_r > tbody > tr');
-    
+
     var imageText = object.querySelector('._cjj > .irc_it > .irc_hd > ._r3');
     if (!imageText)
         imageText = object.querySelector('.Qc8zh > .irc_it > .irc_hd > .rn92ee');
-    
+
 
     // Retrive the image;
     var image = object.querySelector('img[alt^="Image result"][src]:not([src^="https://encrypted-tbn"]).irc_mut, img[src].irc_mi');
@@ -71,6 +71,22 @@ function addLinks(node) {
             return;
     }
 
+    // If the above doesn't work, use the link in related images to find it
+    if (image !== null && (image.src === '' || image.src.startsWith('data'))) {
+        var target_image = object.querySelector("img.target_image");
+        if (target_image) {
+            var link = target_image.closest("a");
+            if (link) {
+                var link_url = new URL(link.href);
+                var new_imgLink = link_url.searchParams.get('imgurl');
+                if (new_imgLink) {
+                    image = new Object();
+                    image.src = new_imgLink;
+                }
+            }
+        }
+    }
+
     // Create more sizes button
     var moreSizes = document.createElement('a');
     moreSizes.setAttribute('href', '#'); // TODO: Figure out how to generate a more sizes url
@@ -98,7 +114,7 @@ function addLinks(node) {
     } else {
         localiseObject(searchByImageText, '<span>__MSG_searchImg__</span>');
     }
-    
+
     searchByImage.appendChild(searchByImageText);
 
     // Append More sizes & Search by image buttons
@@ -119,7 +135,7 @@ function addLinks(node) {
 
     }
 
-    // hide copyright text if toggle enabled 
+    // hide copyright text if toggle enabled
     if (options['hide-images-subject-to-copyright']) {
         var copyWarning = object.querySelector('.irc_bimg.irc_it');
         copyWarning.style = 'display: none;';
@@ -130,7 +146,7 @@ function addLinks(node) {
     if (!viewImageText)
         viewImageText = document.querySelector('.Tl8XHc');
     var viewImageTextClone = viewImageText.cloneNode(true);
-    
+
     if (options['manually-set-button-text']) {
         viewImageTextClone.innerText = options['button-text-view-image'];
     } else {
@@ -192,4 +208,3 @@ chrome.storage.sync.get(['options', 'defaultOptions'], function (storage) {
 var customStyle = document.createElement('style');
 customStyle.innerText = '._r3:hover:before{display:inline-block;pointer-events:none} ._r3{margin: 0 4pt!important}';
 document.head.appendChild(customStyle);
-
