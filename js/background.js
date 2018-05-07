@@ -5,6 +5,7 @@ const defaultOptions = {
     'show-globe-icon': true,
     'hide-images-subject-to-copyright': false,
     'manually-set-button-text': false,
+    'no-referrer': false,
     'button-text-view-image': '',
     'button-text-search-by-image': '',
 };
