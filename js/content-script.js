@@ -69,9 +69,9 @@ function addLinks(node) {
 
     // If the above doesn't work, use the link in related images to find it
     if (image === null || image.src === '' || image.src.startsWith('data')) {
-        var target_image = object.querySelector("img.target_image");
+        var target_image = object.querySelector('img.target_image');
         if (target_image) {
-            var link = target_image.closest("a");
+            var link = target_image.closest('a');
             if (link) {
                 var link_url = new URL(link.href);
                 var new_imgLink = link_url.searchParams.get('imgurl');
