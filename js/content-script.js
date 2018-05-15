@@ -19,7 +19,7 @@ function addLinks(node) {
 
     if (!object)
         object = node.closest('.irc_c[style*="transform: translate3d(0px, 0px, 0px);"]');
-    
+
 
     // Stop if object not found
     if (object === null) {
@@ -37,11 +37,11 @@ function addLinks(node) {
     var imageLinks = object.querySelector('._FKw.irc_but_r > tbody > tr');
     if (!imageLinks)
         imageLinks = object.querySelector('.irc_but_r > tbody > tr');
-    
+
     var imageText = object.querySelector('._cjj > .irc_it > .irc_hd > ._r3');
     if (!imageText)
         imageText = object.querySelector('.Qc8zh > .irc_it > .irc_hd > .rn92ee');
-    
+
 
     // Retrive the image;
     var image = object.querySelector('img[alt^="Image result"][src]:not([src^="https://encrypted-tbn"]).irc_mut, img[src].irc_mi');
@@ -98,7 +98,7 @@ function addLinks(node) {
     } else {
         localiseObject(searchByImageText, '<span>__MSG_searchImg__</span>');
     }
-    
+
     searchByImage.appendChild(searchByImageText);
 
     // Append More sizes & Search by image buttons
@@ -115,11 +115,14 @@ function addLinks(node) {
         var globeIcon = document.querySelector('._RKw._wtf._Ptf');
         if (!globeIcon)
             globeIcon = document.querySelector('.RL3J9c.Cws1Yc.wmCrUb');
-        viewImageLink.appendChild(globeIcon.cloneNode(true));
+        if (!globeIcon)
+            globeIcon = document.querySelector('.RL3J9c.z1asCe.GYDk8c');
 
+        if (globeIcon)
+            viewImageLink.appendChild(globeIcon.cloneNode(true));
     }
 
-    // hide copyright text if toggle enabled 
+    // hide copyright text if toggle enabled
     if (options['hide-images-subject-to-copyright']) {
         var copyWarning = object.querySelector('.irc_bimg.irc_it');
         copyWarning.style = 'display: none;';
@@ -130,7 +133,7 @@ function addLinks(node) {
     if (!viewImageText)
         viewImageText = document.querySelector('.Tl8XHc');
     var viewImageTextClone = viewImageText.cloneNode(true);
-    
+
     if (options['manually-set-button-text']) {
         viewImageTextClone.innerText = options['button-text-view-image'];
     } else {
@@ -192,4 +195,3 @@ chrome.storage.sync.get(['options', 'defaultOptions'], function (storage) {
 var customStyle = document.createElement('style');
 customStyle.innerText = '._r3:hover:before{display:inline-block;pointer-events:none} ._r3{margin: 0 4pt!important}';
 document.head.appendChild(customStyle);
-
