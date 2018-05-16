@@ -114,9 +114,8 @@ function addLinks(node) {
     if (options['show-globe-icon']) {
         var globeIcon = document.querySelector('._RKw._wtf._Ptf');
         if (!globeIcon)
-            globeIcon = document.querySelector('.RL3J9c.Cws1Yc.wmCrUb');
+            globeIcon = document.querySelector('.RL3J9c.z1asCe.GYDk8c');
         viewImageLink.appendChild(globeIcon.cloneNode(true));
-
     }
 
     // hide copyright text if toggle enabled 
