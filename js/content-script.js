@@ -158,6 +158,9 @@ function addLinks(node) {
     if (options['open-in-new-tab']) {
         viewImageLink.setAttribute('target', '_blank');
     }
+    if (options['no-referrer']) {
+        viewImageLink.setAttribute('rel', 'noreferrer');
+    }
     viewImage.appendChild(viewImageLink);
 
     // Add View image button to Image Links

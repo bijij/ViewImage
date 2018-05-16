@@ -31,6 +31,10 @@
         "message": "Hide \"Images may be subject to Copyright\" warning:",
         "description": "Settings toggle hides copyright message on image results page."
     },
+    "settingsToggle_noReferrer": {
+        "message": "Hide referrer from website when clicking \"View Image\":",
+        "description": "Settings toggle which toggles rel='noreferrer' on the \"View Image\" button."
+    },
     "settingsToggle_buttonText": {
         "message": "Manually set button text:",
         "description": "Settings toggle enables manually set text for buttons rather than locale."
