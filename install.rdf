@@ -4,7 +4,7 @@
   <em:id>viewimage@bijij.me</em:id>
   <em:type>2</em:type>
   <em:name>View Image</em:name>
-  <em:version>1.1</em:version>
+  <em:version>1.2</em:version>
   <em:description>Re-implements the "View Image" and "Search by image" buttons into google images.</em:description>
   <em:creator>Joshua B</em:creator>
   <em:homepageURL>https://github.com/bijij/ViewImage</em:homepageURL>
