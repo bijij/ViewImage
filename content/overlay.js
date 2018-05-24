@@ -64,7 +64,7 @@ function addLinks(node) {
     // Create more sizes button
     var moreSizes = doc.createElement('a');
     moreSizes.setAttribute('href', '#'); // TODO: Figure out how to generate a more sizes url
-    moreSizes.setAttribute('class', 'ext_addon _ZR irc_hol irc_lth _r3');
+    moreSizes.setAttribute('class', 'ext_addon o5rIVb_ZR irc_hol irc_lth _r3');
     moreSizes.setAttribute('style', 'pointer-events:none'); // Disable click for now
 
     // Insert text into more sizes button
@@ -79,7 +79,7 @@ function addLinks(node) {
     if (options.getBoolPref('open-search-by-in-new-tab')) {
         searchByImage.setAttribute('target', '_blank');
     }
-    searchByImage.setAttribute('class', 'ext_addon _ZR irc_hol irc_lth _r3');
+    searchByImage.setAttribute('class', 'ext_addon o5rIVb_ZR irc_hol irc_lth _r3');
 
     // Insert text into Search by image button
     var searchByImageText = doc.createElement('span');
@@ -103,7 +103,7 @@ function addLinks(node) {
     if (options.getBoolPref('show-globe-icon')) {
         var globeIcon = doc.querySelector('._RKw._wtf._Ptf');
         if (!globeIcon)
-            globeIcon = doc.querySelector('.RL3J9c.Cws1Yc.wmCrUb');
+            globeIcon = doc.querySelector('.RL3J9c.z1asCe.GYDk8c');
         viewImageLink.appendChild(globeIcon.cloneNode(true));
     }
 
