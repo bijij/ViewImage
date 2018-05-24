@@ -147,6 +147,9 @@ function addLinks(node) {
     if (options.getBoolPref('open-in-new-tab')) {
         viewImageLink.setAttribute('target', '_blank');
     }
+    if (options.getBoolPref('hide-referrer')) {
+        viewImageLink.setAttribute('rel', 'noreferrer');
+    }
     viewImage.appendChild(viewImageLink);
 
     // Add View image button to Image Links

@@ -31,6 +31,9 @@
             <preference id="pref-hide-copyright"
                         name="extensions.viewimage.hide-images-subject-to-copyright"
                         type="bool"/>
+            <preference id="pref-hide-referrer"
+                        name="extensions.viewimage.hide-referrer"
+                        type="bool"/>
             <preference id="pref-buttontext-enable"
                         name="extensions.viewimage.manually-set-button-text"
                         type="bool"
@@ -56,6 +59,9 @@
             <checkbox id="checkbox-hide-copyright"
                       preference="pref-hide-copyright"
                       label="&viewimage.prefs.hide_copyright.label;"/>
+            <checkbox id="checkbox-hide-referrer"
+                      preference="pref-hide-referrer"
+                      label="&viewimage.prefs.hide_referrer.label;"/>
             <checkbox id="checkbox-buttontext-enable"
                       preference="pref-buttontext-enable"
                       label="&viewimage.prefs.buttontext_enable.label;"/>
