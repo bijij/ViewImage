@@ -4,7 +4,7 @@
         "description": "Title of the application, as displayed on the web store."
     },
     "appDesc": {
-        "message": " \" පින්තුරය බලන්න \" සහ \" පින්තුරය මගින් සෙවීම \" පහසුකම් වල බොත්තම් නැවත සක්‍රීය කිරීම.",
+        "message": " \" පින්තුරය බලන්න \" සහ \" පින්තුරය මගින් සෙවීම \" පහසුකම් වල බොත්තම් නැවත සක්රීය කිරීම",
         "description": "The description of the application, as shown on the web store."
     },
     "searchImg": {
@@ -24,11 +24,11 @@
         "description": "Settings toggle which causes the search by image page to open in new tab."
     },
     "settingsToggle_globeIcon": {
-        "message": " \" පින්තුරය බලන්න \" යෙදුමේ ලෝක ගෝල සංකේතය සක්‍රීය කරන්න.",
+        "message": " \" පින්තුරය බලන්න \" යෙදුමේ ලෝක ගෝල සංකේතය සක්රීය කරන්න",
         "description": "Settings toggle which causes the globe icon to display on the \"View Image\" button."
     },
     "settingsToggle_subjectCopyright": {
-        "message": " \" රූප ප්‍රකාශන හිමිකමට යටත් විය හැක \" අනතුරු ඇඟවීම සඟවන්න:",
+        "message": " \" රූප ප්රකාශන හිමිකමට යටත් විය හැක \" අනතුරු ඇඟවීම සඟවන්න:",
         "description": "Settings toggle hides copyright message on image results page."
     },
     "settingsToggle_noReferrer": {
