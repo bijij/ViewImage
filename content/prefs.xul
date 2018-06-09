@@ -9,7 +9,7 @@
             id="viewimage-prefs"
             title="&viewimage.appname;"
             onload="viewimagePrefs.onLoad();"
-            buttons="cancel,extra1"
+            buttons="accept,cancel,extra1"
             buttonlabelextra1="&viewimage.prefs.reset.label;"
             ondialogextra1="viewimagePrefs.onReset()"
             >
