@@ -1,0 +1,54 @@
+{
+    "appName": {
+        "message": "View Image",
+        "description": "Title of the application, as displayed on the web store."
+    },
+    "appDesc": {
+        "message": " \" පින්තුරය බලන්න \" සහ \" පින්තුරය මගින් සෙවීම \" පහසුකම් වල බොත්තම් නැවත සක්රීය කිරීම",
+        "description": "The description of the application, as shown on the web store."
+    },
+    "searchImg": {
+        "message": "පින්තුරය මගින් සෙවීම",
+        "description": "Button leads to Google's Search by Image page."
+    },
+    "viewImage": {
+        "message": "පින්තුරය බලන්න",
+        "description": "Button for viewing image."
+    },
+    "settingsToggle_NewTab_viewImage": {
+        "message": " \" පින්තුරය බලන්න \" යෙදුම නව පිටුවක විවෘත කරන්න:",
+        "description": "Settings toggle which causes images to open in new tab."
+    },
+    "settingsToggle_NewTab_searchByImage": {
+        "message": " \" පින්තුරය මගින් සෙවීම \" යෙදුම නව පිටුවක විවෘත කරන්න:",
+        "description": "Settings toggle which causes the search by image page to open in new tab."
+    },
+    "settingsToggle_globeIcon": {
+        "message": " \" පින්තුරය බලන්න \" යෙදුමේ ලෝක ගෝල සංකේතය සක්රීය කරන්න",
+        "description": "Settings toggle which causes the globe icon to display on the \"View Image\" button."
+    },
+    "settingsToggle_subjectCopyright": {
+        "message": " \" රූප ප්රකාශන හිමිකමට යටත් විය හැක \" අනතුරු ඇඟවීම සඟවන්න:",
+        "description": "Settings toggle hides copyright message on image results page."
+    },
+    "settingsToggle_noReferrer": {
+        "message": " \" පින්තුරය බලන්න \" යෙදුම හරහා පැමිණෙන්නන් සඟවන්න:",
+        "description": "Settings toggle which toggles rel='noreferrer' on the \"View Image\" button."
+    },
+    "settingsToggle_buttonText": {
+        "message": "බොත්තම් වලට වෙනත් වචන දෙන්න:",
+        "description": "Settings toggle enables manually set text for buttons rather than locale."
+    },
+    "resetButton": {
+        "message": "නැවත පෙර සැකසුම් වෙත",
+        "description": "Text displayed on reset button."
+    },
+    "optionsButton": {
+        "message": "සැකසුම්",
+        "description": "Text displayed on the link to options button."
+    },
+    "donatePayPal": {
+        "message": " PayPal හරහා දායක වන්න",
+        "description": "Text used for the donation button."
+    }
+}
