@@ -4,7 +4,7 @@
         "description": "Title of the application, as displayed on the web store."
     },
     "appDesc": {
-        "message": "Google画像の\"画像を表示\"と\"画像を検索\"ボタンを再実装します。",
+        "message": "Google画像検索に\"画像を表示\"と\"画像を検索\"ボタンを再実装します。",
         "description": "The description of the application, as shown on the web store."
     },
     "searchImg": {
@@ -30,6 +30,10 @@
     "settingsToggle_subjectCopyright": {
         "message": "\"画像は著作権で保護されている場合があります\"を非表示にする：",
         "description": "Settings toggle hides copyright message on image results page."
+    },
+    "settingsToggle_noReferrer": {
+        "message": "\"画像を表示\"をクリックしたときリファラーを送信しない：",
+        "description": "Settings toggle which toggles rel='noreferrer' on the \"View Image\" button."
     },
     "settingsToggle_buttonText": {
         "message": "手動でボタンのテキストを設定する：",
