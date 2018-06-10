@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE prefwindow SYSTEM "chrome://viewimage/locale/viewimage.dtd">
+
+<?xml-stylesheet href="chrome://global/skin/" type="text/css" ?>
+<?xml-stylesheet href="chrome://viewimage/skin/prefs.css" type="text/css" ?>
+
+<prefwindow xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+            id="viewimage-prefs"
+            title="&viewimage.appname;"
+            onload="viewimagePrefs.onLoad();"
+            buttons="accept,cancel,extra1"
+            buttonlabelextra1="&viewimage.prefs.reset.label;"
+            ondialogextra1="viewimagePrefs.onReset()"
+            >
+
+    <script type="application/javascript"
+            src="chrome://viewimage/content/prefs.js"/>
+
+    <prefpane id="viewimage-pane">
+        <preferences>
+            <preference id="pref-viewimage-newtab"
+                        name="extensions.viewimage.open-in-new-tab"
+                        type="bool"/>
+            <preference id="pref-searchbyimage-newtab"
+                        name="extensions.viewimage.open-search-by-in-new-tab"
+                        type="bool"/>
+            <preference id="pref-viewimage-showglobeicon"
+                        name="extensions.viewimage.show-globe-icon"
+                        type="bool"/>
+            <preference id="pref-hide-copyright"
+                        name="extensions.viewimage.hide-images-subject-to-copyright"
+                        type="bool"/>
+            <preference id="pref-hide-referrer"
+                        name="extensions.viewimage.hide-referrer"
+                        type="bool"/>
+            <preference id="pref-buttontext-enable"
+                        name="extensions.viewimage.manually-set-button-text"
+                        type="bool"
+                        onchange="viewimagePrefs.buttonTextEnableChanged();"/>
+            <preference id="pref-buttontext-viewimage"
+                        name="extensions.viewimage.button-text-view-image"
+                        type="string"/>
+            <preference id="pref-buttontext-searchbyimage"
+                        name="extensions.viewimage.button-text-search-by-image"
+                        type="string"/>
+        </preferences>
+
+        <vbox id="vbox-prefs" align="left">
+            <checkbox id="checkbox-viewimage-newtab"
+                      preference="pref-viewimage-newtab"
+                      label="&viewimage.prefs.viewimage_newtab.label;"/>
+            <checkbox id="checkbox-searchbyimage-newtab"
+                      preference="pref-searchbyimage-newtab"
+                      label="&viewimage.prefs.searchbyimage_newtab.label;"/>
+            <checkbox id="checkbox-viewimage-showglobeicon"
+                      preference="pref-viewimage-showglobeicon"
+                      label="&viewimage.prefs.viewimage_showglobeicon.label;"/>
+            <checkbox id="checkbox-hide-copyright"
+                      preference="pref-hide-copyright"
+                      label="&viewimage.prefs.hide_copyright.label;"/>
+            <checkbox id="checkbox-hide-referrer"
+                      preference="pref-hide-referrer"
+                      label="&viewimage.prefs.hide_referrer.label;"/>
+            <checkbox id="checkbox-buttontext-enable"
+                      preference="pref-buttontext-enable"
+                      label="&viewimage.prefs.buttontext_enable.label;"/>
+            <groupbox id="groupbox-buttontext">
+                <label id="label-buttontext-viewimage" control="textbox-buttontext-viewimage">&viewimage.prefs.buttontext_viewimage.label;</label>
+                <textbox id="textbox-buttontext-viewimage" size="30" preference="pref-buttontext-viewimage"/>
+                <label id="label-buttontext-searchbyimage" control="textbox-buttontext-searchbyimage">&viewimage.prefs.buttontext_searchbyimage.label;</label>
+                <textbox id="textbox-buttontext-searchbyimage" size="30" preference="pref-buttontext-searchbyimage"/>
+            </groupbox>
+        </vbox>
+    </prefpane>
+</prefwindow>
