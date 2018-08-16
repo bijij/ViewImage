@@ -41,6 +41,8 @@ function addLinks(node) {
     var imageText = object.querySelector('._cjj > .irc_it > .irc_hd > ._r3');
     if (!imageText)
         imageText = object.querySelector('.Qc8zh > .irc_it > .irc_hd > .rn92ee');
+    if (!imageText)
+        imageText = object.querySelector('.Qc8zh > .irc_it > .irc_hd > .irc_dsh');
 
 
     // Retrive the image;
