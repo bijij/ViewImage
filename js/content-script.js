@@ -120,8 +120,10 @@ function addLinks(node) {
     searchByImage.appendChild(searchByImageText);
 
     // Append More sizes & Search by image buttons
-    imageText.appendChild(moreSizes);
-    imageText.appendChild(searchByImage);
+    if (imageText) {
+        imageText.appendChild(moreSizes);
+        imageText.appendChild(searchByImage);
+    }
 
     // Create View image button
     var viewImage = document.createElement('td');
