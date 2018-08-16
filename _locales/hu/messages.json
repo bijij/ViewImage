@@ -31,6 +31,10 @@
         "message": "\"A képeket szerzői jog védheti\" figyelmeztetés elrejtése:",
         "description": "Settings toggle hides copyright message on image results page."
     },
+    "settingsToggle_shareBtn": {
+        "message": "\"Megosztás\" gomb elrejtése:",
+        "description": "Settings toggle hides share button."
+    },
     "settingsToggle_buttonText": {
         "message": "Egyéni gomb felirat beállítása:",
         "description": "Settings toggle enables manually set text for buttons rather than locale."
