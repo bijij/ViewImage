@@ -75,11 +75,17 @@ function addLinks(node) {
         if (target_image) {
             var link = target_image.closest('a');
             if (link) {
-                var link_url = new URL(link.href);
-                var new_imgLink = link_url.searchParams.get('imgurl');
-                if (new_imgLink) {
+                // Some extensions replace google image links with their original links
+                if (link.href.match(/^[a-z]+:\/\/(?:www\.)?google\.[^/]*\/imgres\?/)) {
+                    var link_url = new URL(link.href);
+                    var new_imgLink = link_url.searchParams.get('imgurl');
+                    if (new_imgLink) {
+                        image = new Object();
+                        image.src = new_imgLink;
+                    }
+                } else {
                     image = new Object();
-                    image.src = new_imgLink;
+                    image.src = link.href;
                 }
             }
         }
