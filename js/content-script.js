@@ -33,16 +33,45 @@ function addLinks(node) {
         element.parentElement.removeChild(element);
     }
 
+    var redesign = false;
+
     // Retrive image links, and image url
+
+    // imageLinks is the "Visit", "View Image", and "Save" links with the buttons
     var imageLinks = object.querySelector('._FKw.irc_but_r > tbody > tr');
     if (!imageLinks)
         imageLinks = object.querySelector('.irc_but_r > tbody > tr');
 
+    // Google Images redesign
+    if (!imageLinks) {
+        imageLinks = object.querySelector('.Qc8zh > .irc_ab');
+        if (imageLinks)
+            redesign = true;
+    }
+
+
+    // imageText is the text below the header, with the 'website', 'WxH', and 'Search By Image' links
     var imageText = object.querySelector('._cjj > .irc_it > .irc_hd > ._r3');
     if (!imageText)
         imageText = object.querySelector('.Qc8zh > .irc_it > .irc_hd > .rn92ee');
     if (!imageText)
         imageText = object.querySelector('.Qc8zh > .irc_it > .irc_hd > .irc_dsh');
+
+
+    // globeIcon is the span containing the globe svg in the "Visit" button
+    var globeIcon = document.querySelector('._RKw._wtf._Ptf');
+    if (!globeIcon)
+        globeIcon = document.querySelector('.RL3J9c.z1asCe.GYDk8c');
+    if (!globeIcon && redesign)
+        globeIcon = imageLinks.querySelector('a:nth-of-type(1) > div > span:nth-of-type(1)');
+
+
+    // viewImageText is the text span node for the "Visit" button
+    var viewImageText = document.querySelector('._WKw');
+    if (!viewImageText)
+        viewImageText = document.querySelector('.Tl8XHc');
+    if (!viewImageText && redesign)
+        viewImageText = imageLinks.querySelector('a:nth-of-type(1) > div > span:nth-of-type(2)');
 
 
     // Retrive the image;
@@ -131,37 +160,51 @@ function addLinks(node) {
         imageText.appendChild(searchByImage);
     }
 
-    // Create View image button
-    var viewImage = document.createElement('td');
-    viewImage.setAttribute('class', 'ext_addon');
-
-    // Add globe to View image button if toggle enabled
-    var viewImageLink = document.createElement('a');
-    if (options['show-globe-icon']) {
-        var globeIcon = document.querySelector('._RKw._wtf._Ptf');
-        if (!globeIcon)
-            globeIcon = document.querySelector('.RL3J9c.z1asCe.GYDk8c');
-        viewImageLink.appendChild(globeIcon.cloneNode(true));
-    }
-
-    // hide copyright text if toggle enabled
+    // Hide copyright text if toggle enabled
     if (options['hide-images-subject-to-copyright']) {
         var copyWarning = object.querySelector('.irc_bimg.irc_it');
         copyWarning.style = 'display: none;';
     }
 
-    // add text to view image button
-    var viewImageText = document.querySelector('._WKw');
-    if (!viewImageText)
-        viewImageText = document.querySelector('.Tl8XHc');
+    // Create View image button
     var viewImageTextClone = viewImageText.cloneNode(true);
+    var viewImage, viewImageLink, globeParent;
 
+    if (!redesign) {
+        viewImage = document.createElement('td');
+        viewImage.setAttribute('class', 'ext_addon');
+
+        viewImageLink = document.createElement('a');
+        viewImage.appendChild(viewImageLink);
+
+        viewImageLink.appendChild(viewImageTextClone);
+        globeParent = viewImageLink;
+    } else {
+        viewImage = document.createElement('a');
+        viewImage.classList.add('o5rIVb');
+        viewImageLink = viewImage;
+
+        var viewImageDiv = document.createElement('div');
+        viewImageDiv.classList.add('NDcgDe');
+        viewImageDiv.classList.add('EWkRMe'); // padding-right: 10px
+        viewImage.appendChild(viewImageDiv);
+
+        viewImageDiv.appendChild(viewImageTextClone);
+        globeParent = viewImageDiv;
+    }
+
+    // Add globe to View image button if toggle enabled
+    // Soft-fail if globeIcon is not found
+    if (options['show-globe-icon'] && globeIcon) {
+        globeParent.insertBefore(globeIcon.cloneNode(true), globeParent.firstChild);
+    }
+
+    // Set the text for the View Image button
     if (options['manually-set-button-text']) {
         viewImageTextClone.innerText = options['button-text-view-image'];
     } else {
         localiseObject(viewImageTextClone, '__MSG_viewImage__');
     }
-    viewImageLink.appendChild(viewImageTextClone);
 
     // Add View image button URL
     viewImageLink.setAttribute('href', image.src);
@@ -171,7 +214,6 @@ function addLinks(node) {
     if (options['no-referrer']) {
         viewImageLink.setAttribute('rel', 'noreferrer');
     }
-    viewImage.appendChild(viewImageLink);
 
     // Add View image button to Image Links
     var save = imageLinks.childNodes[1];
