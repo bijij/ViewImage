@@ -170,7 +170,7 @@ function addLinks(node) {
     var viewImageTextClone = viewImageText.cloneNode(true);
     var viewImage, viewImageLink, globeParent;
 
-    var old_btn = document.getElementById("viewimage-btn");
+    var old_btn = document.getElementById('viewimage-btn');
     if (old_btn)
         old_btn.parentNode.removeChild(old_btn);
 
@@ -197,7 +197,7 @@ function addLinks(node) {
         globeParent = viewImageDiv;
     }
 
-    viewImage.id = "viewimage-btn";
+    viewImage.id = 'viewimage-btn';
 
     // Add globe to View image button if toggle enabled
     // Soft-fail if globeIcon is not found
