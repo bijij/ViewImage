@@ -15,7 +15,7 @@ function localiseObject(obj, tag) {
 
 function addLinks(node) {
 
-    var object = node.closest('.irc_c[style*="visibility: visible;"], .irc_c[style*="transform: translate3d(0px, 0px, 0px);"]');
+    var object = node.closest('.irc_c[style*="visibility: visible;"][style*="transform: translate3d(0px, 0px, 0px);"]');
 
     if (!object)
         object = node.closest('.irc_c[style*="transform: translate3d(0px, 0px, 0px);"]');
@@ -170,6 +170,10 @@ function addLinks(node) {
     var viewImageTextClone = viewImageText.cloneNode(true);
     var viewImage, viewImageLink, globeParent;
 
+    var old_btn = document.getElementById('viewimage-btn');
+    if (old_btn)
+        old_btn.parentNode.removeChild(old_btn);
+
     if (!redesign) {
         viewImage = document.createElement('td');
         viewImage.setAttribute('class', 'ext_addon');
@@ -192,6 +196,8 @@ function addLinks(node) {
         viewImageDiv.appendChild(viewImageTextClone);
         globeParent = viewImageDiv;
     }
+
+    viewImage.id = 'viewimage-btn';
 
     // Add globe to View image button if toggle enabled
     // Soft-fail if globeIcon is not found
