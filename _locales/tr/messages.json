@@ -16,8 +16,28 @@
         "description": "Resmi görüntülemek için kullanılan düğmedir."
     },
     "settingsToggle_NewTab_viewImage": {
-        "message": "Resmi farklı tab'da aç:",
-        "description": "Resimlerin farklı tab'da açılmasını sağlayan özelliktir."
+        "message": "Resmi yeni sekmede aç:",
+        "description": "Resimlerin yeni sekmede açılmasını sağlayan özelliktir."
+    },
+    "settingsToggle_NewTab_searchByImage": {
+        "message": "\"Görselle Ara'yı\" yeni bir sekmede aç:",
+        "description": "Settings toggle which causes the search by image page to open in new tab."
+    },
+    "settingsToggle_globeIcon": {
+        "message": "\"Resmi Görüntüle\" düğmesindeki Dünya simgesini göster:",
+        "description": "Settings toggle which causes the globe icon to display on the \"View Image\" button."
+    },
+    "settingsToggle_subjectCopyright": {
+        "message": "\"Görüntüler Telif Hakkına tabi olabilir\" uyarısını gizle:",
+        "description": "Settings toggle hides copyright message on image results page."
+    },
+    "settingsToggle_noReferrer": {
+        "message": "\"Resmi Görüntüle'yi\" tıkladığınızda yönlendireni web sitesinden gizle:",
+        "description": "Settings toggle which toggles rel='noreferrer' on the \"View Image\" button."
+    },
+    "settingsToggle_buttonText": {
+        "message": "Buton metnini elle ayarla:",
+        "description": "Settings toggle enables manually set text for buttons rather than locale."
     },
     "resetButton": {
         "message": "Sıfırla",
