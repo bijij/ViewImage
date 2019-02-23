@@ -17,7 +17,7 @@
     },
     "settingsToggle_NewTab_viewImage": {
         "message": "Resmi yeni sekmede aç:",
-        "description": "Resimlerin yeni sekmede açılmasını sağlayan özelliktir."
+        "description": "Settings toggle which causes images to open in new tab."
     },
     "settingsToggle_NewTab_searchByImage": {
         "message": "\"Görselle Ara'yı\" yeni bir sekmede aç:",
