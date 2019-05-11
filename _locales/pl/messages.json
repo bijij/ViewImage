@@ -1,6 +1,6 @@
 {
     "appName": {
-        "message": "View Image",
+        "message": "Pokaż obraz",
         "description": "Tytuł aplikacji, pokazywany w sklepie rozszerzeń."
     },
     "appDesc": {
@@ -36,8 +36,8 @@
         "description": "Przełącznik ustawień dla manualnej zmiany tekstu przycisków zastępującego tekst ustalony językiem systemu."
     },
     "resetButton": {
-        "message": "Reset",
-        "description": "Tekst wyświetlany na przycisku reset."
+        "message": "Resetuj",
+        "description": "Tekst wyświetlany na przycisku resetuj."
     },
     "optionsButton": {
         "message": "Opcje",
@@ -46,5 +46,9 @@
     "donatePayPal": {
         "message": " Przekaż darowiznę w systemie PayPal",
         "description": "Tekst używany dla przycisku darowizny."
+    },
+    "settingsToggle_noReferrer": {
+        "message": "Ukryj adres odsyłający po kliknięciu \"Pokaż obraz\":",
+        "description": "Przełącznik ustawień, który przełącza atrybut rel='noreferrer' na przycisku \"Pokaż obraz\"."
     }
 }
