@@ -50,8 +50,8 @@ const show = function (options) {
         }
         case ('string'): {
             document.getElementById(key).value = options[key];
-             break;
-         }
+            break;
+        }
         }
     }
 
