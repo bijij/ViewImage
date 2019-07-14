@@ -43,9 +43,7 @@ const update_page = function () {
 // Show options
 const show = function (options) {
     for (const key in options) {
-        if (options.hasOwnProperty(key)) {
-
-            switch (typeof (options[key])) {
+        switch (typeof (options[key])) {
             case ('boolean'): {
                 document.getElementById(key).checked = options[key];
                 break;
@@ -53,7 +51,6 @@ const show = function (options) {
             case ('string'): {
                 document.getElementById(key).value = options[key];
                 break;
-            }
             }
         }
     }
@@ -80,14 +77,14 @@ chrome.storage.sync.get('defaultOptions', function (storage) {
 // On change, save
 document.addEventListener('change', event => {
     switch (event.target.type) {
-    case ('checkbox'): {
-        options[event.target.id] = event.target.checked;
-        break;
-    }
-    case ('text'): {
-        options[event.target.id] = event.target.value;
-        break;
-    }
+        case ('checkbox'): {
+            options[event.target.id] = event.target.checked;
+            break;
+        }
+        case ('text'): {
+            options[event.target.id] = event.target.value;
+            break;
+        }
     }
 
     save(options);
