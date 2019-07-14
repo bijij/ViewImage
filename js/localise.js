@@ -14,7 +14,7 @@ function localiseObject(obj, tag) {
 function localiseHtmlPage() {
     var data = document.querySelectorAll('[data-localise]');
 
-    for (var i in data) if (data.hasOwnProperty(i)) {
+    for (var i = 0; i < data.length; i++) {
         var obj = data[i];
         var tag = obj.getAttribute('data-localise').toString();
 
