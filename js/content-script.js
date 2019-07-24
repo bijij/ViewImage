@@ -100,15 +100,32 @@ function addViewImageButton(container, image, redesign) {
 
     // Create the view image button
     var viewImgButton = visitButton.cloneNode(true);
-    viewImgButton.classList.add("vi_ext_addon");
+    viewImgButton.classList.add('vi_ext_addon');
 
     // Set the view image button url
-    if (!redesign)
-        viewImgButton.querySelector('a').href = image.src;
-    else viewImgButton.href = image.src;
+    var viewImageLink = redesign ? viewImgButton : viewImgButton.querySelector('a');
+    viewImageLink.href = image.src;
 
-    // Set the view image buttoon text
-    localiseObject(viewImgButton.querySelector(redesign ? '.irc_ho' : '.Tl8XHc'), '__MSG_viewImage__');
+    // Set additional options
+    if (options['open-in-new-tab']) {
+        viewImageLink.setAttribute('target', '_blank');
+    }
+    if (options['no-referrer']) {
+        viewImageLink.setAttribute('rel', 'noreferrer');
+    }
+
+    // Set the view image button text
+    var viewImageButtonText = viewImgButton.querySelector(redesign ? '.irc_ho' : '.Tl8XHc');
+    if (options['manually-set-button-text']) {
+        viewImageButtonText.innerText = options['button-text-view-image'];
+    } else {
+        localiseObject(viewImageButtonText, '__MSG_viewImage__');
+    }
+
+    // Remove globe icon if not wanted
+    if (!options['show-globe-icon']) {
+        viewImgButton.querySelector(redesign ? '.aDEWOd' : '.RL3J9c').remove()
+    }
 
     // Place the view image button
     visitButton.parentElement.insertBefore(viewImgButton, visitButton);
@@ -122,13 +139,23 @@ function addSearchImgButton(container, image, redesign) {
 
     // Create the search by image button
     var searchImgButton = link.cloneNode(true);
-    searchImgButton.classList.add("vi_ext_addon");
+    searchImgButton.classList.add('vi_ext_addon');
 
-    // Set the more sizes button test
-    localiseObject(redesign ? searchImgButton.querySelector('span') : searchImgButton.querySelector('.irc_ho'), '__MSG_searchImg__');
+    // Set the more sizes button text
+    var searchImgButtonText = searchImgButton.querySelector(redesign ? 'span' : '.irc_ho')
+    if (options['manually-set-button-text']) {
+        searchImgButtonText.innerText = options['button-text-search-by-image'];
+    } else {
+        localiseObject(searchImgButtonText, '__MSG_searchImage__');
+    }
 
     // Set the search by image button url
     searchImgButton.href = '/searchbyimage?image_url=' + image.src;
+
+    // Set additional options
+    if (options['open-search-by-in-new-tab']) {
+        searchImgButton.setAttribute('target', '_blank');
+    }
 
     // Place the more sizes button
     link.parentElement.insertBefore(searchImgButton, link);
@@ -140,24 +167,25 @@ function addSearchImgButton(container, image, redesign) {
 // Adds links to an object
 function addLinks(node) {
 
-    var container = getContainer(node);
+    // Determine wether redesign or not
     var redesign = isRedesign();
+
+    // Find the container
+    var container = getContainer(node);
 
     // Return if no container was found
     if (!container)
-        return
+        return;
 
     // Clear any old extension elements
     clearExtElements(container);
 
-    // Check wether redesign or not
-    var redesign = isRedesign(container);
-
     // Find the image url
     var image = findImage(container, redesign);
+
     // Return if image was not found
     if (!image)
-        return
+        return;
 
     addViewImageButton(container, image, redesign);
     addSearchImgButton(container, image, redesign);
