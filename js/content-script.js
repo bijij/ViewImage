@@ -124,7 +124,7 @@ function addViewImageButton(container, image, redesign) {
 
     // Remove globe icon if not wanted
     if (!options['show-globe-icon']) {
-        viewImgButton.querySelector(redesign ? '.aDEWOd' : '.RL3J9c').remove()
+        viewImgButton.querySelector(redesign ? '.aDEWOd' : '.RL3J9c').remove();
     }
 
     // Place the view image button
@@ -142,7 +142,7 @@ function addSearchImgButton(container, image, redesign) {
     searchImgButton.classList.add('vi_ext_addon');
 
     // Set the more sizes button text
-    var searchImgButtonText = searchImgButton.querySelector(redesign ? 'span' : '.irc_ho')
+    var searchImgButtonText = searchImgButton.querySelector(redesign ? 'span' : '.irc_ho');
     if (options['manually-set-button-text']) {
         searchImgButtonText.innerText = options['button-text-search-by-image'];
     } else {
