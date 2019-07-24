@@ -13,73 +13,44 @@ function localiseObject(obj, tag) {
 }
 
 
-function addLinks(node) {
-
-    var object = node.closest('.irc_c[style*="visibility: visible;"][style*="transform: translate3d(0px, 0px, 0px);"]');
-
-    if (!object)
-        object = node.closest('.irc_c[style*="transform: translate3d(0px, 0px, 0px);"]');
+// Determines wether using the redesign or not.
+function isRedesign() {
+    return document.querySelector('.irc_ifr') != null;
+}
 
 
-    // Stop if object not found
-    if (object === null) {
-        return;
-    }
+// Finds the div which contains all required elements
+function getContainer(node) {
+    return node.closest('.irc_c[style*="visibility: visible;"][style*="transform: translate3d(0px, 0px, 0px);"], .irc_c[data-ved]');
+}
 
+
+// Finds and deletes all extension related elements.
+function clearExtElements(container) {
     // Remove previously generated elements
-    var oldExtensionElements = object.querySelectorAll('.ext_addon');
-    for (var i = oldExtensionElements.length - 1; i >= 0; i--) {
-        var element = oldExtensionElements[i];
-        element.parentElement.removeChild(element);
+    var oldExtensionElements = container.querySelectorAll('.vi_ext_addon');
+    for (var element of oldExtensionElements) {
+        element.remove();
+    }
+}
+
+
+// Returns the image URL
+function findImage(container, redesign) {
+
+    var image = null;
+
+    if (!redesign) {
+        image = container.querySelector('img[src]#irc_mi, img[alt^="Image result"][src]:not([src^="https://encrypted-tbn"]).irc_mut, img[src].irc_mi');
+    } else {
+        var iframe = container.querySelector('iframe.irc_ifr');
+        image = iframe.contentDocument.querySelector('img#irc_mi');
     }
 
-    var redesign = false;
-
-    // Retrive image links, and image url
-
-    // imageLinks is the "Visit", "View Image", and "Save" links with the buttons
-    var imageLinks = object.querySelector('._FKw.irc_but_r > tbody > tr');
-    if (!imageLinks)
-        imageLinks = object.querySelector('.irc_but_r > tbody > tr');
-
-    // Google Images redesign
-    if (!imageLinks) {
-        imageLinks = object.querySelector('.Qc8zh > .irc_ab');
-        if (imageLinks)
-            redesign = true;
-    }
-
-
-    // imageText is the text below the header, with the 'website', 'WxH', and 'Search By Image' links
-    var imageText = object.querySelector('._cjj > .irc_it > .irc_hd > ._r3');
-    if (!imageText)
-        imageText = object.querySelector('.Qc8zh > .irc_it > .irc_hd > .rn92ee');
-    if (!imageText)
-        imageText = object.querySelector('.Qc8zh > .irc_it > .irc_hd > .irc_dsh');
-
-
-    // globeIcon is the span containing the globe svg in the "Visit" button
-    var globeIcon = document.querySelector('._RKw._wtf._Ptf');
-    if (!globeIcon)
-        globeIcon = document.querySelector('.RL3J9c.z1asCe.GYDk8c');
-    if (!globeIcon && redesign)
-        globeIcon = imageLinks.querySelector('a:nth-of-type(1) > div > span:nth-of-type(1)');
-
-
-    // viewImageText is the text span node for the "Visit" button
-    var viewImageText = document.querySelector('._WKw');
-    if (!viewImageText)
-        viewImageText = document.querySelector('.Tl8XHc');
-    if (!viewImageText && redesign)
-        viewImageText = imageLinks.querySelector('a:nth-of-type(1) > div > span:nth-of-type(2)');
-
-
-    // Retrive the image;
-    var image = object.querySelector('img[alt^="Image result"][src]:not([src^="https://encrypted-tbn"]).irc_mut, img[src].irc_mi');
 
     // Override url for images using base64 embeds
     if (image === null || image.src === '' || image.src.startsWith('data')) {
-        var thumbnail = document.querySelector('img[name="' + object.dataset.itemId + '"]');
+        var thumbnail = document.querySelector('img[name="' + container.dataset.itemId + '"]');
         if (thumbnail === null) {
             // If no thumbnail found, try getting image from URL
             var url = new URL(window.location);
@@ -100,7 +71,7 @@ function addLinks(node) {
 
     // If the above doesn't work, use the link in related images to find it
     if (image === null || image.src === '' || image.src.startsWith('data')) {
-        var target_image = object.querySelector('img.target_image');
+        var target_image = container.querySelector('img.target_image');
         if (target_image) {
             var link = target_image.closest('a');
             if (link) {
@@ -119,126 +90,89 @@ function addLinks(node) {
             }
         }
     }
-
-    // Supress error in console
-    if (image === null)
-        return;
-
-    // Create more sizes button
-    var moreSizes = document.createElement('a');
-    moreSizes.setAttribute('href', '#'); // TODO: Figure out how to generate a more sizes url
-    moreSizes.setAttribute('class', 'ext_addon o5rIVb _ZR irc_hol irc_lth _r3');
-    moreSizes.setAttribute('style', 'pointer-events:none'); // Disable click for now
-
-    // Insert text into more sizes button
-    var moreSizesText = document.createElement('span');
-    image.sizeText = moreSizesText;
-    moreSizesText.innerHTML = object.querySelector('.irc_idim').innerHTML;
-    moreSizes.appendChild(moreSizesText);
-
-    // Create Search by image button
-    var searchByImage = document.createElement('a');
-    searchByImage.setAttribute('href', '/searchbyimage?image_url=' + image.src);
-    if (options['open-search-by-in-new-tab']) {
-        searchByImage.setAttribute('target', '_blank');
-    }
-    searchByImage.setAttribute('class', 'ext_addon o5rIVb _ZR irc_hol irc_lth _r3');
-
-    // Insert text into Search by image button
-    var searchByImageText = document.createElement('span');
-    if (options['manually-set-button-text']) {
-        searchByImageText.innerText = options['button-text-search-by-image'];
-    } else {
-        localiseObject(searchByImageText, '<span>__MSG_searchImg__</span>');
-    }
-
-    searchByImage.appendChild(searchByImageText);
-
-    // Append More sizes & Search by image buttons
-    if (imageText) {
-        imageText.appendChild(moreSizes);
-        imageText.appendChild(searchByImage);
-    }
-
-    // Hide copyright text if toggle enabled
-    if (options['hide-images-subject-to-copyright']) {
-        var copyWarning = object.querySelector('.irc_bimg.irc_it');
-        copyWarning.style = 'display: none;';
-    }
-
-    // Create View image button
-    var viewImageTextClone = viewImageText.cloneNode(true);
-    var viewImage, viewImageLink, globeParent;
-
-    var old_btn = document.getElementById('viewimage-btn');
-    if (old_btn)
-        old_btn.parentNode.removeChild(old_btn);
-
-    if (!redesign) {
-        viewImage = document.createElement('td');
-        viewImage.setAttribute('class', 'ext_addon');
-
-        viewImageLink = document.createElement('a');
-        viewImage.appendChild(viewImageLink);
-
-        viewImageLink.appendChild(viewImageTextClone);
-        globeParent = viewImageLink;
-    } else {
-        viewImage = document.createElement('a');
-        viewImage.classList.add('o5rIVb');
-        viewImageLink = viewImage;
-
-        var viewImageDiv = document.createElement('div');
-        viewImageDiv.classList.add('NDcgDe');
-        viewImageDiv.classList.add('EWkRMe'); // padding-right: 10px
-        viewImage.appendChild(viewImageDiv);
-
-        viewImageDiv.appendChild(viewImageTextClone);
-        globeParent = viewImageDiv;
-    }
-
-    viewImage.id = 'viewimage-btn';
-
-    // Add globe to View image button if toggle enabled
-    // Soft-fail if globeIcon is not found
-    if (options['show-globe-icon'] && globeIcon) {
-        globeParent.insertBefore(globeIcon.cloneNode(true), globeParent.firstChild);
-    }
-
-    // Set the text for the View Image button
-    if (options['manually-set-button-text']) {
-        viewImageTextClone.innerText = options['button-text-view-image'];
-    } else {
-        localiseObject(viewImageTextClone, '__MSG_viewImage__');
-    }
-
-    // Add View image button URL
-    viewImageLink.setAttribute('href', image.src);
-    if (options['open-in-new-tab']) {
-        viewImageLink.setAttribute('target', '_blank');
-    }
-    if (options['no-referrer']) {
-        viewImageLink.setAttribute('rel', 'noreferrer');
-    }
-
-    // Add View image button to Image Links
-    var save = imageLinks.childNodes[1];
-    imageLinks.insertBefore(viewImage, save);
+    return image;
 }
 
 
-// Define the mutation observer
+function addViewImageButton(container, image, redesign) {
+    // get the visit buttonm
+    var visitButton = redesign ? container.querySelector('a.irc_hol[href]') : container.querySelector('td > a.irc_vpl[href]').parentElement;
+
+    // Create the view image button
+    var viewImgButton = visitButton.cloneNode(true);
+    viewImgButton.classList.add("vi_ext_addon");
+
+    // Set the view image button url
+    if (!redesign)
+        viewImgButton.querySelector('a').href = image.src;
+    else viewImgButton.href = image.src;
+
+    // Set the view image buttoon text
+    localiseObject(viewImgButton.querySelector(redesign ? '.irc_ho' : '.Tl8XHc'), '__MSG_viewImage__');
+
+    // Place the view image button
+    visitButton.parentElement.insertBefore(viewImgButton, visitButton);
+    visitButton.parentElement.insertBefore(visitButton, viewImgButton);
+}
+
+
+function addSearchImgButton(container, image, redesign) {
+
+    var link = redesign ? container.querySelector('.irc_ft > a.irc_help') : container.querySelector('.irc_dsh > a.irc_hol');
+
+    // Create the search by image button
+    var searchImgButton = link.cloneNode(true);
+    searchImgButton.classList.add("vi_ext_addon");
+
+    // Set the more sizes button test
+    localiseObject(redesign ? searchImgButton.querySelector('span') : searchImgButton.querySelector('.irc_ho'), '__MSG_searchImg__');
+
+    // Set the search by image button url
+    searchImgButton.href = '/searchbyimage?image_url=' + image.src;
+
+    // Place the more sizes button
+    link.parentElement.insertBefore(searchImgButton, link);
+    link.parentElement.insertBefore(link, searchImgButton);
+
+}
+
+
+// Adds links to an object
+function addLinks(node) {
+
+    var container = getContainer(node);
+    var redesign = isRedesign();
+
+    // Return if no container was found
+    if (!container)
+        return
+
+    // Clear any old extension elements
+    clearExtElements(container);
+
+    // Check wether redesign or not
+    var redesign = isRedesign(container);
+
+    // Find the image url
+    var image = findImage(container, redesign);
+    // Return if image was not found
+    if (!image)
+        return
+
+    addViewImageButton(container, image, redesign);
+    addSearchImgButton(container, image, redesign);
+}
+
+
+// Define the mutation observers
 var observer = new MutationObserver(function (mutations) {
-    for (var i = 0; i < mutations.length; i++) {
-        var mutation = mutations[i];
-
+    for (var mutation of mutations) {
         if (mutation.addedNodes && mutation.addedNodes.length > 0) {
-            for (var j = 0; j < mutation.addedNodes.length; j++) {
-                var newNode = mutation.addedNodes[j];
-
-                if (newNode.nodeType === Node.ELEMENT_NODE) {
-                    if (newNode.classList.contains('irc_mi') | newNode.classList.contains('irc_mut') | newNode.classList.contains('irc_ris')) {
-                        addLinks(newNode);
+            for (var node of mutation.addedNodes) {
+                if (node.classList) {
+                    // Check for new image nodes
+                    if (node.classList.contains('irc_mi') | node.classList.contains('irc_mut') | node.classList.contains('irc_ris')) {
+                        addLinks(node);
                     }
                 }
             }
@@ -246,17 +180,10 @@ var observer = new MutationObserver(function (mutations) {
     }
 });
 
-
 // Get options and start adding links
 var options;
 chrome.storage.sync.get(['options', 'defaultOptions'], function (storage) {
     options = Object.assign(storage.defaultOptions, storage.options);
-
-    var objects = document.querySelectorAll('.irc_c');
-    for (var i = 0; i < objects.length; i++) {
-        addLinks(objects[i]);
-    }
-
     observer.observe(document.body, {
         childList: true,
         subtree: true
@@ -266,5 +193,5 @@ chrome.storage.sync.get(['options', 'defaultOptions'], function (storage) {
 
 // inject CSS into document
 var customStyle = document.createElement('style');
-customStyle.innerText = '._r3:hover:before{display:inline-block;pointer-events:none} ._r3{margin: 0 4pt!important}';
+customStyle.innerText = '.irc_dsh>.irc_hol.vi_ext_addon,.irc_ft>.irc_help.vi_ext_addon{margin: 0 4pt!important}.irc_hol.vi_ext_addon{flex-grow:0!important}';
 document.head.appendChild(customStyle);
