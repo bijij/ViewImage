@@ -48,6 +48,8 @@ function findImage(container, redesign) {
         image = container.querySelector('img[src]#irc_mi, img[alt^="Image result"][src]:not([src^="https://encrypted-tbn"]).irc_mut, img[src].irc_mi');
     } else {
         var iframe = container.querySelector('iframe.irc_ifr');
+        if (!iframe)
+            return findImage(container, false);
         image = iframe.contentDocument.querySelector('img#irc_mi');
     }
 
