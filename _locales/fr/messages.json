@@ -1,34 +1,34 @@
 {
     "appName": {
-        "message": "View image",
-        "description": "Title of the application, displayed on the web store."
+        "message": "Voir image",
+        "description": "Titre de l'application, affiché sur la boutique en ligne."
     },
     "appDesc": {
         "message": "Réimplémente les boutons \"Voir l'image\" et \"Recherche par image\".",
-        "description": "The description of the application, as shown on the web store."
+        "description": "La description de l'application, comme indiqué sur la boutique en ligne."
     },
     "searchImg": {
         "message": "Recherche par image",
-        "description": "Button leads to google, search by image page."
+        "description": "Le bouton mène à google, recherche par page d'image."
     },
     "viewImage": {
         "message": "Voir l'image",
-        "description": "Button for viewing image."
+        "description": "Bouton pour visualiser l'image."
     },
     "settingsToggle_NewTab_viewImage": {
         "message": "Ouvrir les images dans un nouvel onglet:",
-        "description": "Settings toggle which causes images to open in new tab."
+        "description": "Basculement des paramètres qui provoque l'ouverture des images dans le nouvel onglet."
     },
     "resetButton": {
         "message": "Réinitialiser",
-        "description": "Text displayed on reset button."
+        "description": "Texte affiché sur le bouton de réinitialisation."
     },
     "optionsButton": {
         "message": "Options",
-        "description": "Text displayed on the link to options button."
+        "description": "Texte affiché sur le bouton lien vers les options."
     },
     "donatePayPal": {
         "message": " Faire un don à travers PayPal",
-        "description": "Text used for the donation button."
+        "description": "Texte utilisé pour le bouton de donation."
     }
 }
