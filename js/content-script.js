@@ -14,8 +14,12 @@ function localiseObject(obj, tag) {
 
 
 // Determines wether using the redesign or not.
-function isRedesign() {
-    return document.querySelector('.irc_ifr') != null;
+function isRedesign(container) {
+    if (!container.querySelector('._FKw.irc_but_r > tbody > tr')) {
+        if (container.querySelector('.Qc8zh > .irc_ab'))
+            return true;
+    }
+    return false;
 }
 
 
@@ -167,9 +171,6 @@ function addSearchImgButton(container, image, redesign) {
 // Adds links to an object
 function addLinks(node) {
 
-    // Determine wether redesign or not
-    var redesign = isRedesign();
-
     // Find the container
     var container = getContainer(node);
 
@@ -179,6 +180,9 @@ function addLinks(node) {
 
     // Clear any old extension elements
     clearExtElements(container);
+
+    // Determine wether redesign or not
+    var redesign = isRedesign(container);
 
     // Find the image url
     var image = findImage(container, redesign);
