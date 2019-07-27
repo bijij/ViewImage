@@ -31,6 +31,10 @@
         "message": "Ocultar mensagem \"As imagens podem estar sujeitas a direitos autorais\":",
         "description": "Alterar a opção irá ocultar a mensagem de direitos autorais na página de resultados de imagens."
     },
+    "settingsToggle_noReferrer": {
+        "message": "Ocultar referenciador do site ao clicar \"Ver Imagem\":",
+        "description": "Configurações que alternam rel='noreferrer' no botão \"Ver Imagem\"."
+    },
     "settingsToggle_buttonText": {
         "message": "Definir texto do botão manualmente:",
         "description": "Alterar a opção permite definir manualmente o texto dos botões em vez do da tradução."
