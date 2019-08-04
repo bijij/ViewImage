@@ -24,7 +24,7 @@
         "description": "Basculement des paramètres entraînant l'ouverture de la recherche par page d'image dans un nouvel onglet."
     },
     "settingsToggle_globeIcon": {
-        "message": "Afficher l'icône du globe dans le bouton\"Voir image\":",
+        "message": "Afficher l'icône du globe dans le bouton \"Voir image\":",
         "description": "Basculement des paramètres qui provoque l'affichage de l'icône du globe sur le bouton \"Voir image\"."
     },
     "settingsToggle_subjectCopyright": {
