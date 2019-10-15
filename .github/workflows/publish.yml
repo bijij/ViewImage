@@ -27,7 +27,7 @@ jobs:
         WEXT_SHIPIT_FIREFOX_JWT_ISSUER: ${{ secrets.MOZ_DEPLOY_JWT_ISSUER }}
         WEXT_SHIPIT_FIREFOX_JWT_SECRET: ${{ secrets.MOZ_DEPLOY_JWT_SECRET }}
       run: |
-        shipit firefox .
+        node ./node_modules/@wext/shipit/bin.js firefox .
   
     - name: Modify manifest for Chrome / Opera
       run: |
@@ -42,4 +42,4 @@ jobs:
         WEXT_SHIPIT_CHROME_CLIENT_SECRET: ${{ secrets.CHROME_DEPLOY_CLIENT_SECRET }}
         WEXT_SHIPIT_CHROME_REFRESH_TOKEN: ${{ secrets.CHROME_DEPLOY_RERESH_TOKEN }}
       run: |
-        shipit chrome .       
+        node ./node_modules/@wext/shipit/bin.js chrome .       
