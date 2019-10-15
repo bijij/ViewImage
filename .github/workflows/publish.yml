@@ -34,7 +34,7 @@ jobs:
       run: |
         VERSION_NUMBER=$(jq -r .version manifest.json)
         ACCESS_TOKEN=$(jwtgen -a HS256 -s ${CLIENT_SECRET} -c "iss=${CLIENT_ID}" -e 300)
-        curl -H "Authorization: JTW ${ACCESS_TOKEN}" -g -X PUT -T package.zip "https://addons.mozzilla.org/api/v3/addons/${APP_ID}/version/${VERSION_NO}"
+        curl -H "Authorization: JTW ${ACCESS_TOKEN}" -g -X PUT -T package.zip "https://addons.mozzilla.org/api/v3/addons/${APP_ID}/version/${VERSION_NUMBER}"
 
     - name: Deploy to Chrome
       env: 
