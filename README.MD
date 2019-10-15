@@ -2,7 +2,7 @@
 # View Image
 [![Chrome Web Store](https://img.shields.io/chrome-web-store/v/jpcmhcelnjdmblfmjabdeclccemkghjk.svg)](https://chrome.google.com/webstore/detail/view-image/jpcmhcelnjdmblfmjabdeclccemkghjk)
 [![Mozilla Add-on](https://img.shields.io/amo/v/view-image.svg)](https://addons.mozilla.org/en-US/firefox/addon/view-image/)
-[![Travis](https://img.shields.io/travis/bijij/ViewImage.svg)](https://travis-ci.org/bijij/ViewImage)
+[![Travis](https://github.com/bijij/ViewImage/workflows/CI/badge.svg)](https://github.com/bijij/ViewImage/actions)
 
 View Image is a Chrome / Firefox extension which implements the "View Image" and "Search by image" buttons back into Google Image Search.
 
