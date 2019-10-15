@@ -34,14 +34,14 @@ jobs:
       run: |
         VERSION_NUMBER=$(jq -r .version manifest.json)
         ACCESS_TOKEN=$(jwtgen -a HS256 -s ${CLIENT_SECRET} -c "iss=${CLIENT_ID}" -e 300)
-        curl -H "Authorization: JTW ${ACCESS_TOKEN}" -g -X PUT -T package.zip "https://addons.mozilla.org/api/v3/addons/${APP_ID}/version/${VERSION_NUMBER}"
+        curl -H "Authorization: JTW ${ACCESS_TOKEN}" -g -X PUT -T package.zip "https://addons.mozilla.org/api/v3/addons/${APP_ID}/versions/${VERSION_NUMBER}"
 
     - name: Deploy to Chrome
       env: 
         APP_ID: 'jpcmhcelnjdmblfmjabdeclccemkghjk'
         CLIENT_ID: ${{ secrets.CHROME_DEPLOY_CLIENT_ID }}
         CLIENT_SECRET: ${{ secrets.CHROME_DEPLOY_CLIENT_SECRET }}
-        REFRESH_TOKEN: ${{ secrets.CHROME_DEPLOY_RERESH_TOKEN }}
+        REFRESH_TOKEN: ${{ secrets.CHROME_DEPLOY_REFRESH_TOKEN }}
       run: |
         ACCESS_TOKEN=$(curl "https://accounts.google.com/o/oauth2/token" -d "client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}&refresh_token=${REFRESH_TOKEN}&grant_type=refresh_token&redirect_uri=urn:ietf:wg:oauth:2.0:oob" | jq -r .access_token)
         curl -H "Authorization: Bearer ${ACCESS_TOKEN}" -H "x-goog-api-version: 2" -X PUT -T package.zip "https://www.googleapis.com/upload/chromewebstore/v1.1/items/${APP_ID}"
