@@ -19,27 +19,32 @@ jobs:
      
     - name: Install Required NPM packages
       run: |
-        npm install --save @wext/shipit
+        npm install -g web-ext-submit
  
     - name: Deploy to Firefox
       env:
-        APP_ID: yadayayda
-        WEXT_SHIPIT_FIREFOX_JWT_ISSUER: ${{ secrets.MOZ_DEPLOY_JWT_ISSUER }}
-        WEXT_SHIPIT_FIREFOX_JWT_SECRET: ${{ secrets.MOZ_DEPLOY_JWT_SECRET }}
+        WEB_EXT_API_KEY: ${{ secrets.MOZ_DEPLOY_JWT_ISSUER }}
+        WEB_EXT_API_SECRE: ${{ secrets.MOZ_DEPLOY_JWT_SECRET }}
       run: |
-        node ./node_modules/@wext/shipit/bin.js firefox .
+        web-ext-submit
   
     - name: Modify manifest for Chrome / Opera
       run: |
         jq -r "del(.browser_specific_settings)" manifest.json > manifst.json.tmp
         cp manifest.json.tmp manifest.json
         rm manifrst.json.tmp
-  
+
+    - name: Zip package for deployment
+      run: |
+        git archive -o package.zip HEAD
+
     - name: Deploy to Chrome
       env: 
-        WEXT_SHIPIT_CHROME_EXTENSION_ID: jpcmhcelnjdmblfmjabdeclccemkghjk
-        WEXT_SHIPIT_CHROME_CLIENT_ID: ${{ secrets.CHROME_DEPLOY_CLIENT_ID }}
-        WEXT_SHIPIT_CHROME_CLIENT_SECRET: ${{ secrets.CHROME_DEPLOY_CLIENT_SECRET }}
-        WEXT_SHIPIT_CHROME_REFRESH_TOKEN: ${{ secrets.CHROME_DEPLOY_RERESH_TOKEN }}
+        APP_ID: jpcmhcelnjdmblfmjabdeclccemkghjk
+        CLIENT_ID: ${{ secrets.CHROME_DEPLOY_CLIENT_ID }}
+        CLIENT_SECRET: ${{ secrets.CHROME_DEPLOY_CLIENT_SECRET }}
+        REFRESH_TOKEN: ${{ secrets.CHROME_DEPLOY_RERESH_TOKEN }}
       run: |
-        node ./node_modules/@wext/shipit/bin.js chrome .       
+        ACCESS_TOKEN=$(curl "https://accounts.google.com/o/oauth2/token" -d "client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}&refresh_token=${REFRESH_TOKEN}&grant_type=refresh_token&redirect_uri=urn:ietf:wg:oauth:2.0:oob" | jq -r .access_token)
+        curl -H "Authorization: Bearer ${ACCESS_TOKEN}" -H "x-goog-api-version: 2" -X PUT -T pointless.zip -v "https://www.googleapis.com/upload/chromewebstore/v1.1/items/${APP_ID}"
+        curl -H "Authorization: Bearer ${ACCESS_TOKEN}" -H "x-goog-api-version: 2" -H "Content-Length: 0" -X POST -v "https://www.googleapis.com/chromewebstore/v1.1/items/${APP_ID}/publish"
