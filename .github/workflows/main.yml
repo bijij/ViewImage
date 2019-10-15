@@ -19,4 +19,4 @@ jobs:
         npm install eslint-plugin-json
     - name: Lint with ESLint
       run: |
-        node ./node_modules/eslint/bin/eslint --ext .json --ext.js ./
+        node ./node_modules/eslint/bin/eslint --ext .json --ext .js ./
