@@ -24,7 +24,7 @@ jobs:
     - name: Deploy to Firefox
       env:
         WEB_EXT_API_KEY: ${{ secrets.MOZ_DEPLOY_JWT_ISSUER }}
-        WEB_EXT_API_SECRE: ${{ secrets.MOZ_DEPLOY_JWT_SECRET }}
+        WEB_EXT_API_SECRET: ${{ secrets.MOZ_DEPLOY_JWT_SECRET }}
       run: |
         web-ext-submit
   
