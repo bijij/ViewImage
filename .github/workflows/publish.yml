@@ -1,0 +1,45 @@
+name: Publish to Webstores
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  deploy:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v1
+      
+    - name: Setup node
+      uses: actions/setup-node@v1
+      with:
+        node-version: 8
+     
+    - name: Install Required NPM packages
+      run: |
+        npm install --save @wext/shipit
+ 
+    - name: Deploy to Firefox
+      env:
+        APP_ID: yadayayda
+        WEXT_SHIPIT_FIREFOX_JWT_ISSUER: ${{ secrets.MOZ_DEPLOY_JWT_ISSUER }}
+        WEXT_SHIPIT_FIREFOX_JWT_SECRET: ${{ secrets.MOZ_DEPLOY_JWT_SECRET }}
+      run: |
+        shipit firefox .
+  
+    - name: Modify manifest for Chrome / Opera
+      run: |
+        jq -r "del(.browser_specific_settings)" manifest.json > manifst.json.tmp
+        cp manifest.json.tmp manifest.json
+        rm manifrst.json.tmp
+  
+    - name: Deploy to Chrome
+      env: 
+        WEXT_SHIPIT_CHROME_EXTENSION_ID: jpcmhcelnjdmblfmjabdeclccemkghjk
+        WEXT_SHIPIT_CHROME_CLIENT_ID: ${{ secrets.CHROME_DEPLOY_CLIENT_ID }}
+        WEXT_SHIPIT_CHROME_CLIENT_SECRET: ${{ secrets.CHROME_DEPLOY_CLIENT_SECRET }}
+        WEXT_SHIPIT_CHROME_REFRESH_TOKEN: ${{ secrets.CHROME_DEPLOY_RERESH_TOKEN }}
+      run: |
+        shipit chrome .       
