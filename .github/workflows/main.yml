@@ -1,0 +1,22 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v1
+    - name: Setup node
+      uses: actions/setup-node@v1
+      with:
+        version: 8
+    - name: Install deps
+      run: |
+        npm install eslint
+        npm install eslint-plugin-json
+    - name: Lint with ESLint
+      run: |
+        node ./node_modules/eslint/bin/eslint --ext .json --ext.js ./
