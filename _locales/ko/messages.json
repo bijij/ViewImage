@@ -7,7 +7,7 @@
         "message": "Google 이미지의 \"이미지 보기\" 와 \"이미지로 검색\" 버튼을 다시 적용합니다.",
         "description": "The description of the application, as shown on the web store."
     },
-    "searchImg": {
+    "searchImage": {
         "message": "이미지로 검색",
         "description": "Button leads to Google's Search by Image page."
     },

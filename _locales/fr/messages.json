@@ -7,7 +7,7 @@
         "message": "Réimplémente les boutons \"Voir l'image\" et \"Recherche par image\".",
         "description": "La description de l'application, comme indiqué sur la boutique en ligne."
     },
-    "searchImg": {
+    "searchImage": {
         "message": "Recherche par image",
         "description": "Le bouton mène à google, recherche par page d'image."
     },

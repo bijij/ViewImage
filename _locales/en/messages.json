@@ -7,7 +7,7 @@
         "message": "Re-implements the Google Images' \"View Image\" and \"Search by Image\" buttons.",
         "description": "The description of the application, as shown on the web store."
     },
-    "searchImg": {
+    "searchImage": {
         "message": "Search by image",
         "description": "Button leads to Google's Search by Image page."
     },

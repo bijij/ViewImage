@@ -7,7 +7,7 @@
         "message": "Reimplementa no Google Imagens o botão \"Ver Imagem\" e o link \"Pesquisar por imagem\".",
         "description": "A descrição da extensão, como mostrada na web store."
     },
-    "searchImg": {
+    "searchImage": {
         "message": "Pesquisar por imagem",
         "description": "Botão encaminha a imagem para o Google Imagens, procurando por ela em toda a internet."
     },

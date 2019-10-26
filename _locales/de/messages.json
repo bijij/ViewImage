@@ -7,7 +7,7 @@
         "message": "Dieses Plugin bringt die Schaltfläche \"Bild ansehen\" und die \"Google Bildersuche\" zurück.",
         "description": "The description of the application, as shown on the web store."
     },
-    "searchImg": {
+    "searchImage": {
         "message": "Zur \"Bildersuche\"",
         "description": "Button leads to Google's Search by Image page."
     },

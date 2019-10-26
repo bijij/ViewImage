@@ -7,7 +7,7 @@
         "message": "Re-implimenterar Google bilden, \"Visa originalbilden\" och \"Fler storlekar\" knapparna.",
         "description": "The description of the application, as shown on the web store."
     },
-    "searchImg": {
+    "searchImage": {
         "message": "Fler storlekar",
         "description": "Button leads to google, search by image page."
     },

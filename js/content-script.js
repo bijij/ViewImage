@@ -152,7 +152,7 @@ function addSearchImgButton(container, image, redesign) {
     if (options['manually-set-button-text']) {
         searchImgButtonText.innerText = options['button-text-search-by-image'];
     } else {
-        localiseObject(searchImgButtonText, '__MSG_searchImg__');
+        localiseObject(searchImgButtonText, '__MSG_searchImage__');
     }
 
     // Set the search by image button url

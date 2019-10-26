@@ -7,7 +7,7 @@
         "message": "Re-implementerer Google Bilder, \"Se Bilde\" og \"Søk med Bilde\" knappene.",
         "description": "The description of the application, as shown on the web store."
     },
-    "searchImg": {
+    "searchImage": {
         "message": "Søk med bilde",
         "description": "Button leads to google, search by image page."
     },

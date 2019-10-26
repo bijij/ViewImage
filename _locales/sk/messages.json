@@ -7,7 +7,7 @@
         "message": "Pridá tlačidlá \"Zobraziť obrázok\" a \"Vyhľadať podľa obrázku\" do vyhladávača Google.",
         "description": "The description of the application, as shown on the web store."
     },
-    "searchImg": {
+    "searchImage": {
         "message": "Vyhľadať podľa obrázku",
         "description": "Button leads to google, search by image page."
     },

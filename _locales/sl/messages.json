@@ -7,7 +7,7 @@
         "message": "Ponovno prikaže gumba \"Ogled slike\" in \"Iskanje s sliko\" na Google Slikah.",
         "description": "Opis aplikacije, prikazan na spletni trgovini."
     },
-    "searchImg": {
+    "searchImage": {
         "message": "Iskanje s sliko",
         "description": "Gumb za Google iskanje s sliko."
     },

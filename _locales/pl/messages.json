@@ -7,7 +7,7 @@
         "message": "Powrót przycisków \"Pokaż obraz\" i \"Wyszukiwanie obrazem\" w Google Grafika.",
         "description": "Opis aplikacji, pokazywany w sklepie rozszerzeń."
     },
-    "searchImg": {
+    "searchImage": {
         "message": "Wyszukiwanie obrazem",
         "description": "Przycisk prowadzący do strony Wyszukiwania obrazem w Google."
     },

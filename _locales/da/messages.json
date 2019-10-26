@@ -19,7 +19,7 @@
       "description": "Text displayed on reset button.",
       "message": "Nulstil"
    },
-   "searchImg": {
+   "searchImage": {
       "description": "Button leads to Google's Search by Image page.",
       "message": "Søg efter billede"
    },

@@ -7,7 +7,7 @@
         "message": "重新實現 Google 圖片的「檢視圖片」和「以圖搜圖」按鈕。",
         "description": "The description of the application, as shown on the web store."
     },
-    "searchImg": {
+    "searchImage": {
         "message": "以圖搜圖",
         "description": "Button leads to Google's Search by Image page."
     },

@@ -7,7 +7,7 @@
         "message": "Reimplementa los botones de Google Imágenes: \"Ver imagen\" y \"Buscar por imagen\".",
         "description": "La descripción de la aplicación, mostrada en la Tienda Web."
     },
-    "searchImg": {
+    "searchImage": {
         "message": "Buscar por imagen",
         "description": "Botón que lleva a la página de búsqueda por imágenes de Google."
     },

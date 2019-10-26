@@ -7,7 +7,7 @@
         "message": "Google画像検索に\"画像を表示\"と\"画像を検索\"ボタンを再実装します。",
         "description": "The description of the application, as shown on the web store."
     },
-    "searchImg": {
+    "searchImage": {
         "message": "画像を検索",
         "description": "Button leads to Google's Search by Image page."
     },

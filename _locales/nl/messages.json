@@ -7,7 +7,7 @@
         "message": "Herimplementeert de knoppen \"Afbeelding weergeven\" en \"Afbeelding zoeken\" in Google Afbeeldingen.",
         "description": "Beschrijving van de applicatie, zoals weergegeven in de web store."
     },
-    "searchImg": {
+    "searchImage": {
         "message": "Afbeelding zoeken",
         "description": "Knop verwijst naar de pagina 'Afbeelding zoeken in Google'."
     },

@@ -7,7 +7,7 @@
         "message": "Riattiva i pulsanti \"Visualizza immagine\" e \"Ricerca tramite immagine\" di Google Immagini.",
         "description": "The description of the application, as shown on the web store."
     },
-    "searchImg": {
+    "searchImage": {
         "message": "Ricerca tramite immagine",
         "description": "Button leads to Google's Search by Image page."
     },

@@ -7,7 +7,7 @@
         "message": "Re-implimentuje tlačítka \"Zobrazit obrázek\" and \"Vyhledat podle obrázku\" na vyhledávači Google.",
         "description": "The description of the application, as shown on the web store."
     },
-    "searchImg": {
+    "searchImage": {
         "message": "Vyhledat podle obrázku",
         "description": "Button leads to google, search by image page."
     },
