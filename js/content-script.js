@@ -1,5 +1,13 @@
 'use strict';
 
+const DEBUG = false;
+
+const VERSIONS = {
+    FEB18: 'FEB18',
+    JUL19: 'JUL19',
+    OCT19: 'OCT19'
+}
+
 function toI18n(str) {
     return str.replace(/__MSG_(\w+)__/g, function (match, v1) {
         return v1 ? chrome.i18n.getMessage(v1) : '';
@@ -13,19 +21,19 @@ function localiseObject(obj, tag) {
 }
 
 
-// Determines wether using the redesign or not.
-function isRedesign(container) {
-    if (!container.querySelector('._FKw.irc_but_r > tbody > tr')) {
-        if (container.querySelector('.Qc8zh > .irc_ab'))
-            return true;
-    }
-    return false;
-}
-
-
 // Finds the div which contains all required elements
 function getContainer(node) {
-    return node.closest('.irc_c[style*="visibility: visible;"][style*="transform: translate3d(0px, 0px, 0px);"], .irc_c[data-ved]');
+    var container, version;
+    [
+        ['.irc_c[style*="visibility: visible;"][style*="transform: translate3d(0px, 0px, 0px);"]', VERSIONS.FEB18],
+        ['.irc_c[data-ved]', VERSIONS.JUL19],
+        ['.A8mJGd', VERSIONS.OCT19]
+    ].forEach(element => {
+        if (node.closest(element[0])) {
+            [container, version] = [node.closest(element[0]), element[1]];
+        }
+    });
+    return [container, version];
 }
 
 
@@ -40,19 +48,24 @@ function clearExtElements(container) {
 
 
 // Returns the image URL
-function findImage(container, redesign) {
+function findImage(container, version) {
 
     var image = null;
 
-    if (!redesign) {
-        image = container.querySelector('img[src]#irc_mi, img[alt^="Image result"][src]:not([src^="https://encrypted-tbn"]).irc_mut, img[src].irc_mi');
-    } else {
-        var iframe = container.querySelector('iframe.irc_ifr');
-        if (!iframe)
-            return findImage(container, false);
-        image = iframe.contentDocument.querySelector('img#irc_mi');
+    switch (version) {
+        case VERSIONS.FEB18:
+            image = container.querySelector('img[src]#irc_mi, img[alt^="Image result"][src]:not([src^="https://encrypted-tbn"]).irc_mut, img[src].irc_mi');
+            break;
+        case VERSIONS.JUL19:
+            var iframe = container.querySelector('iframe.irc_ifr');
+            if (!iframe)
+                return findImage(container, false);
+            image = iframe.contentDocument.querySelector('img#irc_mi');
+            break;
+        case VERSIONS.OCT19:
+            image = container.querySelector('img[src].n3VNCb');
+            break;
     }
-
 
     // Override url for images using base64 embeds
     if (image === null || image.src === '' || image.src.startsWith('data')) {
@@ -100,17 +113,40 @@ function findImage(container, redesign) {
 }
 
 
-function addViewImageButton(container, image, redesign) {
+function addViewImageButton(container, image, version) {
+
     // get the visit buttonm
-    var visitButton = redesign ? container.querySelector('a.irc_hol[href]') : container.querySelector('td > a.irc_vpl[href]').parentElement;
+    var visitButton;
+    switch (version) {
+        case VERSIONS.FEB18:
+            visitButton = container.querySelector('td > a.irc_vpl[href]').parentElement;
+            break;
+        case VERSIONS.JUL19:
+            visitButton = container.querySelector('a.irc_hol[href]');
+            break;
+        case VERSIONS.OCT19:
+            visitButton = container.querySelector('.ZsbmCf[href]')
+            break;
+    }
 
     // Create the view image button
-    var viewImgButton = visitButton.cloneNode(true);
-    viewImgButton.classList.add('vi_ext_addon');
+    var viewImageButton = visitButton.cloneNode(true);
+    viewImageButton.classList.add('vi_ext_addon');
 
     // Set the view image button url
-    var viewImageLink = redesign ? viewImgButton : viewImgButton.querySelector('a');
+    var viewImageLink;
+    switch (version) {
+        case VERSIONS.FEB18:
+            viewImageLink = viewImageButton.querySelector('a');
+            break;
+        default:
+            viewImageLink = viewImageButton;
+    }
+
     viewImageLink.href = image.src;
+    if (version == VERSIONS.OCT19) {
+        viewImageLink.removeAttribute('jsaction');
+    }
 
     // Set additional options
     if (options['open-in-new-tab']) {
@@ -121,7 +157,20 @@ function addViewImageButton(container, image, redesign) {
     }
 
     // Set the view image button text
-    var viewImageButtonText = viewImgButton.querySelector(redesign ? '.irc_ho' : '.Tl8XHc');
+    var viewImageButtonText;
+    switch (version) {
+        case VERSIONS.FEB18:
+            viewImageButtonText = viewImageButton.querySelector('.Tl8XHc');
+            break;
+        case VERSIONS.JUL19:
+            viewImageButtonText = viewImageButton.querySelector('.irc_ho');
+            break;
+        case VERSIONS.OCT19:
+            viewImageButtonText = viewImageButton.querySelector('.pM4Snf');
+            break;
+    }
+
+
     if (options['manually-set-button-text']) {
         viewImageButtonText.innerText = options['button-text-view-image'];
     } else {
@@ -130,42 +179,65 @@ function addViewImageButton(container, image, redesign) {
 
     // Remove globe icon if not wanted
     if (!options['show-globe-icon']) {
-        viewImgButton.querySelector(redesign ? '.aDEWOd' : '.RL3J9c').remove();
+        viewImageButton.querySelector(version ? '.aDEWOd' : '.RL3J9c').remove();
     }
 
     // Place the view image button
-    visitButton.parentElement.insertBefore(viewImgButton, visitButton);
-    visitButton.parentElement.insertBefore(visitButton, viewImgButton);
+    visitButton.parentElement.insertBefore(viewImageButton, visitButton);
+    visitButton.parentElement.insertBefore(visitButton, viewImageButton);
 }
 
 
-function addSearchImgButton(container, image, redesign) {
+function addSearchImageButton(container, image, version) {
 
-    var link = redesign ? container.querySelector('.irc_ft > a.irc_help') : container.querySelector('.irc_dsh > a.irc_hol');
+    var link;
+    switch (version) {
+        case VERSIONS.FEB18:
+            link = container.querySelector('.irc_dsh > a.irc_hol');
+            break;
+        case VERSIONS.JUL19:
+            link = container.querySelector('.irc_ft > a.irc_help');
+            break;
+        case VERSIONS.OCT19:
+            link = container.querySelector('.PvkmDc');
+            break;
+    }
 
     // Create the search by image button
-    var searchImgButton = link.cloneNode(true);
-    searchImgButton.classList.add('vi_ext_addon');
+    var searchImageButton = link.cloneNode(true);
+    searchImageButton.classList.add('vi_ext_addon');
 
     // Set the more sizes button text
-    var searchImgButtonText = searchImgButton.querySelector(redesign ? 'span' : '.irc_ho');
+    var searchImageButtonText;
+    switch (version) {
+        case VERSIONS.FEB18:
+            searchImageButtonText = container.querySelector('span');
+            break;
+        case VERSIONS.JUL19:
+            searchImageButtonText = container.querySelector('.irc_ho');
+            break;
+        case VERSIONS.OCT19:
+            searchImageButtonText = searchImageButton;
+            break;
+    }
+
     if (options['manually-set-button-text']) {
-        searchImgButtonText.innerText = options['button-text-search-by-image'];
+        searchImageButtonText.innerText = options['button-text-search-by-image'];
     } else {
-        localiseObject(searchImgButtonText, '__MSG_searchImage__');
+        localiseObject(searchImageButtonText, '__MSG_searchImage__');
     }
 
     // Set the search by image button url
-    searchImgButton.href = '/searchbyimage?image_url=' + image.src;
+    searchImageButton.href = '/searchbyimage?image_url=' + image.src;
 
     // Set additional options
     if (options['open-search-by-in-new-tab']) {
-        searchImgButton.setAttribute('target', '_blank');
+        searchImageButton.setAttribute('target', '_blank');
     }
 
     // Place the more sizes button
-    link.parentElement.insertBefore(searchImgButton, link);
-    link.parentElement.insertBefore(link, searchImgButton);
+    link.parentElement.insertBefore(searchImageButton, link);
+    link.parentElement.insertBefore(link, searchImageButton);
 
 }
 
@@ -173,39 +245,54 @@ function addSearchImgButton(container, image, redesign) {
 // Adds links to an object
 function addLinks(node) {
 
+    if (DEBUG)
+        console.log('ViewImage: Trying to add links to node: ', node);
+
     // Find the container
-    var container = getContainer(node);
+    var [container, version] = getContainer(node);
 
     // Return if no container was found
-    if (!container)
+    if (!container) {
+        if (DEBUG)
+            console.log('ViewImage: Adding links failed, container was not found.');
         return;
+    }
+
+    if (DEBUG)
+        console.log('ViewImage: Assuming site version: ', version);
 
     // Clear any old extension elements
     clearExtElements(container);
 
-    // Determine wether redesign or not
-    var redesign = isRedesign(container);
-
     // Find the image url
-    var image = findImage(container, redesign);
+    var image = findImage(container, version);
 
     // Return if image was not found
-    if (!image)
-        return;
+    if (!image) {
 
-    addViewImageButton(container, image, redesign);
-    addSearchImgButton(container, image, redesign);
+        if (DEBUG)
+            console.log('ViewImage: Adding links failed, image was not found.');
+
+        return;
+    }
+
+    addViewImageButton(container, image, version);
+    addSearchImageButton(container, image, version);
 }
 
 
 // Define the mutation observers
 var observer = new MutationObserver(function (mutations) {
+
+    if (DEBUG)
+        console.log('ViewImage: Mutations detected: ', mutations);
+
     for (var mutation of mutations) {
         if (mutation.addedNodes && mutation.addedNodes.length > 0) {
             for (var node of mutation.addedNodes) {
                 if (node.classList) {
                     // Check for new image nodes
-                    if (node.classList.contains('irc_mi') | node.classList.contains('irc_mut') | node.classList.contains('irc_ris')) {
+                    if (['irc_mi', 'irc_mut', 'irc_ris', 'A8mJGd', 'n3VNCb'].some(className => node.classList.contains(className))) {
                         addLinks(node);
                     }
                 }
@@ -218,6 +305,10 @@ var observer = new MutationObserver(function (mutations) {
 var options;
 chrome.storage.sync.get(['options', 'defaultOptions'], function (storage) {
     options = Object.assign(storage.defaultOptions, storage.options);
+
+    if (DEBUG)
+        console.log('ViewImage: Initialising observer...');
+
     observer.observe(document.body, {
         childList: true,
         subtree: true
@@ -226,6 +317,9 @@ chrome.storage.sync.get(['options', 'defaultOptions'], function (storage) {
 
 
 // inject CSS into document
+if (DEBUG)
+    console.log('ViewImage: Injecting CSS...');
+
 var customStyle = document.createElement('style');
-customStyle.innerText = '.irc_dsh>.irc_hol.vi_ext_addon,.irc_ft>.irc_help.vi_ext_addon{margin: 0 4pt!important}.irc_hol.vi_ext_addon{flex-grow:0!important}';
+customStyle.innerText = '.irc_dsh>.irc_hol.vi_ext_addon,.irc_ft>.irc_help.vi_ext_addon,.PvkmDc.vi_ext_addon{margin: 0 4pt!important}.irc_hol.vi_ext_addon{flex-grow:0!important}.ZsbmCf.vi_ext_addon{flex-grow:0}';
 document.head.appendChild(customStyle);
