@@ -16,6 +16,11 @@
         "default_icon": "icon/48.png",
         "default_popup": "html/popup.html"
     },
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "{287dcf75-bec6-4eec-b4f6-71948a2eea29}"
+        }
+    },
     "permissions": [
         "storage"
     ],
