@@ -8,6 +8,8 @@ const VERSIONS = {
     OCT19: 'OCT19'
 };
 
+var images = new Object();
+
 function toI18n(str) {
     return str.replace(/__MSG_(\w+)__/g, function (match, v1) {
         return v1 ? chrome.i18n.getMessage(v1) : '';
@@ -48,7 +50,7 @@ function clearExtElements(container) {
 
 
 // Returns the image URL
-function findImage(container, version) {
+function findImageURL(container, version) {
 
     var image = null;
 
@@ -64,7 +66,9 @@ function findImage(container, version) {
         break;
     case VERSIONS.OCT19:
         image = container.querySelector('img[src].n3VNCb');
-        break;
+        if (images.hasOwnProperty(image.src)) {
+            return images[image.src];
+        }
     }
 
     // Override url for images using base64 embeds
@@ -75,16 +79,12 @@ function findImage(container, version) {
             var url = new URL(window.location);
             var imgLink = url.searchParams.get('imgurl');
             if (imgLink) {
-                image = new Object();
-                image.src = imgLink;
+                return imgLink;
             }
         } else {
             var meta = thumbnail.closest('.rg_bx').querySelector('.rg_meta');
-
             var metadata = JSON.parse(meta.innerHTML);
-
-            image = new Object();
-            image.src = metadata.ou;
+            return metadata.ou;
         }
     }
 
@@ -99,21 +99,22 @@ function findImage(container, version) {
                     var link_url = new URL(link.href);
                     var new_imgLink = link_url.searchParams.get('imgurl');
                     if (new_imgLink) {
-                        image = new Object();
-                        image.src = new_imgLink;
+                        return new_imgLink;
                     }
                 } else {
-                    image = new Object();
-                    image.src = link.href;
+                    return link.href;
                 }
             }
         }
     }
-    return image;
+
+    if (image) {
+        return image.src;
+    }
+
 }
 
-
-function addViewImageButton(container, image, version) {
+function addViewImageButton(container, imageURL, version) {
 
     // get the visit buttonm
     var visitButton;
@@ -143,7 +144,7 @@ function addViewImageButton(container, image, version) {
         viewImageLink = viewImageButton;
     }
 
-    viewImageLink.href = image.src;
+    viewImageLink.href = imageURL;
     if (version == VERSIONS.OCT19) {
         viewImageLink.removeAttribute('jsaction');
     }
@@ -188,7 +189,7 @@ function addViewImageButton(container, image, version) {
 }
 
 
-function addSearchImageButton(container, image, version) {
+function addSearchImageButton(container, imageURL, version) {
 
     var link;
     switch (version) {
@@ -228,7 +229,7 @@ function addSearchImageButton(container, image, version) {
     }
 
     // Set the search by image button url
-    searchImageButton.href = '/searchbyimage?image_url=' + image.src;
+    searchImageButton.href = '/searchbyimage?image_url=' + imageURL;
 
     // Set additional options
     if (options['open-search-by-in-new-tab']) {
@@ -265,10 +266,10 @@ function addLinks(node) {
     clearExtElements(container);
 
     // Find the image url
-    var image = findImage(container, version);
+    var imageURL = findImageURL(container, version);
 
     // Return if image was not found
-    if (!image) {
+    if (!imageURL) {
 
         if (DEBUG)
             console.log('ViewImage: Adding links failed, image was not found.');
@@ -276,9 +277,30 @@ function addLinks(node) {
         return;
     }
 
-    addViewImageButton(container, image, version);
-    addSearchImageButton(container, image, version);
+    addViewImageButton(container, imageURL, version);
+    addSearchImageButton(container, imageURL, version);
 }
+
+// Check if source holds array of images
+try {
+    const start_search = "AF_initDataCallback({key: 'ds:2', isError:  false , hash: '3', data:function(){return ";
+    const end_search = '}});</script>';
+
+    var start_index = document.documentElement.innerHTML.indexOf(start_search) + start_search.length;
+    var end_index = start_index + document.documentElement.innerHTML.slice(start_index).indexOf(end_search);
+    var array = JSON.parse(document.documentElement.innerHTML.slice(start_index, end_index));
+
+    var meta = array[31][0][12][2];
+    for (var i = 0; i < meta.length; i++) {
+        try {
+            images[meta[i][1][2][0]] = meta[i][1][3][0];
+        } catch {}
+    }
+
+    if (DEBUG)
+        console.log('ViewImage: Successfully created source images array.')
+
+} catch {}
 
 
 // Define the mutation observers
