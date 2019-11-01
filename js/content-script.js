@@ -61,12 +61,12 @@ function findImageURL(container, version) {
     case VERSIONS.JUL19:
         var iframe = container.querySelector('iframe.irc_ifr');
         if (!iframe)
-            return findImage(container, false);
+            return findImageURL(container, VERSIONS.FEB18);
         image = iframe.contentDocument.querySelector('img#irc_mi');
         break;
     case VERSIONS.OCT19:
         image = container.querySelector('img[src].n3VNCb');
-        if (images.hasOwnProperty(image.src)) {
+        if (image.src in images) {
             return images[image.src];
         }
     }
@@ -283,7 +283,7 @@ function addLinks(node) {
 
 // Check if source holds array of images
 try {
-    const start_search = "AF_initDataCallback({key: 'ds:2', isError:  false , hash: '3', data:function(){return ";
+    const start_search = 'AF_initDataCallback({key: \'ds:2\', isError:  false , hash: \'3\', data:function(){return ';
     const end_search = '}});</script>';
 
     var start_index = document.documentElement.innerHTML.indexOf(start_search) + start_search.length;
@@ -294,13 +294,19 @@ try {
     for (var i = 0; i < meta.length; i++) {
         try {
             images[meta[i][1][2][0]] = meta[i][1][3][0];
-        } catch (error) {}
+        } catch (error) {
+            if (DEBUG)
+                console.log('ViewImage: Skipping image');
+        }
     }
 
     if (DEBUG)
-        console.log('ViewImage: Successfully created source images array.')
+        console.log('ViewImage: Successfully created source images array.');
 
-} catch (error) {}
+} catch (error) {
+    if (DEBUG)
+        console.log('ViewImage: Failed to create source images array.');
+}
 
 
 // Define the mutation observers
