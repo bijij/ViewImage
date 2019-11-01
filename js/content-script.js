@@ -294,13 +294,13 @@ try {
     for (var i = 0; i < meta.length; i++) {
         try {
             images[meta[i][1][2][0]] = meta[i][1][3][0];
-        } catch {}
+        } catch (error) {}
     }
 
     if (DEBUG)
         console.log('ViewImage: Successfully created source images array.')
 
-} catch {}
+} catch (error) {}
 
 
 // Define the mutation observers
