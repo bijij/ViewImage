@@ -31,6 +31,10 @@
         "message": "隐藏“图片可能受版权保护”警告:",
         "description": "Settings toggle hides copyright message on image results page."
     },
+    "settingsToggle_noReferrer": {
+        "message": "点击“查看图片”时不携带 referrer",
+        "description": "Settings toggle which toggles rel='noreferrer' on the \"View Image\" button."
+    },
     "settingsToggle_buttonText": {
         "message": "自定义按钮文字:",
         "description": "Settings toggle enables manually set text for buttons rather than locale."
