@@ -180,7 +180,17 @@ function addViewImageButton(container, imageURL, version) {
 
     // Remove globe icon if not wanted
     if (!options['show-globe-icon']) {
-        viewImageButton.querySelector(version ? '.aDEWOd' : '.RL3J9c').remove();
+        switch (version) {
+        case VERSIONS.FEB18:
+            viewImageButton.querySelector('.RL3J9c').remove();
+            break;
+        case VERSIONS.JUL19:
+            viewImageButton.querySelector('.aDEWOd').remove();
+            break;
+        case VERSIONS.OCT19:
+            viewImageButton.querySelector('.XeEBj.AJkoub').remove();
+            break;
+        }
     }
 
     // Place the view image button
@@ -212,10 +222,10 @@ function addSearchImageButton(container, imageURL, version) {
     var searchImageButtonText;
     switch (version) {
     case VERSIONS.FEB18:
-        searchImageButtonText = container.querySelector('span');
+        searchImageButtonText = container.querySelector('.irc_ho');
         break;
     case VERSIONS.JUL19:
-        searchImageButtonText = container.querySelector('.irc_ho');
+        searchImageButtonText = container.querySelector('span');
         break;
     case VERSIONS.OCT19:
         searchImageButtonText = searchImageButton;
