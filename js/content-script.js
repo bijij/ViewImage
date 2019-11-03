@@ -225,7 +225,7 @@ function addSearchImageButton(container, imageURL, version) {
         searchImageButtonText = container.querySelector('.irc_ho');
         break;
     case VERSIONS.JUL19:
-        searchImageButtonText = container.querySelector('span');
+        searchImageButtonText = searchImageButton.querySelector('span');
         break;
     case VERSIONS.OCT19:
         searchImageButtonText = searchImageButton;
