@@ -5,10 +5,15 @@ body {
 
 	background-color: #fafafa;
 	width: 600px;
+	margin: 16px;
 }
 
 a {
 	text-decoration: none;
+}
+
+.toggle {
+	margin-bottom: 16px;
 }
 
 .toggle > span {
@@ -96,6 +101,10 @@ button:active {
 	margin: 5px 0px 0 20px;
 }
 
+.textbox > div {
+	margin-bottom: 16px;
+}
+
 input[type="text"] {
 	float:right;
 	border: none;
@@ -106,6 +115,5 @@ input[type="text"] {
 }
 
 .disabled {
-	opacity: 0.54;
-	pointer-events: none;
+	display: none;
 }
