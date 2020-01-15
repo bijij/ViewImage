@@ -117,3 +117,10 @@ input[type="text"] {
 .disabled {
 	display: none;
 }
+
+@media (prefers-color-scheme: dark) {
+body {
+    background-color: #313131;
+                color: #bfbfbf;
+}
+}
