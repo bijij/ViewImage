@@ -68,3 +68,10 @@ button:active {
     opacity: 0.54;
     font-size: 10px;
 }
+
+@media (prefers-color-scheme: dark) {
+body, div.paper, a {
+    background-color: #313131;
+                color: #bfbfbf;
+}
+}
