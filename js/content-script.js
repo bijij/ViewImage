@@ -55,20 +55,20 @@ function findImageURL(container, version) {
     var image = null;
 
     switch (version) {
-    case VERSIONS.FEB18:
-        image = container.querySelector('img[src]#irc_mi, img[alt^="Image result"][src]:not([src^="https://encrypted-tbn"]).irc_mut, img[src].irc_mi');
-        break;
-    case VERSIONS.JUL19:
-        var iframe = container.querySelector('iframe.irc_ifr');
-        if (!iframe)
-            return findImageURL(container, VERSIONS.FEB18);
-        image = iframe.contentDocument.querySelector('img#irc_mi');
-        break;
-    case VERSIONS.OCT19:
-        image = container.querySelector('img[src].n3VNCb');
-        if (image.src in images) {
-            return images[image.src];
-        }
+        case VERSIONS.FEB18:
+            image = container.querySelector('img[src]#irc_mi, img[alt^="Image result"][src]:not([src^="https://encrypted-tbn"]).irc_mut, img[src].irc_mi');
+            break;
+        case VERSIONS.JUL19:
+            var iframe = container.querySelector('iframe.irc_ifr');
+            if (!iframe)
+                return findImageURL(container, VERSIONS.FEB18);
+            image = iframe.contentDocument.querySelector('img#irc_mi');
+            break;
+        case VERSIONS.OCT19:
+            image = container.querySelector('img[src].n3VNCb');
+            if (image.src in images) {
+                return images[image.src];
+            }
     }
 
     // Override url for images using base64 embeds
@@ -119,15 +119,15 @@ function addViewImageButton(container, imageURL, version) {
     // get the visit buttonm
     var visitButton;
     switch (version) {
-    case VERSIONS.FEB18:
-        visitButton = container.querySelector('td > a.irc_vpl[href]').parentElement;
-        break;
-    case VERSIONS.JUL19:
-        visitButton = container.querySelector('a.irc_hol[href]');
-        break;
-    case VERSIONS.OCT19:
-        visitButton = container.querySelector('.ZsbmCf[href]');
-        break;
+        case VERSIONS.FEB18:
+            visitButton = container.querySelector('td > a.irc_vpl[href]').parentElement;
+            break;
+        case VERSIONS.JUL19:
+            visitButton = container.querySelector('a.irc_hol[href]');
+            break;
+        case VERSIONS.OCT19:
+            visitButton = container.querySelector('.ZsbmCf[href]');
+            break;
     }
 
     // Create the view image button
@@ -137,11 +137,11 @@ function addViewImageButton(container, imageURL, version) {
     // Set the view image button url
     var viewImageLink;
     switch (version) {
-    case VERSIONS.FEB18:
-        viewImageLink = viewImageButton.querySelector('a');
-        break;
-    default:
-        viewImageLink = viewImageButton;
+        case VERSIONS.FEB18:
+            viewImageLink = viewImageButton.querySelector('a');
+            break;
+        default:
+            viewImageLink = viewImageButton;
     }
 
     viewImageLink.href = imageURL;
@@ -160,15 +160,15 @@ function addViewImageButton(container, imageURL, version) {
     // Set the view image button text
     var viewImageButtonText;
     switch (version) {
-    case VERSIONS.FEB18:
-        viewImageButtonText = viewImageButton.querySelector('.Tl8XHc');
-        break;
-    case VERSIONS.JUL19:
-        viewImageButtonText = viewImageButton.querySelector('.irc_ho');
-        break;
-    case VERSIONS.OCT19:
-        viewImageButtonText = viewImageButton.querySelector('.pM4Snf');
-        break;
+        case VERSIONS.FEB18:
+            viewImageButtonText = viewImageButton.querySelector('.Tl8XHc');
+            break;
+        case VERSIONS.JUL19:
+            viewImageButtonText = viewImageButton.querySelector('.irc_ho');
+            break;
+        case VERSIONS.OCT19:
+            viewImageButtonText = viewImageButton.querySelector('.pM4Snf');
+            break;
     }
 
 
@@ -181,15 +181,15 @@ function addViewImageButton(container, imageURL, version) {
     // Remove globe icon if not wanted
     if (!options['show-globe-icon']) {
         switch (version) {
-        case VERSIONS.FEB18:
-            viewImageButton.querySelector('.RL3J9c').remove();
-            break;
-        case VERSIONS.JUL19:
-            viewImageButton.querySelector('.aDEWOd').remove();
-            break;
-        case VERSIONS.OCT19:
-            viewImageButton.querySelector('.XeEBj.AJkoub').remove();
-            break;
+            case VERSIONS.FEB18:
+                viewImageButton.querySelector('.RL3J9c').remove();
+                break;
+            case VERSIONS.JUL19:
+                viewImageButton.querySelector('.aDEWOd').remove();
+                break;
+            case VERSIONS.OCT19:
+                viewImageButton.querySelector('.XeEBj.AJkoub').remove();
+                break;
         }
     }
 
@@ -203,15 +203,15 @@ function addSearchImageButton(container, imageURL, version) {
 
     var link;
     switch (version) {
-    case VERSIONS.FEB18:
-        link = container.querySelector('.irc_dsh > a.irc_hol');
-        break;
-    case VERSIONS.JUL19:
-        link = container.querySelector('.irc_ft > a.irc_help');
-        break;
-    case VERSIONS.OCT19:
-        link = container.querySelector('.PvkmDc');
-        break;
+        case VERSIONS.FEB18:
+            link = container.querySelector('.irc_dsh > a.irc_hol');
+            break;
+        case VERSIONS.JUL19:
+            link = container.querySelector('.irc_ft > a.irc_help');
+            break;
+        case VERSIONS.OCT19:
+            link = container.querySelector('.PvkmDc');
+            break;
     }
 
     // Create the search by image button
@@ -221,15 +221,15 @@ function addSearchImageButton(container, imageURL, version) {
     // Set the more sizes button text
     var searchImageButtonText;
     switch (version) {
-    case VERSIONS.FEB18:
-        searchImageButtonText = container.querySelector('.irc_ho');
-        break;
-    case VERSIONS.JUL19:
-        searchImageButtonText = searchImageButton.querySelector('span');
-        break;
-    case VERSIONS.OCT19:
-        searchImageButtonText = searchImageButton;
-        break;
+        case VERSIONS.FEB18:
+            searchImageButtonText = container.querySelector('.irc_ho');
+            break;
+        case VERSIONS.JUL19:
+            searchImageButtonText = searchImageButton.querySelector('span');
+            break;
+        case VERSIONS.OCT19:
+            searchImageButtonText = searchImageButton;
+            break;
     }
 
     if (options['manually-set-button-text']) {

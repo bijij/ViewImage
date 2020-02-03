@@ -46,12 +46,12 @@ const show = function (options) {
         var element = document.getElementById(key);
         if (element) {
             switch (typeof (options[key])) {
-            case ('boolean'): 
-                element.checked = options[key];
-                break;
-            case ('string'): 
-                element.value = options[key];
-                break;
+                case ('boolean'):
+                    element.checked = options[key];
+                    break;
+                case ('string'):
+                    element.value = options[key];
+                    break;
             }
         }
     }
@@ -78,12 +78,12 @@ chrome.storage.sync.get('defaultOptions', function (storage) {
 // On change, save
 document.addEventListener('change', event => {
     switch (event.target.type) {
-    case ('checkbox'):
-        options[event.target.id] = event.target.checked;
-        break;
-    case ('text'):
-        options[event.target.id] = event.target.value;
-        break;
+        case ('checkbox'):
+            options[event.target.id] = event.target.checked;
+            break;
+        case ('text'):
+            options[event.target.id] = event.target.value;
+            break;
     }
 
     save(options);
