@@ -325,9 +325,10 @@ var observer = new MutationObserver(function (mutations) {
     if (DEBUG)
         console.log('ViewImage: Mutations detected: ', mutations);
 
+    var node;
     for (var mutation of mutations) {
         if (mutation.addedNodes && mutation.addedNodes.length > 0) {
-            for (var node of mutation.addedNodes) {
+            for (node of mutation.addedNodes) {
                 if (node.classList) {
                     // Check for new image nodes
                     if (['irc_mi', 'irc_mut', 'irc_ris', 'n3VNCb'].some(className => node.classList.contains(className))) {
@@ -338,7 +339,7 @@ var observer = new MutationObserver(function (mutations) {
         }
 
         if (mutation.target.classList && mutation.target.classList.contains('n3VNCb')) {
-            var node = mutation.target.closest('.tvh9oe');
+            node = mutation.target.closest('.tvh9oe');
 
             if (!node.hasAttribute('aria-hidden')) {
                 addLinks(node);
