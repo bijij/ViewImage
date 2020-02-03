@@ -29,7 +29,7 @@ function getContainer(node) {
     [
         ['.irc_c[style*="visibility: visible;"][style*="transform: translate3d(0px, 0px, 0px);"]', VERSIONS.FEB18],
         ['.irc_c[data-ved]', VERSIONS.JUL19],
-        ['.A8mJGd', VERSIONS.OCT19]
+        ['.tvh9oe', VERSIONS.OCT19]
     ].forEach(element => {
         if (node.closest(element[0])) {
             [container, version] = [node.closest(element[0]), element[1]];
@@ -330,10 +330,18 @@ var observer = new MutationObserver(function (mutations) {
             for (var node of mutation.addedNodes) {
                 if (node.classList) {
                     // Check for new image nodes
-                    if (['irc_mi', 'irc_mut', 'irc_ris', 'A8mJGd', 'n3VNCb'].some(className => node.classList.contains(className))) {
+                    if (['irc_mi', 'irc_mut', 'irc_ris', 'n3VNCb'].some(className => node.classList.contains(className))) {
                         addLinks(node);
                     }
                 }
+            }
+        }
+
+        if (mutation.target.classList && mutation.target.classList.contains('n3VNCb')) {
+            var node = mutation.target.closest('.tvh9oe');
+
+            if (!node.hasAttribute('aria-hidden')) {
+                addLinks(node);
             }
         }
     }
@@ -349,7 +357,8 @@ chrome.storage.sync.get(['options', 'defaultOptions'], function (storage) {
 
     observer.observe(document.body, {
         childList: true,
-        subtree: true
+        subtree: true,
+        attributes: true
     });
 });
 
