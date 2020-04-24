@@ -210,7 +210,7 @@ function addSearchImageButton(container, imageURL, version) {
             link = container.querySelector('.irc_ft > a.irc_help');
             break;
         case VERSIONS.OCT19:
-            link = container.querySelector('.PvkmDc');
+            link = container.querySelector('.PvkmDc, .qnLx5b');
             break;
     }
 
@@ -369,5 +369,21 @@ if (DEBUG)
     console.log('ViewImage: Injecting CSS...');
 
 var customStyle = document.createElement('style');
-customStyle.innerText = '.irc_dsh>.irc_hol.vi_ext_addon,.irc_ft>.irc_help.vi_ext_addon,.PvkmDc.vi_ext_addon{margin: 0 4pt!important}.irc_hol.vi_ext_addon{flex-grow:0!important}.ZsbmCf.vi_ext_addon{flex-grow:0}';
+customStyle.innerText = `
+.irc_dsh>.irc_hol.vi_ext_addon,
+.irc_ft>.irc_help.vi_ext_addon,
+.PvkmDc.vi_ext_addon,
+.qnLx5b.vi_ext_addon
+{
+    margin: 0 4pt!important
+}
+
+.irc_hol.vi_ext_addon
+{
+    flex-grow:0!important
+}
+
+.ZsbmCf.vi_ext_addon{
+    flex-grow:0
+}`;
 document.head.appendChild(customStyle);
