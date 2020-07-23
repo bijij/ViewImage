@@ -1,0 +1,126 @@
+body {
+    color: #212121;
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 16px;
+
+	background-color: #fafafa;
+	width: 600px;
+	margin: 16px;
+}
+
+a {
+	text-decoration: none;
+}
+
+.toggle {
+	margin-bottom: 16px;
+}
+
+.toggle > span {
+	font-size: 16px;
+	line-height: 32px;
+	display: inline-block;
+	width: calc(100% - 52px);
+}
+
+.toggle > input {
+	display: none;
+}
+
+.toggle > label {
+	position: relative;
+	min-width: 16px;
+	cursor: pointer;
+	margin: 8px;
+	padding: 8px 0 8px 32px;
+}
+
+.toggle > label:before, .toggle > label:after {
+	content: "";
+	position: absolute;
+	margin: 0;
+	outline: 0;
+	top: 50%;
+	-ms-transform: translate(0, -50%);
+	-webkit-transform: translate(0, -50%);
+	transform: translate(0, -50%);
+	-webkit-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
+
+.toggle > label:before {
+	left: 1px;
+	width: 34px;
+	height: 14px;
+	background-color: #9E9E9E;
+	border-radius: 8px;
+}
+
+.toggle > label:after {
+	left: 0;
+	width: 20px;
+	height: 20px;
+	background-color: #FAFAFA;
+	border-radius: 50%;
+	box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.14), 0 2px 2px 0 rgba(0, 0, 0, 0.098), 0 1px 5px 0 rgba(0, 0, 0, 0.084);
+}
+
+
+.toggle > input:checked + label:before {
+    background-color: #4285f4;
+    opacity: 0.4;
+}
+
+.toggle > input:checked + label:after {
+	background-color: #3367d6;
+	-ms-transform: translate(80%, -50%);
+	-webkit-transform: translate(80%, -50%);
+	transform: translate(80%, -50%);
+}
+
+
+button {
+	background-color: #3367d6;
+	color: #ffffFF;
+	cursor: pointer;
+	display: block;
+	padding: 8px 16px;
+	outline: none;
+	border: none;
+	margin: 24px auto 0 auto;
+	box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.14), 0 2px 2px 0 rgba(0, 0, 0, 0.098), 0 1px 5px 0 rgba(0, 0, 0, 0.084);
+}
+
+button:active {
+	position: relative;
+	top: 1px;
+	background-color: #2357c6;
+}
+
+.textbox {
+	margin: 5px 0px 0 20px;
+}
+
+.textbox > div {
+	margin-bottom: 16px;
+}
+
+input[type="text"] {
+	float:right;
+	border: none;
+	outline: none;
+	padding: 4px;
+
+	box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
+}
+
+.disabled {
+	display: none;
+}
+
+@media (prefers-color-scheme: dark) {
+body {
+    background-color: #313131;
+                color: #bfbfbf;
+}
+}
