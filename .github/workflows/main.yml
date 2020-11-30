@@ -15,8 +15,8 @@ jobs:
         node-version: 8
     - name: Install deps
       run: |
-        npm install eslint
-        npm install eslint-plugin-json
+        npm install -g eslint
+        npm install -g eslint-plugin-json
     - name: Lint with ESLint
       run: |
-        node ./node_modules/eslint/bin/eslint --ext .json --ext .js ./
+        eslint --ext .json --ext .js ./

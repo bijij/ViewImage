@@ -291,15 +291,7 @@ function addLinks(node) {
     addSearchImageButton(container, imageURL, version);
 }
 
-// Check if source holds array of images
-try {
-    const start_search = 'AF_initDataCallback({key: \'ds:2\', isError:  false , hash: \'3\', data:function(){return ';
-    const end_search = '}});</script>';
-
-    var start_index = document.documentElement.innerHTML.indexOf(start_search) + start_search.length;
-    var end_index = start_index + document.documentElement.innerHTML.slice(start_index).indexOf(end_search);
-    var array = JSON.parse(document.documentElement.innerHTML.slice(start_index, end_index));
-
+function parseDataSource(array) {
     var meta = array[31][0][12][2];
     for (var i = 0; i < meta.length; i++) {
         try {
@@ -309,13 +301,52 @@ try {
                 console.log('ViewImage: Skipping image');
         }
     }
+}
+
+function parseDataSource1() {
+    const start_search = 'AF_initDataCallback({key: \'ds:1\', isError:  false , hash: \'2\', data:';
+    const end_search = ', sideChannel: {}});</script>';
+
+    var start_index = document.documentElement.innerHTML.indexOf(start_search) + start_search.length;
+    var end_index = start_index + document.documentElement.innerHTML.slice(start_index).indexOf(end_search);
+
+    console.log(start_index, end_index)
+
+    parseDataSource(JSON.parse(document.documentElement.innerHTML.slice(start_index, end_index)));
+}
+
+function parseDataSource2() {
+    const start_search = 'AF_initDataCallback({key: \'ds:2\', isError:  false , hash: \'3\', data:function(){return ';
+    const end_search = '}});</script>';
+
+    var start_index = document.documentElement.innerHTML.indexOf(start_search) + start_search.length;
+    var end_index = start_index + document.documentElement.innerHTML.slice(start_index).indexOf(end_search);
+    parseDataSource(JSON.parse(document.documentElement.innerHTML.slice(start_index, end_index)));
+}
+
+// Check if source holds array of images
+try {
+
+    if (document.documentElement.innerHTML.indexOf('key: \'ds:1\'') != -1) {
+        if (DEBUG)
+            console.log('ViewImage: Attempting to parse data source 1.');
+        parseDataSource1();
+    } else if (document.documentElement.innerHTML.indexOf('key: \'ds:2\'') != -1) {
+        if (DEBUG)
+            console.log('ViewImage: Attempting to parse data source 2.');
+        parseDataSource2();
+    } else {
+        throw new Exception('Could not determine data source type.')
+    }
 
     if (DEBUG)
         console.log('ViewImage: Successfully created source images array.');
 
 } catch (error) {
-    if (DEBUG)
+    if (DEBUG) {
         console.log('ViewImage: Failed to create source images array.');
+        console.log(error)
+    }
 }
 
 
