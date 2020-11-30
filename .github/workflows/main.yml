@@ -8,15 +8,11 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/checkout@v1
-    - name: Setup node
-      uses: actions/setup-node@v1
-      with:
-        node-version: 8
-    - name: Install deps
+    - uses: actions/checkout@v2
+    - name: Install Deps
       run: |
         npm install -g eslint
         npm install -g eslint-plugin-json
     - name: Lint with ESLint
       run: |
-        eslint --ext .json --ext .js ./
+        eslint . --ext .js,.json
