@@ -16,8 +16,28 @@
         "description": "Botón para ver la imagen."
     },
     "settingsToggle_NewTab_viewImage": {
-        "message": "Abrir imágenes en una nueva pestaña:",
-        "description": "Opción de configuración que hace que las imágenes se abran en una nueva pestaña."
+        "message": "Abrir \"Ver imagen\" en una pestaña nueva:",
+        "description": "Settings toggle which causes images to open in new tab."
+    },
+    "settingsToggle_NewTab_searchByImage": {
+        "message": "Abrir \"Buscar por imagen\" en una pestaña nueva:",
+        "description": "Settings toggle which causes the search by image page to open in new tab."
+    },
+    "settingsToggle_globeIcon": {
+        "message": "Mostrar el icono del globo terraquio en el botón \"Ver imagen\":",
+        "description": "Settings toggle which causes the globe icon to display on the \"View Image\" button."
+    },
+    "settingsToggle_subjectCopyright": {
+        "message": "Ocultar el aviso \"Las imágenes pueden estar protegidas por derechos de autor\":",
+        "description": "Settings toggle hides copyright message on image results page."
+    },
+    "settingsToggle_noReferrer": {
+        "message": "Ocultar el referente a la página web cuando se hace clic en \"Ver imagen\":",
+        "description": "Settings toggle which toggles rel='noreferrer' on the \"View Image\" button."
+    },
+    "settingsToggle_buttonText": {
+        "message": "Establecer manualmente el texto de los botones:",
+        "description": "Settings toggle enables manually set text for buttons rather than locale."
     },
     "resetButton": {
         "message": "Reiniciar",
