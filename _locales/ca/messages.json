@@ -1,0 +1,54 @@
+{
+    "appName": {
+        "message": "Mostra la imatge",
+        "description": "Title of the application, as displayed on the web store."
+    },
+    "appDesc": {
+        "message": "Reimplementa els botons \"Mostra la imatge\" i \"Cerca per imatge\" de Google Imatges.",
+        "description": "The description of the application, as shown on the web store."
+    },
+    "searchImage": {
+        "message": "Cerca per imatge",
+        "description": "Button leads to Google's Search by Image page."
+    },
+    "viewImage": {
+        "message": "Mostra la imatge",
+        "description": "Button for viewing image."
+    },
+    "settingsToggle_NewTab_viewImage": {
+        "message": "Obre \"Mostra la imatge\" en una pestanya nova:",
+        "description": "Settings toggle which causes images to open in new tab."
+    },
+    "settingsToggle_NewTab_searchByImage": {
+        "message": "Obre \"Cerca per imatge\" en una pestanya nova:",
+        "description": "Settings toggle which causes the search by image page to open in new tab."
+    },
+    "settingsToggle_globeIcon": {
+        "message": "Mostra la icona del globus terraqüi al botó \"Mostra la imatge\":",
+        "description": "Settings toggle which causes the globe icon to display on the \"View Image\" button."
+    },
+    "settingsToggle_subjectCopyright": {
+        "message": "Oculta l'advertència \"Les imatges poden estar protegides per drets d'autor\":",
+        "description": "Settings toggle hides copyright message on image results page."
+    },
+    "settingsToggle_noReferrer": {
+        "message": "Oculta el referent a la pàgina web quan es fa clic a \"Mostra la imatge\":",
+        "description": "Settings toggle which toggles rel='noreferrer' on the \"View Image\" button."
+    },
+    "settingsToggle_buttonText": {
+        "message": "Estableix el text dels botons manualment:",
+        "description": "Settings toggle enables manually set text for buttons rather than locale."
+    },
+    "resetButton": {
+        "message": "Restablir",
+        "description": "Text displayed on reset button."
+    },
+    "optionsButton": {
+        "message": "Opcions",
+        "description": "Text displayed on the link to options button."
+    },
+    "donatePayPal": {
+        "message": " Dona via PayPal",
+        "description": "Text used for the donation button."
+    }
+}
