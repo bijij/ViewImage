@@ -11,8 +11,8 @@ jobs:
     - uses: actions/checkout@v2
     - name: Install Deps
       run: |
-        npm install eslint
-        npm install eslint-plugin-json
+        npm install -g eslint
+        npm install -g eslint-plugin-json
     - name: Lint with ESLint
       run: |
-        npm run eslint . --ext .js,.json
+        eslint . --ext .js,.json
