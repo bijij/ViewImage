@@ -310,7 +310,8 @@ function parseDataSource1() {
     var start_index = document.documentElement.innerHTML.indexOf(start_search) + start_search.length;
     var end_index = start_index + document.documentElement.innerHTML.slice(start_index).indexOf(end_search);
 
-    console.log(start_index, end_index)
+    if (DEBUG)
+        console.log(start_index, end_index);
 
     parseDataSource(JSON.parse(document.documentElement.innerHTML.slice(start_index, end_index)));
 }
@@ -336,7 +337,7 @@ try {
             console.log('ViewImage: Attempting to parse data source 2.');
         parseDataSource2();
     } else {
-        throw new Exception('Could not determine data source type.')
+        throw 'Could not determine data source type.';
     }
 
     if (DEBUG)
@@ -345,7 +346,7 @@ try {
 } catch (error) {
     if (DEBUG) {
         console.log('ViewImage: Failed to create source images array.');
-        console.log(error)
+        console.error(error);
     }
 }
 

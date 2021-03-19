@@ -1,37 +1,37 @@
-module.exports = {
-    "env": {
-        "browser": true,
-        "es6": true
+export default {
+    'env': {
+        'browser': true,
+        'es6': true
     },
-    "extends": "eslint:recommended",
-    "globals": {
-        "chrome": false,
-        "browser": false
+    'extends': 'eslint:recommended',
+    'globals': {
+        'chrome': false,
+        'browser': false
     },
-    "plugins": [
-        "json"
+    'plugins': [
+        'json'
     ],
-    "rules": {
-        "no-global-assign": [
-            "error"
+    'rules': {
+        'no-global-assign': [
+            'error'
         ],
-        "indent": [
-            "error",
+        'indent': [
+            'error',
             4,
-            { "SwitchCase": 1 }
+            { 'SwitchCase': 1 }
         ],
-        "linebreak-style": [
-            "error",
-            "unix"
+        'linebreak-style': [
+            'error',
+            'unix'
         ],
-        "quotes": [
-            "error",
-            "single"
+        'quotes': [
+            'error',
+            'single'
         ],
-        "semi": [
-            "error",
-            "always"
+        'semi': [
+            'error',
+            'always'
         ],
-        "eol-last": "error"
+        'eol-last': 'error'
     }
 };
