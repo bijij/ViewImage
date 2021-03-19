@@ -46,9 +46,5 @@
     "optionsButton": {
         "message": "Beállítások",
         "description": "Text displayed on the link to options button."
-    },
-    "donatePayPal": {
-        "message": " Adományozás PayPal-al",
-        "description": "Text used for the donation button."
     }
 }

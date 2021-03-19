@@ -46,9 +46,5 @@
     "optionsButton": {
         "message": "සැකසුම්",
         "description": "Text displayed on the link to options button."
-    },
-    "donatePayPal": {
-        "message": " PayPal හරහා දායක වන්න",
-        "description": "Text used for the donation button."
     }
 }

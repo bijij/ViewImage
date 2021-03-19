@@ -46,9 +46,5 @@
     "optionsButton": {
         "message": "選項",
         "description": "Text displayed on the link to options button."
-    },
-    "donatePayPal": {
-        "message": "透過 PayPal 捐贈",
-        "description": "Text used for the donation button."
     }
 }

@@ -42,9 +42,5 @@
     "optionsButton": {
         "message": "옵션",
         "description": "Text displayed on the link to options button."
-    },
-    "donatePayPal": {
-        "message": " PayPal 통해 기부하기",
-        "description": "Text used for the donation button."
     }
 }

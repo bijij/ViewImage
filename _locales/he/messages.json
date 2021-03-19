@@ -42,9 +42,5 @@
     "optionsButton": {
         "message": "אפשרויות",
         "description": "הטקסט שמוצג על לחצן האפשרויות."
-    },
-    "donatePayPal": {
-        "message": " תרום באמצעות PayPal",
-        "description": "הטקסט שמוצג על לחצן התרומה."
     }
 }

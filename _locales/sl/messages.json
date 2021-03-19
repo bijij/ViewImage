@@ -46,9 +46,5 @@
     "optionsButton": {
         "message": "Možnosti",
         "description": "Gumb za odpiranje možnosti."
-    },
-    "donatePayPal": {
-        "message": " Donirajte preko PayPal",
-        "description": "Gumb za donacije preko PayPal."
     }
 }

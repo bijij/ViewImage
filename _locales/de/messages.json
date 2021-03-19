@@ -43,12 +43,8 @@
         "message": "Optionen",
         "description": "Text displayed on the link to options button."
     },
-    "donatePayPal": {
-        "message": "Spende via PayPal",
-        "description": "Text used for the donation button."
-    },
     "legalNote": {
-        "message": "Die GitHub- und PayPal-Logos sind eingetragene Marken von Github, Inc. bzw. PayPal, Inc.",
-        "description": "Legal note for Github and PayPal trademark."
+        "message": "Die GitHub-Logo un eingetragene Marken von Github, Inc.",
+        "description": "Legal note for Github trademark."
     }
 }

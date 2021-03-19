@@ -7,10 +7,6 @@
       "description": "Title of the application, as displayed on the web store.",
       "message": "Vis Billede"
    },
-   "donatePayPal": {
-      "description": "Text used for the donation button.",
-      "message": "Donér via PayPal"
-   },
    "optionsButton": {
       "description": "Text displayed on the link to options button.",
       "message": "Valgmuligheder"

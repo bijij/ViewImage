@@ -46,9 +46,5 @@
     "optionsButton": {
         "message": "設定",
         "description": "Text displayed on the link to options button."
-    },
-    "donatePayPal": {
-        "message": "PayPalで寄付する",
-        "description": "Text used for the donation button."
     }
 }

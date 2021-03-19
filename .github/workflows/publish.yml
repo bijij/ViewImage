@@ -1,26 +1,33 @@
 name: Publish to Webstores
 
 on:
-  release:
-    types: [created]
+  push:
+    tags:
+      - 'v*'
 
 jobs:
   deploy:
-
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/checkout@v1
-   
-    - name: Setup node
-      uses: actions/setup-node@v1
-      with:
-        node-version: 8
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v2
      
     - name: Install Required NPM packages
       run: |
         npm install -g jwtgen
    
+    - name: Create release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: Release ${{ github.ref }}
+        body: TODO
+        draft: false
+        prerelease: false
+
     - name: Deploy to Firefox
       env:
         APP_ID: '{287dcf75-bec6-4eec-b4f6-71948a2eea29}'

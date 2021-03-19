@@ -43,10 +43,6 @@
         "message": "Opcje",
         "description": "Tekst wyświetlany na linku do przycisku opcji."
     },
-    "donatePayPal": {
-        "message": " Przekaż darowiznę w systemie PayPal",
-        "description": "Tekst używany dla przycisku darowizny."
-    },
     "settingsToggle_noReferrer": {
         "message": "Ukryj adres odsyłający po kliknięciu \"Pokaż obraz\":",
         "description": "Przełącznik ustawień, który przełącza atrybut rel='noreferrer' na przycisku \"Pokaż obraz\"."
