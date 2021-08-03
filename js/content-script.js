@@ -304,7 +304,7 @@ function parseDataSource(array) {
 }
 
 function parseDataSource1() {
-    const start_search = /AF_initDataCallback\({key: \'ds:1\', isError:  false , hash: \'\d+\', data:/;
+    const start_search = /AF_initDataCallback\({key:\s'ds:1',\sisError:\s{2}false\s,\shash:\s'\d+',\sdata:/;
     const end_search = ', sideChannel: {}});</script>';
 
     var match = document.documentElement.innerHTML.match(start_search);
@@ -316,7 +316,7 @@ function parseDataSource1() {
 }
 
 function parseDataSource2() {
-    const start_search = /AF_initDataCallback\({key: \'ds:2\', isError:  false , hash: \'\d+\', data:function(){return /;
+    const start_search = /AF_initDataCallback\({key:\s'ds:2',\sisError:\s{2}false\s,\shash:\s'\d+',\sdata:function(){return\s/;
     const end_search = '}});</script>';
 
     var match = document.documentElement.innerHTML.match(start_search);
