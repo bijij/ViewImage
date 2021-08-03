@@ -167,7 +167,7 @@ function addViewImageButton(container, imageURL, version) {
             viewImageButtonText = viewImageButton.querySelector('.irc_ho');
             break;
         case VERSIONS.OCT19:
-            viewImageButtonText = viewImageButton.querySelector('.pM4Snf');
+            viewImageButtonText = viewImageButton.querySelector('.pM4Snf, .KSvtLc');
             break;
     }
 
@@ -210,7 +210,7 @@ function addSearchImageButton(container, imageURL, version) {
             link = container.querySelector('.irc_ft > a.irc_help');
             break;
         case VERSIONS.OCT19:
-            link = container.querySelector('.PvkmDc, .qnLx5b');
+            link = container.querySelector('.PvkmDc, .qnLx5b, .zSA7pe');
             break;
     }
 
@@ -304,23 +304,24 @@ function parseDataSource(array) {
 }
 
 function parseDataSource1() {
-    const start_search = 'AF_initDataCallback({key: \'ds:1\', isError:  false , hash: \'2\', data:';
+    const start_search = /AF_initDataCallback\({key: \'ds:1\', isError:  false , hash: \'\d+\', data:/;
     const end_search = ', sideChannel: {}});</script>';
 
-    var start_index = document.documentElement.innerHTML.indexOf(start_search) + start_search.length;
-    var end_index = start_index + document.documentElement.innerHTML.slice(start_index).indexOf(end_search);
+    var match = document.documentElement.innerHTML.match(start_search);
 
-    if (DEBUG)
-        console.log(start_index, end_index);
+    var start_index = match.index + match[0].length;
+    var end_index = start_index + document.documentElement.innerHTML.slice(start_index).indexOf(end_search);
 
     parseDataSource(JSON.parse(document.documentElement.innerHTML.slice(start_index, end_index)));
 }
 
 function parseDataSource2() {
-    const start_search = 'AF_initDataCallback({key: \'ds:2\', isError:  false , hash: \'3\', data:function(){return ';
+    const start_search = /AF_initDataCallback\({key: \'ds:2\', isError:  false , hash: \'\d+\', data:function(){return /;
     const end_search = '}});</script>';
 
-    var start_index = document.documentElement.innerHTML.indexOf(start_search) + start_search.length;
+    var match = document.documentElement.innerHTML.match(start_search);
+
+    var start_index = match.index + match[0].length;
     var end_index = start_index + document.documentElement.innerHTML.slice(start_index).indexOf(end_search);
     parseDataSource(JSON.parse(document.documentElement.innerHTML.slice(start_index, end_index)));
 }
@@ -413,6 +414,10 @@ customStyle.innerText = `
 .irc_hol.vi_ext_addon
 {
     flex-grow:0!important
+}
+
+.zSA7pe[href^="/searchbyimage"] {
+    margin-left: 4px;
 }
 
 .ZsbmCf.vi_ext_addon{
