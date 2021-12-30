@@ -26,9 +26,9 @@ chrome.storage.sync.get('defaultOptions', function () {
 // Setup "Search by image" context menu item
 chrome.contextMenus.create(
     {
-        "id": "ViewImage-SearchByImage",
-        "title": toI18n("__MSG_searchImage__"),
-        "contexts": ["image"],
+        'id': 'ViewImage-SearchByImage',
+        'title': toI18n('__MSG_searchImage__'),
+        'contexts': ['image'],
     }
 );
 
@@ -36,17 +36,17 @@ chrome.contextMenus.onClicked.addListener(
     (info, tab) => {
 
         if (DEBUG)
-            console.log("ViewImage: Search By Image context menu item clicked.", info, tab);
+            console.log('ViewImage: Search By Image context menu item clicked.', info, tab);
 
-        if (info.menuItemId === "ViewImage-SearchByImage") {
+        if (info.menuItemId === 'ViewImage-SearchByImage') {
             chrome.permissions.request({
-                permissions: ["tabs"],
+                permissions: ['tabs'],
                 origins: [tab.url],
             }, (granted) => {
                 if (granted) {
                     chrome.tabs.executeScript(tab.id, {
-                        code: `window.location.href = "http://www.google.com/searchbyimage?image_url=${encodeURIComponent(info.srcUrl)}"`
-                    })
+                        code: `window.location.href = 'http://www.google.com/searchbyimage?image_url=${encodeURIComponent(info.srcUrl)}'`
+                    });
                 }
             });
         }
