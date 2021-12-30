@@ -239,7 +239,7 @@ function addSearchImageButton(container, imageURL, version) {
     }
 
     // Set the search by image button url
-    searchImageButton.href = '/searchbyimage?image_url=' + imageURL;
+    searchImageButton.href = '/searchbyimage?image_url=' + encodeURIComponent(imageURL);
 
     // Set additional options
     if (options['open-search-by-in-new-tab']) {
