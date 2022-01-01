@@ -115,7 +115,8 @@ input[type="text"] {
 }
 
 .disabled {
-	display: none;
+	opacity: 50%;
+	pointer-events: none;
 }
 
 @media (prefers-color-scheme: dark) {

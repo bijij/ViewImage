@@ -39,6 +39,14 @@
         "message": "Manually set button text:",
         "description": "Settings toggle enables manually set text for buttons rather than locale."
     },
+    "settingsToggle_contextMenu_searchByImage": {
+        "message": "Show \"Search by image\" context menu item:",
+        "description": "Setting toggles whether the \"Search by image\" context menu item should appear."
+    },
+    "settingsToggle_contextMenu_searchByImageNewTab": {
+        "message": "Open \"Search by Image\" context menu item results in a new tab:",
+        "description": "Setting toggles whether the \"Search by image\" context menu should open results in a new tab."
+    },
     "resetButton": {
         "message": "Reset",
         "description": "Text displayed on reset button."

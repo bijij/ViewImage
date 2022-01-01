@@ -30,6 +30,15 @@ const save = function (object) {
 // Update visibility of page elements;
 const update_page = function () {
 
+    var showContextMenuToggle = document.getElementById('context-menu-search-by-image');
+    var openNewTabToggle = document.getElementById('context-menu-search-by-image-new-tab-toggle');
+
+    if (showContextMenuToggle.checked) {
+        openNewTabToggle.classList.remove('disabled');
+    } else {
+        openNewTabToggle.classList.add('disabled');
+    }
+
     var manualButtonToggle = document.getElementById('manually-set-button-text');
     var manualButtonText = document.getElementById('manual-toggle');
 
@@ -75,8 +84,28 @@ chrome.storage.sync.get('defaultOptions', function (storage) {
     load();
 });
 
+const update_context_menu = function (enabled) {
+    if (enabled) {
+        chrome.contextMenus.create(
+            {
+                'id': 'ViewImage-SearchByImage',
+                'title': toI18n('__MSG_searchImage__'),
+                'contexts': ['image'],
+            }
+        );
+    } else {
+        chrome.contextMenus.remove('ViewImage-SearchByImage');
+    }
+}
+
 // On change, save
 document.addEventListener('change', event => {
+
+    // Update the visibility of the context menu
+    if (event.target.id === 'context-menu-search-by-image') {
+        update_context_menu(event.target.checked);
+    }
+
     switch (event.target.type) {
         case ('checkbox'):
             options[event.target.id] = event.target.checked;

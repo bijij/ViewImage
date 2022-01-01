@@ -16,6 +16,8 @@ const defaultOptions = {
     'no-referrer': false,
     'button-text-view-image': '',
     'button-text-search-by-image': '',
+    'context-menu-search-by-image': true,
+    'context-menu-search-by-image-new-tab': false,
 };
 
 // Save default options to storage
@@ -23,14 +25,21 @@ chrome.storage.sync.get('defaultOptions', function () {
     chrome.storage.sync.set({ defaultOptions });
 });
 
-// Setup "Search by image" context menu item
-chrome.contextMenus.create(
-    {
-        'id': 'ViewImage-SearchByImage',
-        'title': toI18n('__MSG_searchImage__'),
-        'contexts': ['image'],
+
+chrome.storage.sync.get(['options', 'defaultOptions'], function (storage) {
+    const options = Object.assign(storage.defaultOptions, storage.options);
+
+    // Setup "Search by image" context menu item
+    if (options['context-menu-search-by-image']) {
+        chrome.contextMenus.create(
+            {
+                'id': 'ViewImage-SearchByImage',
+                'title': toI18n('__MSG_searchImage__'),
+                'contexts': ['image'],
+            }
+        );
     }
-);
+});
 
 chrome.contextMenus.onClicked.addListener(
     (info, tab) => {
@@ -44,8 +53,18 @@ chrome.contextMenus.onClicked.addListener(
                 origins: [tab.url],
             }, (granted) => {
                 if (granted) {
-                    chrome.tabs.executeScript(tab.id, {
-                        code: `window.location.href = 'http://www.google.com/searchbyimage?image_url=${encodeURIComponent(info.srcUrl)}'`
+                    chrome.storage.sync.get(['options', 'defaultOptions'], function (storage) {
+                        const options = Object.assign(storage.defaultOptions, storage.options);
+
+                        if (options['context-menu-search-by-image-new-tab']) {
+                            chrome.tabs.executeScript(tab.id, {
+                                code: `window.open('http://www.google.com/searchbyimage?image_url=${encodeURIComponent(info.srcUrl)}', '_blank').focus();`
+                            });
+                        } else {
+                            chrome.tabs.executeScript(tab.id, {
+                                code: `window.location.href = 'http://www.google.com/searchbyimage?image_url=${encodeURIComponent(info.srcUrl)}';`
+                            });
+                        }
                     });
                 }
             });
