@@ -126,7 +126,7 @@ function addViewImageButton(container, imageURL, version) {
             visitButton = container.querySelector('a.irc_hol[href]');
             break;
         case VERSIONS.OCT19:
-            visitButton = container.querySelector('.ZsbmCf[href], a.J2oL9c');
+            visitButton = container.querySelector('.ZsbmCf[href], a.J2oL9c, a.jAklOc');
             break;
     }
 
