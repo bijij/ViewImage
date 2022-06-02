@@ -167,7 +167,7 @@ function addViewImageButton(container, imageURL, version) {
             viewImageButtonText = viewImageButton.querySelector('.irc_ho');
             break;
         case VERSIONS.OCT19:
-            viewImageButtonText = viewImageButton.querySelector('.pM4Snf, .KSvtLc');
+            viewImageButtonText = viewImageButton.querySelector('.pM4Snf, .KSvtLc, .Pw5kW');
             break;
     }
 
