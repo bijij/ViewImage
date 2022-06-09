@@ -26,19 +26,21 @@ chrome.storage.sync.get('defaultOptions', function () {
 });
 
 
-chrome.storage.sync.get(['options', 'defaultOptions'], function (storage) {
-    const options = Object.assign(storage.defaultOptions, storage.options);
+chrome.runtime.onInstalled.addListener(() => {
+    chrome.storage.sync.get(['options', 'defaultOptions'], function (storage) {
+        const options = Object.assign(storage.defaultOptions, storage.options);
 
-    // Setup "Search by image" context menu item
-    if (options['context-menu-search-by-image']) {
-        chrome.contextMenus.create(
-            {
-                'id': 'ViewImage-SearchByImage',
-                'title': toI18n('__MSG_searchImage__'),
-                'contexts': ['image'],
-            }
-        );
-    }
+        // Setup "Search by image" context menu item
+        if (options['context-menu-search-by-image']) {
+            chrome.contextMenus.create(
+                {
+                    'id': 'ViewImage-SearchByImage',
+                    'title': toI18n('__MSG_searchImage__'),
+                    'contexts': ['image'],
+                }
+            );
+        }
+    });
 });
 
 chrome.contextMenus.onClicked.addListener(
