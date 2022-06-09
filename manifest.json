@@ -1,7 +1,7 @@
 {
-    "manifest_version": 2,
+    "manifest_version": 3,
     "name": "__MSG_appName__",
-    "version": "3.6.4",
+    "version": "4.0.0",
     "description": "__MSG_appDesc__",
     "default_locale": "en",
     "icons": {
@@ -12,7 +12,7 @@
         "16": "icon/16.png"
     },
     "author": "Joshua Butt",
-    "browser_action": {
+    "action": {
         "default_icon": "icon/48.png",
         "default_popup": "html/popup.html"
     },
@@ -22,21 +22,15 @@
         }
     },
     "permissions": [
+        "activeTab",
         "contextMenus",
         "storage"
-    ],
-    "optional_permissions": [
-        "tabs",
-        "*://*/*"
     ],
     "options_ui": {
         "page": "html/options.html"
     },
     "background": {
-        "persistent": false,
-        "scripts": [
-            "js/background.js"
-        ]
+        "service_worker": "js/background.js"
     },
     "content_scripts": [
         {
