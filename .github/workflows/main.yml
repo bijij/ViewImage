@@ -9,7 +9,7 @@ jobs:
     
     steps:
     - uses: actions/checkout@v2
-    - uses: actions/setup-node@v2
+    - uses: actions/setup-node@v3
 
     - name: Install Deps
       run: |
@@ -17,4 +17,4 @@ jobs:
         npm install eslint-plugin-json
     - name: Lint with ESLint
       run: |
-        $(npm bin)/eslint . --ext .js,.json
+        npx eslint . --ext .js,.json
