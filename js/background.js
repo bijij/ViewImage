@@ -58,11 +58,11 @@ chrome.contextMenus.onClicked.addListener(
 
                         if (options['context-menu-search-by-image-new-tab']) {
                             chrome.tabs.executeScript(tab.id, {
-                                code: `window.open('http://www.google.com/searchbyimage?image_url=${encodeURIComponent(info.srcUrl)}', '_blank').focus();`
+                                code: `window.open('https://lens.google.com/uploadbyurl?url=${encodeURIComponent(info.srcUrl)}', '_blank').focus();`
                             });
                         } else {
                             chrome.tabs.executeScript(tab.id, {
-                                code: `window.location.href = 'http://www.google.com/searchbyimage?image_url=${encodeURIComponent(info.srcUrl)}';`
+                                code: `window.location.href = 'https://lens.google.com/uploadbyurl?url=${encodeURIComponent(info.srcUrl)}';`
                             });
                         }
                     });

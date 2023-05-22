@@ -65,7 +65,7 @@ function findImageURL(container, version) {
             image = iframe.contentDocument.querySelector('img#irc_mi');
             break;
         case VERSIONS.OCT19:
-            image = container.querySelector('img[src].n3VNCb');
+            image = container.querySelector('img[src].n3VNCb, img[src].r48jcc');
             if (image.src in images) {
                 return images[image.src];
             }
@@ -126,7 +126,7 @@ function addViewImageButton(container, imageURL, version) {
             visitButton = container.querySelector('a.irc_hol[href]');
             break;
         case VERSIONS.OCT19:
-            visitButton = container.querySelector('.ZsbmCf[href], a.J2oL9c, a.jAklOc');
+            visitButton = container.querySelector('.ZsbmCf[href], a.J2oL9c, a.jAklOc, a.uZ49bd');
             break;
     }
 
@@ -238,7 +238,7 @@ function addSearchImageButton(container, imageURL, version) {
     }
 
     // Set the search by image button url
-    searchImageButton.href = '/searchbyimage?image_url=' + encodeURIComponent(imageURL);
+    searchImageButton.href = '/uploadbyurl?url=' + encodeURIComponent(imageURL);
 
     // Set additional options
     if (options['open-search-by-in-new-tab']) {
@@ -363,14 +363,14 @@ var observer = new MutationObserver(function (mutations) {
             for (node of mutation.addedNodes) {
                 if (node.classList) {
                     // Check for new image nodes
-                    if (['irc_mi', 'irc_mut', 'irc_ris', 'n3VNCb'].some(className => node.classList.contains(className))) {
+                    if (['irc_mi', 'irc_mut', 'irc_ris', 'n3VNCb', 'r48jcc'].some(className => node.classList.contains(className))) {
                         addLinks(node);
                     }
                 }
             }
         }
 
-        if (mutation.target.classList && mutation.target.classList.contains('n3VNCb')) {
+        if (mutation.target.classList && mutation.target.classList.contains('n3VNCb', 'r48jcc')) {
             node = mutation.target.closest('.tvh9oe');
 
             if (!node.hasAttribute('aria-hidden')) {

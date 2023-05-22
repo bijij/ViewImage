@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "__MSG_appName__",
-    "version": "3.6.5",
+    "version": "3.7.0",
     "description": "__MSG_appDesc__",
     "homepage_url": "https://github.com/bijij/ViewImage",
     "default_locale": "en",
