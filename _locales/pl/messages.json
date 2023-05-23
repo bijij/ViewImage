@@ -1,58 +1,58 @@
 {
     "appName": {
         "message": "Pokaż obraz",
-        "description": "Title of the application, as displayed on the web store."
+        "description": "Nazwa aplikacji w sklepie internetowym."
     },
     "appDesc": {
         "message": "Przywraca przyciski \"Pokaż obraz\" i \"Wyszukaj obrazem\" w Grafice Google.",
-        "description": "The description of the application, as shown on the web store."
+        "description": "Opis aplikacji w sklepie internetowym."
     },
     "searchImage": {
         "message": "Wyszukaj obrazem",
-        "description": "Button leads to Google's Search by Image page."
+        "description": "Przycisk odsyłający do strony wyszukiwania obrazem w Google."
     },
     "viewImage": {
         "message": "Pokaż obraz",
-        "description": "Button for viewing image."
+        "description": "Przycisk do podglądu obrazu."
     },
     "settingsToggle_NewTab_viewImage": {
         "message": "Otwórz \"Pokaż obraz\" w nowej karcie:",
-        "description": "Settings toggle which causes images to open in new tab."
+        "description": "Przełącznik ustawień powodujący otwieranie obrazów w nowej karcie."
     },
     "settingsToggle_NewTab_searchByImage": {
         "message": "Otwórz \"Wyszukaj obrazem\" w nowej karcie:",
-        "description": "Settings toggle which causes the search by image page to open in new tab."
+        "description": "Przełącznik ustawień powodujący otwarcie strony wyszukiwania obrazem w nowej karcie."
     },
     "settingsToggle_globeIcon": {
-        "message": "Pokaż ikonę globusa w przycisku \"Pokaż obraz\":",
-        "description": "Settings toggle which causes the globe icon to display on the \"View Image\" button."
+        "message": "Pokaż ikonę globusa na przycisku \"Pokaż obraz\":",
+        "description": "Przełącznik ustawień powodujący wyświetlenie ikony globusa na przycisku \"Pokaż obraz\"."
     },
     "settingsToggle_subjectCopyright": {
         "message": "Ukryj ostrzeżenie \"Obrazy mogą być objęte prawami autorskimi\":",
-        "description": "Settings toggle hides copyright message on image results page."
+        "description": "Przełącznik ustawień ukrywający komunikat o prawach autorskich na stronie wyników wyszukiwania obrazem."
     },
     "settingsToggle_noReferrer": {
         "message": "Ukryj adres odsyłający po kliknięciu \"Pokaż obraz\":",
-        "description": "Settings toggle which toggles rel='noreferrer' on the \"View Image\" button."
+        "description": "Przełącznik ustawień powodujący włączenie atrybutu rel='noreferrer' na przycisku \"Pokaż obraz\"."
     },
     "settingsToggle_buttonText": {
-        "message": "Ręcznie przypisz nazwy przycisków:",
-        "description": "Settings toggle enables manually set text for buttons rather than locale."
+        "message": "Ręcznie przypisz nazwy przyciskom:",
+        "description": "Przełącznik ustawień umożliwiający ręczne ustawienie tekstu dla przycisków z pominięciem ustawień regionalnych."
     },
     "settingsToggle_contextMenu_searchByImage": {
         "message": "Pokaż \"Wyszukaj obrazem\" w menu kontekstowym:",
-        "description": "Setting toggles whether the \"Search by image\" context menu item should appear."
+        "description": "Przełącznik ustawień określa, czy element menu kontekstowego \"Wyszukaj obrazem\" powinien być wyświetlany."
     },
     "settingsToggle_contextMenu_searchByImageNewTab": {
         "message": "Otwórz wyniki \"Wyszukaj obrazem\" w nowej karcie:",
-        "description": "Setting toggles whether the \"Search by image\" context menu should open results in a new tab."
+        "description": "Przełącznik ustawień określa, czy element menu kontekstowego \"Wyszukaj obrazem\" powinien otwierać wyniki w nowej karcie."
     },
     "resetButton": {
         "message": "Przywróć domyślne",
-        "description": "Text displayed on reset button."
+        "description": "Tekst wyświetlany na przycisku resetowania."
     },
     "optionsButton": {
         "message": "Opcje",
-        "description": "Text displayed on the link to options button."
+        "description": "Tekst wyświetlany na przycisku z opcjami."
     }
 }
