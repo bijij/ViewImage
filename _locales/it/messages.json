@@ -16,7 +16,7 @@
         "description": "Button for viewing image."
     },
     "settingsToggle_NewTab_viewImage": {
-        "message": "Apri immagini in una nuova scheda:",
+        "message": "Apri \"Visualizza immagine\" in una nuova scheda:",
         "description": "Settings toggle which causes images to open in new tab."
     },
     "settingsToggle_NewTab_searchByImage": {
@@ -32,15 +32,23 @@
         "description": "Settings toggle hides copyright message on image results page."
     },
     "settingsToggle_noReferrer": {
-        "message": "Nascondi il referente dal sito web quando si clicca \"Visualizza immagine\":",
+        "message": "Nascondi il referente del sito web quando fai clic su \"Visualizza immagine\":",
         "description": "Settings toggle which toggles rel='noreferrer' on the \"View Image\" button."
     },
     "settingsToggle_buttonText": {
-        "message": "Configura manualmente il testo del pulsante:",
+        "message": "Personalizza il testo del pulsante:",
         "description": "Settings toggle enables manually set text for buttons rather than locale."
     },
+    "settingsToggle_contextMenu_searchByImage": {
+        "message": "Visualizza \"Ricerca tramite immagine\" nel menu contestuale:",
+        "description": "Setting toggles whether the \"Search by image\" context menu item should appear."
+    },
+    "settingsToggle_contextMenu_searchByImageNewTab": {
+        "message": "Apri i risultati di \"Ricerca tramite immagine\" da menu contestuale in una nuova scheda:",
+        "description": "Setting toggles whether the \"Search by image\" context menu should open results in a new tab."
+    },
     "resetButton": {
-        "message": "Reset",
+        "message": "Ripristina",
         "description": "Text displayed on reset button."
     },
     "optionsButton": {
