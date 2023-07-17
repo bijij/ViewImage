@@ -11,7 +11,7 @@ jobs:
     
     steps:
     - uses: actions/checkout@v2
-    - uses: actions/setup-node@v2
+    - uses: actions/setup-node@v3
      
     - name: Install Required NPM packages
       run: |
@@ -36,7 +36,7 @@ jobs:
       run: |
         git archive -o package.zip HEAD
         VERSION_NUMBER=$(jq -r .version manifest.json)
-        ACCESS_TOKEN=$($(npm bin)/jwtgen -a HS256 -s ${CLIENT_SECRET} -c "iss=${CLIENT_ID}" -e 300)
+        ACCESS_TOKEN=$(npx jwtgen -a HS256 -s ${CLIENT_SECRET} -c "iss=${CLIENT_ID}" -e 300)
         curl -H "Authorization: JWT ${ACCESS_TOKEN}" -g -XPUT --form "upload=@package.zip" "https://addons.mozilla.org/api/v4/addons/${APP_ID}/versions/${VERSION_NUMBER}/"
 
     - name: Deploy to Chrome

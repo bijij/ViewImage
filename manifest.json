@@ -3,6 +3,7 @@
     "name": "__MSG_appName__",
     "version": "4.0.0",
     "description": "__MSG_appDesc__",
+    "homepage_url": "https://github.com/bijij/ViewImage",
     "default_locale": "en",
     "icons": {
         "128": "icon/128.png",
