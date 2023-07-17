@@ -233,15 +233,5 @@
                 "*imgres?*"
             ]
         }
-    ],
-    "browser_specific_settings": {
-        "gecko": {
-            "id": "{287dcf75-bec6-4eec-b4f6-71948a2eea29}"
-        }
-    },
-    "background": {
-        "scripts": [
-            "js/background.js"
-        ]
-    }
+    ]
 }
