@@ -213,6 +213,12 @@ function addSearchImageButton(container, imageURL, version) {
             break;
     }
 
+    if (link === null) {
+        if (DEBUG)
+            console.log('ViewImage: Adding Search-By-Image buttonn failed, link was not found.');
+        return;
+    }
+
     // Create the search by image button
     var searchImageButton = link.cloneNode(true);
     searchImageButton.classList.add('vi_ext_addon');

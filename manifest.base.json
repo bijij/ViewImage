@@ -1,9 +1,8 @@
 {
-    "manifest_version": 2,
+    "manifest_version": 3,
     "name": "__MSG_appName__",
-    "version": "3.7.0",
+    "version": "4.0.0",
     "description": "__MSG_appDesc__",
-    "homepage_url": "https://github.com/bijij/ViewImage",
     "default_locale": "en",
     "icons": {
         "128": "icon/128.png",
@@ -13,31 +12,17 @@
         "16": "icon/16.png"
     },
     "author": "Joshua Butt",
-    "browser_action": {
+    "action": {
         "default_icon": "icon/48.png",
         "default_popup": "html/popup.html"
     },
-    "browser_specific_settings": {
-        "gecko": {
-            "id": "{287dcf75-bec6-4eec-b4f6-71948a2eea29}"
-        }
-    },
     "permissions": [
+        "activeTab",
         "contextMenus",
         "storage"
     ],
-    "optional_permissions": [
-        "tabs",
-        "*://*/*"
-    ],
     "options_ui": {
         "page": "html/options.html"
-    },
-    "background": {
-        "persistent": false,
-        "scripts": [
-            "js/background.js"
-        ]
     },
     "content_scripts": [
         {
@@ -248,5 +233,15 @@
                 "*imgres?*"
             ]
         }
-    ]
+    ],
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "{287dcf75-bec6-4eec-b4f6-71948a2eea29}"
+        }
+    },
+    "background": {
+        "scripts": [
+            "js/background.js"
+        ]
+    }
 }

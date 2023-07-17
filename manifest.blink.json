@@ -1,0 +1,6 @@
+{
+    "background": {
+        "service_worker": "js/background.blink.js",
+        "type": "module"
+    }
+}

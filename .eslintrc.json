@@ -35,5 +35,8 @@
             "always"
         ],
         "eol-last": "error"
+    },
+    "parserOptions": {
+        "sourceType": "module"
     }
 }

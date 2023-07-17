@@ -4,12 +4,6 @@
 let defaultOptions;
 let options;
 
-function toI18n(str) {
-    return str.replace(/__MSG_(\w+)__/g, function (match, v1) {
-        return v1 ? chrome.i18n.getMessage(v1) : '';
-    });
-}
-
 // Load options from storage
 const load = function () {
     return new Promise(function (resolve) {
@@ -95,7 +89,7 @@ const update_context_menu = function (enabled) {
         chrome.contextMenus.create(
             {
                 'id': 'ViewImage-SearchByImage',
-                'title': toI18n('__MSG_searchImage__'),
+                'title': toI18n('__MSG_searchImage__'),  // eslint-disable-line no-undef
                 'contexts': ['image'],
             }
         );
