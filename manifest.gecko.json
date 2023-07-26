@@ -6,7 +6,7 @@
     },
     "background": {
         "scripts": [
-            "js/background.gecko.js"
+            "js/background.js"
         ],
         "type": "module"
     }

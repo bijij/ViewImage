@@ -30,14 +30,14 @@ const save = function (object) {
 // Update visibility of page elements;
 const update_page = function () {
 
-    var showContextMenuToggle = document.getElementById('context-menu-search-by-image');
-    var openNewTabToggle = document.getElementById('context-menu-search-by-image-new-tab-toggle');
+    // var showContextMenuToggle = document.getElementById('context-menu-search-by-image');
+    // var openNewTabToggle = document.getElementById('context-menu-search-by-image-new-tab-toggle');
 
-    if (showContextMenuToggle.checked) {
-        openNewTabToggle.classList.remove('disabled');
-    } else {
-        openNewTabToggle.classList.add('disabled');
-    }
+    // if (showContextMenuToggle.checked) {
+    //     openNewTabToggle.classList.remove('disabled');
+    // } else {
+    //     openNewTabToggle.classList.add('disabled');
+    // }
 
     var manualButtonToggle = document.getElementById('manually-set-button-text');
     var manualButtonText = document.getElementById('manual-toggle');
