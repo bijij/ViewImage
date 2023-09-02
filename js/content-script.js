@@ -126,7 +126,7 @@ function addViewImageButton(container, imageURL, version) {
             visitButton = container.querySelector('a.irc_hol[href]');
             break;
         case VERSIONS.OCT19:
-            visitButton = container.querySelector('.ZsbmCf[href], a.J2oL9c, a.jAklOc, a.uZ49bd');
+            visitButton = container.querySelector('.ZsbmCf[href], a.J2oL9c, a.jAklOc, a.uZ49bd, a.e0XTue, a.kWgFk, a.j7ZI7c');
             break;
     }
 
@@ -209,7 +209,7 @@ function addSearchImageButton(container, imageURL, version) {
             link = container.querySelector('.irc_ft > a.irc_help');
             break;
         case VERSIONS.OCT19:
-            link = container.querySelector('.PvkmDc, .qnLx5b, .zSA7pe');
+            link = container.querySelector('.PvkmDc, .qnLx5b, .zSA7pe, .uZ49bd, .e0XTue, .kWgFk, .j7ZI7c');
             break;
     }
 
