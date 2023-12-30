@@ -4,7 +4,7 @@
         "description": "Title of the application, displayed on the web store."
     },
     "appDesc": {
-        "message": "Pridá tlačidlá \"Zobraziť obrázok\" a \"Vyhľadať podľa obrázku\" do vyhladávača Google.",
+        "message": "Pridá tlačidlo \"Zobraziť obrázok\" do vyhladávača Google.",
         "description": "The description of the application, as shown on the web store."
     },
     "searchImage": {

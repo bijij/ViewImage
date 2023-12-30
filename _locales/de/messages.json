@@ -4,7 +4,7 @@
         "description": "Title of the application, as displayed on the web store."
     },
     "appDesc": {
-        "message": "Dieses Plugin bringt die Schaltfläche \"Bild ansehen\" und die \"Google Bildersuche\" zurück.",
+        "message": "Dieses Plugin bringt die Schaltfläche \"Bild ansehen\".",
         "description": "The description of the application, as shown on the web store."
     },
     "searchImage": {

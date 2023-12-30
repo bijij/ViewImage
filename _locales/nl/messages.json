@@ -4,7 +4,7 @@
         "description": "Titel van de applicatie, zoals weergegeven in de web store."
     },
     "appDesc": {
-        "message": "Herimplementeert de knoppen \"Afbeelding weergeven\" en \"Afbeelding zoeken\" in Google Afbeeldingen.",
+        "message": "Herimplementeert de knop \"Afbeelding weergeven\" in Google Afbeeldingen.",
         "description": "Beschrijving van de applicatie, zoals weergegeven in de web store."
     },
     "searchImage": {

@@ -4,7 +4,7 @@
         "description": "Titre de l'application, affiché sur la boutique en ligne."
     },
     "appDesc": {
-        "message": "Réimplémente les boutons \"Voir l'image\" et \"Recherche par image\".",
+        "message": "Réimplémente les bouton \"Voir l'image\".",
         "description": "La description de l'application, comme indiqué sur la boutique en ligne."
     },
     "searchImage": {

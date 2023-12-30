@@ -4,7 +4,7 @@
         "description": "Nome da extensão, como apresentado na web store."
     },
     "appDesc": {
-        "message": "Reintroduz o botão \"Ver imagem\" e o link \"Pesquisar por imagem\" do Google Imagens.",
+        "message": "Reintroduz o botão \"Ver imagem\" do Google Imagens.",
         "description": "A descrição da extensão, como apresentada na web store."
     },
     "searchImage": {

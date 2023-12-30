@@ -4,7 +4,7 @@
         "description": "Uygulamanın web store üzerinde gösterildiği şekliyle başlığı."
     },
     "appDesc": {
-        "message": "Google Görseller'in \"Resmi Görüntüle\" ve \"Görselle Ara\" düğmelerini sağlar.",
+        "message": "Google Görsellerin \"Resmi Görüntüle\" vdüğme sağlar.",
         "description": "Uygulamanın web store üzerinde gösterildiği şekliyle açıklaması."
     },
     "searchImage": {

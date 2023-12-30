@@ -4,7 +4,7 @@
         "description": "Title of the application, as displayed on the web store."
     },
     "appDesc": {
-        "message": "Google画像検索に\"画像を表示\"と\"画像を検索\"ボタンを再実装します。",
+        "message": "Google画像検索に\"画像を表示\"ボタンを再実装します。",
         "description": "The description of the application, as shown on the web store."
     },
     "searchImage": {

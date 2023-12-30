@@ -1,7 +1,7 @@
 {
    "appDesc": {
       "description": "The description of the application, as shown on the web store.",
-      "message": "Genindfør \"Vis billede\" og \"Søg efter billede\"-knapperne i Google Billeder."
+      "message": "Genindfør \"Vis billede\" og \"Vis billede\"-knappen i Google Billeder."
    },
    "appName": {
       "description": "Title of the application, as displayed on the web store.",

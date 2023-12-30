@@ -4,7 +4,7 @@
         "description": "Title of the application, as displayed on the web store."
     },
     "appDesc": {
-        "message": "Re-implements the Google Images' \"View Image\" and \"Search by Image\" buttons.",
+        "message": "Re-implements the Google Images' \"View Image\" button.",
         "description": "The description of the application, as shown on the web store."
     },
     "searchImage": {

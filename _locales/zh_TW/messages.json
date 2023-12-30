@@ -4,7 +4,7 @@
         "description": "Title of the application, as displayed on the web store."
     },
     "appDesc": {
-        "message": "重新實現 Google 圖片的「檢視圖片」和「以圖搜圖」按鈕。",
+        "message": "重新實現 Google 圖片的「檢視圖片」按鈕。",
         "description": "The description of the application, as shown on the web store."
     },
     "searchImage": {

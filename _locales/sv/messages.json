@@ -4,7 +4,7 @@
         "description": "Title of the application, displayed on the web store."
     },
     "appDesc": {
-        "message": "Re-implimenterar Google bilden, \"Visa originalbilden\" och \"Fler storlekar\" knapparna.",
+        "message": "Re-implimenterar Google bilden, \"Visa originalbilden\" knappen.",
         "description": "The description of the application, as shown on the web store."
     },
     "searchImage": {

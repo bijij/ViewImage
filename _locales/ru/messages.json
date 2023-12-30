@@ -4,7 +4,7 @@
         "description": "Title of the application, as displayed on the web store."
     },
     "appDesc": {
-        "message": "Возвращает в Google картинки кнопки' \"Открыть в полном размере\" и \"Поиск по картинке\".",
+        "message": "Возвращает в Google картинки кнопки' \"Открыть в полном размере\".",
         "description": "The description of the application, as shown on the web store."
     },
     "searchImage": {

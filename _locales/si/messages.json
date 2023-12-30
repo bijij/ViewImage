@@ -4,7 +4,7 @@
         "description": "Title of the application, as displayed on the web store."
     },
     "appDesc": {
-        "message": " \" පින්තුරය බලන්න \" සහ \" පින්තුරය මගින් සෙවීම \" පහසුකම් වල බොත්තම් නැවත සක්රීය කිරීම",
+        "message": " \" පින්තුරය බලන්න \" සහ පහසුකම් වල බොත්තම නැවත සක්රීය කිරීම",
         "description": "The description of the application, as shown on the web store."
     },
     "searchImage": {

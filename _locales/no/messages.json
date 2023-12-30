@@ -4,7 +4,7 @@
         "description": "Title of the application, displayed on the web store."
     },
     "appDesc": {
-        "message": "Re-implementerer Google Bilder, \"Se Bilde\" og \"Søk med Bilde\" knappene.",
+        "message": "Re-implementerer Google Bilder, \"Se Bilde\" og knappe.",
         "description": "The description of the application, as shown on the web store."
     },
     "searchImage": {

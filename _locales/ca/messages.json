@@ -4,7 +4,7 @@
         "description": "Title of the application, as displayed on the web store."
     },
     "appDesc": {
-        "message": "Reimplementa els botons \"Mostra la imatge\" i \"Cerca per imatge\" de Google Imatges.",
+        "message": "Reimplementa els boton \"Mostra la imatge\" de Google Imatges.",
         "description": "The description of the application, as shown on the web store."
     },
     "searchImage": {

@@ -4,7 +4,7 @@
 [![Mozilla Add-on](https://img.shields.io/amo/v/view-image.svg)](https://addons.mozilla.org/en-US/firefox/addon/view-image/)
 [![Travis](https://github.com/bijij/ViewImage/workflows/CI/badge.svg)](https://github.com/bijij/ViewImage/actions)
 
-View Image is a Chrome / Firefox extension which implements the "View Image" and "Search by image" buttons back into Google Image Search.
+View Image is a Chrome / Firefox extension which re-implements the "View Image" button back into Google Image Search.
 
 ## Install
 You can get this extension for Firefox or Chrome or as a userscript:

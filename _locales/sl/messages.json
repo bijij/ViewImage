@@ -4,7 +4,7 @@
         "description": "Ime aplikacije, prikazano na spletni trgovini."
     },
     "appDesc": {
-        "message": "Ponovno prikaže gumba \"Ogled slike\" in \"Iskanje s sliko\" na Google Slikah.",
+        "message": "Ponovno prikaže gumb \"Ogled slike\" na Google Slikah.",
         "description": "Opis aplikacije, prikazan na spletni trgovini."
     },
     "searchImage": {

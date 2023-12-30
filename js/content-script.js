@@ -1,6 +1,6 @@
 'use strict';
 
-const DEBUG = false;
+const DEBUG = true;
 
 const VERSIONS = {
     FEB18: 'FEB18',
@@ -9,9 +9,10 @@ const VERSIONS = {
 };
 
 var images = new Object();
+var options;
 
 function toI18n(str) {
-    return str.replace(/__MSG_(\w+)__/g, function (match, v1) {
+    return str.replace(/__MSG_(\w+)__/g, function (_, v1) {
         return v1 ? chrome.i18n.getMessage(v1) : '';
     });
 }
@@ -65,7 +66,7 @@ function findImageURL(container, version) {
             image = iframe.contentDocument.querySelector('img#irc_mi');
             break;
         case VERSIONS.OCT19:
-            image = container.querySelector('img[src].n3VNCb, img[src].r48jcc');
+            image = container.querySelector('img[src][style][jsaction]');
             if (image.src in images) {
                 return images[image.src];
             }
@@ -114,9 +115,8 @@ function findImageURL(container, version) {
 
 }
 
-function addViewImageButton(container, imageURL, version) {
-
-    // get the visit buttonm
+function addViewImageButton(container, node, imageURL, version) {
+    // get the visit button
     var visitButton;
     switch (version) {
         case VERSIONS.FEB18:
@@ -126,9 +126,21 @@ function addViewImageButton(container, imageURL, version) {
             visitButton = container.querySelector('a.irc_hol[href]');
             break;
         case VERSIONS.OCT19:
-            visitButton = container.querySelector('.ZsbmCf[href], a.J2oL9c, a.jAklOc, a.uZ49bd, a.e0XTue, a.kWgFk, a.j7ZI7c');
+            var nodeRoot = node.parentElement.parentElement;
+
+            visitButton = nodeRoot.parentElement?.nextSibling?.nextSibling?.querySelector('div a span')?.parentElement?.parentElement; 
+
+            // if the above fails, we're possibly on a mobile device
+            if (!visitButton) {
+                visitButton = nodeRoot.nextSibling.nextSibling.querySelector('div a span').parentElement.parentElement;
+            } 
             break;
     }
+
+    if (DEBUG && !visitButton)
+        console.log('ViewImage: Adding View-Image button failed, visit button was not found.');
+
+    console.log(visitButton);
 
     // Create the view image button
     var viewImageButton = visitButton.cloneNode(true);
@@ -178,7 +190,8 @@ function addViewImageButton(container, imageURL, version) {
     }
 
     // Remove globe icon if not wanted
-    if (!options['show-globe-icon']) {
+    // Deprecated, new google image search doesn't have globe icon
+    /* if (!options['show-globe-icon']) {
         switch (version) {
             case VERSIONS.FEB18:
                 viewImageButton.querySelector('.RL3J9c').remove();
@@ -190,7 +203,7 @@ function addViewImageButton(container, imageURL, version) {
                 viewImageButton.querySelector('.XeEBj.AJkoub').remove();
                 break;
         }
-    }
+    } */
 
     // Place the view image button
     visitButton.parentElement.insertBefore(viewImageButton, visitButton);
@@ -198,7 +211,8 @@ function addViewImageButton(container, imageURL, version) {
 }
 
 
-function addSearchImageButton(container, imageURL, version) {
+// Deprecared, google has removed the endpoints required for this to work
+/* function addSearchImageButton(container, imageURL, version) {
 
     var link;
     switch (version) {
@@ -255,7 +269,7 @@ function addSearchImageButton(container, imageURL, version) {
     link.parentElement.insertBefore(searchImageButton, link);
     link.parentElement.insertBefore(link, searchImageButton);
 
-}
+} */
 
 
 // Adds links to an object
@@ -292,61 +306,95 @@ function addLinks(node) {
         return;
     }
 
-    addViewImageButton(container, imageURL, version);
-    addSearchImageButton(container, imageURL, version);
+    addViewImageButton(container, node, imageURL, version);
+
+    // Deprecated, see comment on function definition
+    //addSearchImageButton(container, imageURL, version);
 }
 
 function parseDataSource(array) {
-    var meta = array[31][0][12][2];
-    for (var i = 0; i < meta.length; i++) {
-        try {
-            images[meta[i][1][2][0]] = meta[i][1][3][0];
-        } catch (error) {
-            if (DEBUG)
-                console.log('ViewImage: Skipping image');
+
+    if (DEBUG)
+        console.log('ViewImage: Parsing data source...');
+
+    var meta;
+    try {
+        meta = array[31][0][12][2];
+
+        for (var i = 0; i < meta.length; i++) {
+            try {
+                images[meta[i][1][2][0]] = meta[i][1][3][0];
+            } catch (error) {
+                if (DEBUG)
+                    console.log('ViewImage: Skipping image');
+            }
+        }
+    }
+    catch {
+        // I encountered this alternative so I've added it here
+        // We should probably find a way to do this dynamically
+        meta = array[56][1][0][0][1][0];
+
+        for (var i = 0; i < meta.length; i++) {
+            try {
+                var data = Object.values(meta[i][0][0])[0];
+                images[data[1][2][0]] = data[1][3][0];
+            } catch (error) {
+                if (DEBUG)
+                    console.log('ViewImage: Skipping image');
+            }
         }
     }
 }
 
-function parseDataSource1() {
-    const start_search = /AF_initDataCallback\({key:\s'ds:1',\sisError:\s{2}false\s,\shash:\s'\d+',\sdata:/;
-    const end_search = ', sideChannel: {}});</script>';
+function parseDataSourceType1(params) {
+    if (DEBUG)
+        console.log('ViewImage: Parsing data source type 1...');
 
-    var match = document.documentElement.innerHTML.match(start_search);
+    const data_start_search = /\sdata:\[/;
+    const data_end_search = '], ';
 
-    var start_index = match.index + match[0].length;
-    var end_index = start_index + document.documentElement.innerHTML.slice(start_index).indexOf(end_search);
+    var match = params.match(data_start_search);
 
-    parseDataSource(JSON.parse(document.documentElement.innerHTML.slice(start_index, end_index)));
-}
+    var start_index = match.index + match[0].length - 1;
+    var end_index = start_index + params.slice(start_index).indexOf(data_end_search) + 1;
 
-function parseDataSource2() {
-    const start_search = /AF_initDataCallback\({key:\s'ds:2',\sisError:\s{2}false\s,\shash:\s'\d+',\sdata:function(){return\s/;
-    const end_search = '}});</script>';
-
-    var match = document.documentElement.innerHTML.match(start_search);
-
-    var start_index = match.index + match[0].length;
-    var end_index = start_index + document.documentElement.innerHTML.slice(start_index).indexOf(end_search);
-    parseDataSource(JSON.parse(document.documentElement.innerHTML.slice(start_index, end_index)));
+    parseDataSource(JSON.parse(params.slice(start_index, end_index)));
 }
 
 // Check if source holds array of images
 try {
+    const start_search = />AF_initDataCallback\(/g;
+    const end_search = ');</script>';
 
-    if (document.documentElement.innerHTML.indexOf('key: \'ds:1\'') != -1) {
-        if (DEBUG)
-            console.log('ViewImage: Attempting to parse data source 1.');
-        parseDataSource1();
-    } else if (document.documentElement.innerHTML.indexOf('key: \'ds:2\'') != -1) {
-        if (DEBUG)
-            console.log('ViewImage: Attempting to parse data source 2.');
-        parseDataSource2();
-    } else {
-        throw 'Could not determine data source type.';
+    var success = false;
+
+    let match;
+    while (!success && ((match = start_search.exec(document.documentElement.innerHTML)) !== null)) {
+        var start_index = match.index + match[0].length;
+        var end_index = start_index + document.documentElement.innerHTML.slice(start_index).indexOf(end_search);
+
+        var params = document.documentElement.innerHTML.slice(start_index, end_index);
+
+        const ds_search = /key:\s\'ds:(\d)\'/
+        var ds_match = params.match(ds_search);
+
+        if (ds_match === null) {
+            continue;
+        }
+
+        if (ds_match[1] == 1) {
+            // data source 1
+            parseDataSourceType1(params);
+            success = true;
+        }
     }
 
-    if (DEBUG)
+    if (!success) {
+        if (DEBUG)
+            console.log('ViewImage: Failed to find data source.');
+    }
+    else if (DEBUG)
         console.log('ViewImage: Successfully created source images array.');
 
 } catch (error) {
@@ -356,38 +404,24 @@ try {
     }
 }
 
-
 // Define the mutation observers
 var observer = new MutationObserver(function (mutations) {
-
     if (DEBUG)
         console.log('ViewImage: Mutations detected: ', mutations);
 
-    var node;
     for (var mutation of mutations) {
-        if (mutation.addedNodes && mutation.addedNodes.length > 0) {
-            for (node of mutation.addedNodes) {
-                if (node.classList) {
-                    // Check for new image nodes
-                    if (['irc_mi', 'irc_mut', 'irc_ris', 'n3VNCb', 'r48jcc'].some(className => node.classList.contains(className))) {
-                        addLinks(node);
-                    }
+        if (mutation.addedNodes) {
+            for (var node of mutation.addedNodes) {
+                var imageContainerClass = document.querySelector('img[src][style][jsaction]')?.classList[0];
+                if (node.classList && [...node.classList].some(clsName => clsName === imageContainerClass)) {
+                    addLinks(node);
                 }
-            }
-        }
-
-        if (mutation.target.classList && mutation.target.classList.contains('n3VNCb', 'r48jcc')) {
-            node = mutation.target.closest('.tvh9oe');
-
-            if (!node.hasAttribute('aria-hidden')) {
-                addLinks(node);
             }
         }
     }
 });
 
 // Get options and start adding links
-var options;
 chrome.storage.sync.get(['options', 'defaultOptions'], function (storage) {
     options = Object.assign(storage.defaultOptions, storage.options);
 
@@ -401,7 +435,6 @@ chrome.storage.sync.get(['options', 'defaultOptions'], function (storage) {
     });
 });
 
-
 // inject CSS into document
 if (DEBUG)
     console.log('ViewImage: Injecting CSS...');
@@ -413,19 +446,19 @@ customStyle.innerText = `
 .PvkmDc.vi_ext_addon,
 .qnLx5b.vi_ext_addon
 {
-    margin: 0 4pt!important
+margin: 0 4pt!important
 }
 
 .irc_hol.vi_ext_addon
 {
-    flex-grow:0!important
+flex-grow:0!important
 }
 
 .zSA7pe[href^="/searchbyimage"] {
-    margin-left: 4px;
+margin-left: 4px;
 }
 
 .ZsbmCf.vi_ext_addon{
-    flex-grow:0
+flex-grow:0
 }`;
 document.head.appendChild(customStyle);

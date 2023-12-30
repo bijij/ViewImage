@@ -4,7 +4,7 @@
         "description": "Title of the application, as displayed on the web store."
     },
     "appDesc": {
-        "message": "Újra elérhetővé válik a \"Kép megtekintése\" és a \"Keresés kép alapján\" gomb a Google képkeresőjében.",
+        "message": "Újra elérhetővé válik a \"Kép megtekintése\" gomb a Google képkeresőjében.",
         "description": "The description of the application, as shown on the web store."
     },
     "searchImage": {

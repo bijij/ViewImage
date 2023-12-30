@@ -4,7 +4,7 @@
         "description": "Nazwa aplikacji w sklepie internetowym."
     },
     "appDesc": {
-        "message": "Przywraca przyciski \"Pokaż obraz\" i \"Wyszukaj obrazem\" w Grafice Google.",
+        "message": "Przywraca przycisk \"Pokaż obraz\" w Grafice Google.",
         "description": "Opis aplikacji w sklepie internetowym."
     },
     "searchImage": {
