@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "name": "__MSG_appName__",
-    "version": "5.0.0",
+    "version": "5.0.1",
     "description": "__MSG_appDesc__",
     "default_locale": "en",
     "icons": {
@@ -210,7 +210,7 @@
                 "*://*.google.com.vn/*",
                 "*://*.google.vu/*",
                 "*://*.google.ws/*",
-                "*://*.goocatgle.rs/*",
+                "*://*.google.rs/*",
                 "*://*.google.co.za/*",
                 "*://*.google.co.zm/*",
                 "*://*.google.co.zw/*",
