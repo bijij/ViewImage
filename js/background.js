@@ -1,6 +1,6 @@
 'use-strict';
 
-const DEBUG = true;
+//const DEBUG = true;
 
 /* function toI18n(str) {
     return str.replace(/__MSG_(\w+)__/g, function (match, v1) {

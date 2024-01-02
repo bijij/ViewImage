@@ -1,6 +1,7 @@
 'use strict';
 
-const DEBUG = true;
+const DEBUG = false;
+const TRACE = DEBUG && false;
 
 const VERSIONS = {
     FEB18: 'FEB18',
@@ -41,12 +42,26 @@ function getContainer(node) {
 
 
 // Finds and deletes all extension related elements.
-function clearExtElements(container) {
+function clearExtElements() {
     // Remove previously generated elements
-    var oldExtensionElements = container.querySelectorAll('.vi_ext_addon');
+    var oldExtensionElements = document.querySelectorAll('.vi_ext_addon');
     for (var element of oldExtensionElements) {
         element.remove();
     }
+}
+
+
+// Returns true if the node is visible
+function nodeIsVisible(node) {
+    const rect = node.getBoundingClientRect();
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth) &&
+        rect.width > 0 &&
+        rect.height > 0
+    );
 }
 
 
@@ -116,6 +131,7 @@ function findImageURL(container, version) {
 }
 
 function addViewImageButton(container, node, imageURL, version) {
+
     // get the visit button
     var visitButton;
     switch (version) {
@@ -128,19 +144,31 @@ function addViewImageButton(container, node, imageURL, version) {
         case VERSIONS.OCT19:
             var nodeRoot = node.parentElement.parentElement;
 
-            visitButton = nodeRoot.parentElement?.nextSibling?.nextSibling?.querySelector('div a span')?.parentElement?.parentElement; 
+            console.log(nodeRoot);
 
-            // if the above fails, we're possibly on a mobile device
-            if (!visitButton) {
-                visitButton = nodeRoot.nextSibling.nextSibling.querySelector('div a span').parentElement.parentElement;
-            } 
+            var visitButtons = [
+                nodeRoot?.parentElement?.nextSibling?.querySelector('a > div > span + svg')?.parentElement?.parentElement,
+                visitButton = nodeRoot?.parentElement?.nextSibling?.nextSibling?.querySelector('a > div > span + svg')?.parentElement?.parentElement,
+                visitButton = nodeRoot?.nextSibling?.nextSibling?.querySelector('a > div > span + svg')?.parentElement?.parentElement,
+                visitButton = nodeRoot?.querySelector(':scope > div:not([aria-hidden])').querySelector('a > div > span + svg')?.parentElement?.parentElement, // Facebook results are different
+            ];
+
+            if (DEBUG)
+                console.log('Possible visit buttons:', visitButtons);
+
+            visitButton = visitButtons.find(button => button !== null && button !== undefined && button.tagName == 'A');
             break;
     }
 
-    if (DEBUG && !visitButton)
-        console.log('ViewImage: Adding View-Image button failed, visit button was not found.');
+    if (!visitButton) {
+        if (DEBUG)
+            console.log('ViewImage: Adding View-Image button failed, visit button was not found.');
+        return false;
+    }
 
-    console.log(visitButton);
+    if (DEBUG)
+        console.log('ViewImage: Adding View-Image button to node: ', node, ' with visit button: ', visitButton);
+
 
     // Create the view image button
     var viewImageButton = visitButton.cloneNode(true);
@@ -161,12 +189,18 @@ function addViewImageButton(container, node, imageURL, version) {
         viewImageLink.removeAttribute('jsaction');
     }
 
+    viewImageLink.removeAttribute('target');
+
     // Set additional options
     if (options['open-in-new-tab']) {
         viewImageLink.setAttribute('target', '_blank');
     }
     if (options['no-referrer']) {
         viewImageLink.setAttribute('rel', 'noreferrer');
+    }
+
+    if (imageURL.startsWith('data')) {
+        viewImageButton.setAttribute('download', '');
     }
 
     // Set the view image button text
@@ -208,6 +242,8 @@ function addViewImageButton(container, node, imageURL, version) {
     // Place the view image button
     visitButton.parentElement.insertBefore(viewImageButton, visitButton);
     visitButton.parentElement.insertBefore(visitButton, viewImageButton);
+
+    return true;
 }
 
 
@@ -285,28 +321,26 @@ function addLinks(node) {
     if (!container) {
         if (DEBUG)
             console.log('ViewImage: Adding links failed, container was not found.');
-        return;
+        return false;
     }
 
     if (DEBUG)
         console.log('ViewImage: Assuming site version: ', version);
 
     // Clear any old extension elements
-    clearExtElements(container);
+    clearExtElements();
 
     // Find the image url
     var imageURL = findImageURL(container, version);
 
     // Return if image was not found
     if (!imageURL) {
-
         if (DEBUG)
             console.log('ViewImage: Adding links failed, image was not found.');
-
-        return;
+        return false;
     }
 
-    addViewImageButton(container, node, imageURL, version);
+    return addViewImageButton(container, node, imageURL, version);
 
     // Deprecated, see comment on function definition
     //addSearchImageButton(container, imageURL, version);
@@ -335,7 +369,7 @@ function parseDataSource(array) {
         // We should probably find a way to do this dynamically
         meta = array[56][1][0][0][1][0];
 
-        for (var i = 0; i < meta.length; i++) {
+        for (i = 0; i < meta.length; i++) {
             try {
                 var data = Object.values(meta[i][0][0])[0];
                 images[data[1][2][0]] = data[1][3][0];
@@ -376,7 +410,7 @@ try {
 
         var params = document.documentElement.innerHTML.slice(start_index, end_index);
 
-        const ds_search = /key:\s\'ds:(\d)\'/
+        const ds_search = /key:\s'ds:(\d)'/;
         var ds_match = params.match(ds_search);
 
         if (ds_match === null) {
@@ -406,15 +440,18 @@ try {
 
 // Define the mutation observers
 var observer = new MutationObserver(function (mutations) {
-    if (DEBUG)
+    if (TRACE)
         console.log('ViewImage: Mutations detected: ', mutations);
 
     for (var mutation of mutations) {
         if (mutation.addedNodes) {
             for (var node of mutation.addedNodes) {
-                var imageContainerClass = document.querySelector('img[src][style][jsaction]')?.classList[0];
-                if (node.classList && [...node.classList].some(clsName => clsName === imageContainerClass)) {
-                    addLinks(node);
+                var imageNodes = document.querySelectorAll('img[src][style][jsaction]');
+                for (var i = 0; i < imageNodes.length; i++) {
+                    var imageNode = imageNodes[i];
+                    if (nodeIsVisible(imageNode) && node.contains(imageNode) && addLinks(node)) {
+                        return;
+                    }
                 }
             }
         }
