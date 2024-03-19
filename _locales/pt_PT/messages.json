@@ -9,7 +9,7 @@
     },
     "searchImage": {
         "message": "Pesquisar por imagem",
-        "description": "Botão leva à página \"Pesquisar por imagem\" do Google."
+        "description": "O Botão leva à página \"Pesquisar por imagem\" do Google."
     },
     "viewImage": {
         "message": "Ver imagem",
@@ -38,6 +38,14 @@
     "settingsToggle_buttonText": {
         "message": "Definir texto do botão manualmente:",
         "description": "Opção que permite definir manualmente o texto dos botões em vez da tradução."
+    },
+        "settingsToggle_contextMenu_searchByImage": {
+        "message": "Ver o item do menu de contexto \"Pesquisar por imagem\":",
+        "description": "Esta definição permite saber se o item de menu de contexto \" Pesquisar por imagem\" deve aparecer."
+    },
+    "settingsToggle_contextMenu_searchByImageNewTab": {
+        "message": "Abrir \"Pesquisar por imagem\" no menu de contexto resulta num novo separador:",
+        "description": "Esta definição permite saber se o menu de contexto \"Pesquisar por imagem\" deve abrir os resultados num novo separador."
     },
     "resetButton": {
         "message": "Restaurar",
