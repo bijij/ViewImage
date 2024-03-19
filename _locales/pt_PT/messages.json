@@ -49,7 +49,7 @@
     },
     "resetButton": {
         "message": "Restaurar",
-        "description": "Texto apresentado no botão para reiniciar as prédefinições."
+        "description": "Texto apresentado no botão para reiniciar as predefinições."
     },
     "optionsButton": {
         "message": "Opções",
