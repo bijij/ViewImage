@@ -31,10 +31,16 @@ function getContainer(node) {
     [
         ['.irc_c[style*="visibility: visible;"][style*="transform: translate3d(0px, 0px, 0px);"]', VERSIONS.FEB18],
         ['.irc_c[data-ved]', VERSIONS.JUL19],
-        ['.tvh9oe', VERSIONS.OCT19]
+        ['.tvh9oe[style*="display: block;"]', VERSIONS.OCT19]
     ].forEach(element => {
-        if (node.closest(element[0])) {
-            [container, version] = [node.closest(element[0]), element[1]];
+        var child = node.querySelector(element[0]);
+        if (child) {
+            [container, version] = [child, element[1]];
+        }
+
+        var closest = node.closest(element[0]);
+        if (closest) {
+            [container, version] = [closest, element[1]];
         }
     });
     return [container, version];
@@ -144,13 +150,11 @@ function addViewImageButton(container, node, imageURL, version) {
         case VERSIONS.OCT19:
             var nodeRoot = node.parentElement.parentElement;
 
-            console.log(nodeRoot);
-
             var visitButtons = [
-                nodeRoot?.parentElement?.nextSibling?.querySelector('a > div > span + svg')?.parentElement?.parentElement,
-                visitButton = nodeRoot?.parentElement?.nextSibling?.nextSibling?.querySelector('a > div > span + svg')?.parentElement?.parentElement,
-                visitButton = nodeRoot?.nextSibling?.nextSibling?.querySelector('a > div > span + svg')?.parentElement?.parentElement,
-                visitButton = nodeRoot?.querySelector(':scope > div:not([aria-hidden])').querySelector('a > div > span + svg')?.parentElement?.parentElement, // Facebook results are different
+                nodeRoot?.parentElement?.nextSibling?.querySelector?.('a > div > span + svg')?.parentElement?.parentElement,
+                nodeRoot?.parentElement?.nextSibling?.nextSibling?.querySelector?.('a > div > span + svg')?.parentElement?.parentElement,
+                nodeRoot?.nextSibling?.nextSibling?.querySelector?.('a > div > span + svg')?.parentElement?.parentElement,
+                nodeRoot?.querySelector?.(':scope > div:not([aria-hidden])')?.querySelector?.('a > div > span + svg')?.parentElement?.parentElement, // Facebook results are different
             ];
 
             if (DEBUG)
@@ -184,7 +188,26 @@ function addViewImageButton(container, node, imageURL, version) {
             viewImageLink = viewImageButton;
     }
 
-    viewImageLink.href = imageURL;
+    if (imageURL && !imageURL.startsWith('https://encrypted-tbn0.gstatic.com')) {
+        if (DEBUG)
+            console.log('ViewImage: Adding View-Image button with URL: ', imageURL);
+
+        viewImageLink.href = imageURL;
+    } else {
+        // Display button as disabled if no image was found
+
+        if (DEBUG)
+            console.log('ViewImage: Adding Disabled View-Image button with no URL');
+
+        viewImageLink.style = 'pointer-events: none;';
+        viewImageLink.title = "No full-sized image was found."
+
+        var viewImageDiv = viewImageLink.querySelector('div');
+        if (viewImageDiv) {
+            viewImageDiv.style = 'background-color: #707070; border-color: #707070;';
+        }
+    }
+
     if (version == VERSIONS.OCT19) {
         viewImageLink.removeAttribute('jsaction');
     }
@@ -333,12 +356,13 @@ function addLinks(node) {
     // Find the image url
     var imageURL = findImageURL(container, version);
 
+    // Deprecated, extension now shows disabled button if URL is not found
     // Return if image was not found
-    if (!imageURL) {
-        if (DEBUG)
-            console.log('ViewImage: Adding links failed, image was not found.');
-        return false;
-    }
+    // if (!imageURL) {
+    //     if (DEBUG)
+    //         console.log('ViewImage: Adding links failed, image was not found.');
+    //     return false;
+    // }
 
     return addViewImageButton(container, node, imageURL, version);
 
@@ -438,21 +462,28 @@ try {
     }
 }
 
+
+function processNode(node) {
+    var imageNodes = document.querySelectorAll('img[src][style][jsaction]');
+    for (var i = 0; i < imageNodes.length; i++) {
+        var imageNode = imageNodes[i];
+        if (nodeIsVisible(imageNode) && node.contains(imageNode) && addLinks(node)) {
+            return;
+        }
+    }
+}
+
 // Define the mutation observers
-var observer = new MutationObserver(function (mutations) {
+var observer = new MutationObserver((mutations) => {
     if (TRACE)
         console.log('ViewImage: Mutations detected: ', mutations);
 
     for (var mutation of mutations) {
-        if (mutation.addedNodes) {
+        if (mutation.type === 'attributes') {
+            processNode(mutation.target);
+        } else if (mutation.type === 'childList') {
             for (var node of mutation.addedNodes) {
-                var imageNodes = document.querySelectorAll('img[src][style][jsaction]');
-                for (var i = 0; i < imageNodes.length; i++) {
-                    var imageNode = imageNodes[i];
-                    if (nodeIsVisible(imageNode) && node.contains(imageNode) && addLinks(node)) {
-                        return;
-                    }
-                }
+                processNode(node);
             }
         }
     }
