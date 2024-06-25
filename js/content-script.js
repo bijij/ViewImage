@@ -32,6 +32,8 @@ function getContainer(node) {
         ['.irc_c[style*="visibility: visible;"][style*="transform: translate3d(0px, 0px, 0px);"]', VERSIONS.FEB18],
         ['.irc_c[data-ved]', VERSIONS.JUL19],
         ['.tvh9oe[style*="display: block;"]', VERSIONS.OCT19]
+        ['.EIehLd[style*="display: block;"]', VERSIONS.OCT19]
+        ['.fHE6De[style*="display: block;"]', VERSIONS.OCT19]
     ].forEach(element => {
         var child = node.querySelector(element[0]);
         if (child) {

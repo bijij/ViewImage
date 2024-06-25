@@ -2,6 +2,9 @@ name: CI
 
 on: [push, pull_request]
 
+env:
+  ESLINT_USE_FLAT_CONFIG: false
+
 jobs:
   build:
 
@@ -17,4 +20,4 @@ jobs:
         npm install eslint-plugin-json
     - name: Lint with ESLint
       run: |
-        npx eslint --ext .js,.json .
+        npx eslint . --ext .js,.json
