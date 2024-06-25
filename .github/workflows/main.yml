@@ -2,9 +2,6 @@ name: CI
 
 on: [push, pull_request]
 
-env:
-  ESLINT_USE_FLAT_CONFIG: false
-
 jobs:
   build:
 
@@ -16,7 +13,7 @@ jobs:
 
     - name: Install Deps
       run: |
-        npm install eslint
+        npm install globals @eslint/js @eslint/eslintrc
         npm install eslint-plugin-json
     - name: Lint with ESLint
       run: |
